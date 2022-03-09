@@ -10,8 +10,8 @@
 \include "/Users/trintonprater/baca/lilypond/baca-circle-bow-markups.ily"
 
 \header {
-    title = \markup \override #'(font-name . "Bodoni72 Book Italic") \fontsize #12 \center-column {"Devenir" \fontsize #0.01 \with-color #white "."}
-    subtitle = \markup \override #'(font-name . "Bodoni72 Book Italic") \fontsize #3 \center-column {"or, flocks" \fontsize #0.01 \with-color #white "."}
+    title = \markup \override #'(font-name . "Bodoni72 Book Italic") \fontsize #16 \center-column {"Devenir" \fontsize #0.01 \with-color #white "."}
+    subtitle = \markup \override #'(font-name . "Bodoni72 Book Italic") \fontsize #3 \center-column {"or,  flocks" \fontsize #0.01 \with-color #white "."}
     composer = \markup \override #'(font-name . "Bodoni72") \fontsize #3 {"Trinton (*2000)"}
 }
 
