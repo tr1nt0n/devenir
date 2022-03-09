@@ -81,26 +81,23 @@
                     }
                 }
             >>
-            \context GrandStaff = "sub group 3"
-            <<
-                \context Staff = "percussion 1 staff"
+            \context Staff = "mezzo-soprano staff"
+            {
+                \context Voice = "mezzo-soprano voice"
                 {
-                    \context Voice = "percussion 1 voice"
-                    {
-                        r1 * 3/4
-                        r1 * 7/8
-                        r1 * 7/6
-                    }
+                    r1 * 3/4
+                    r1 * 7/8
+                    r1 * 7/6
                 }
-                \context Staff = "percussion 2 staff"
+            }
+            \context Staff = "percussion staff"
+            {
+                \context Voice = "percussion voice"
                 {
-                    \context Voice = "percussion 2 voice"
-                    {
-                        r1 * 3/4
-                        r1 * 7/8
-                        r1 * 7/6
-                    }
+                    r1 * 3/4
+                    r1 * 7/8
+                    r1 * 7/6
                 }
-            >>
+            }
         >>
     >>
