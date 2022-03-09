@@ -15,10 +15,10 @@ def score(time_signatures):
             abjad.Violin(),
             abjad.Cello(),
             abjad.Cello(),
-            abjad.Percussion(),
+            abjad.MezzoSopranoVoice(),
             abjad.Percussion(),
         ],
-        groups=[3, 1, 3, 2,],
+        groups=[3, 1, 3, 1, 1,],
         time_signatures=time_signatures
     )
 
