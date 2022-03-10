@@ -51,6 +51,24 @@
                     r1 * 7/6
                 }
             }
+            \context Staff = "percussion staff"
+            {
+                \context Voice = "percussion voice"
+                {
+                    r1 * 3/4
+                    r1 * 7/8
+                    r1 * 7/6
+                }
+            }
+            \context Staff = "mezzo-soprano staff"
+            {
+                \context Voice = "mezzo-soprano voice"
+                {
+                    r1 * 3/4
+                    r1 * 7/8
+                    r1 * 7/6
+                }
+            }
             \context GrandStaff = "sub group 2"
             <<
                 \context Staff = "violin staff"
@@ -81,23 +99,5 @@
                     }
                 }
             >>
-            \context Staff = "mezzo-soprano staff"
-            {
-                \context Voice = "mezzo-soprano voice"
-                {
-                    r1 * 3/4
-                    r1 * 7/8
-                    r1 * 7/6
-                }
-            }
-            \context Staff = "percussion staff"
-            {
-                \context Voice = "percussion voice"
-                {
-                    r1 * 3/4
-                    r1 * 7/8
-                    r1 * 7/6
-                }
-            }
         >>
     >>

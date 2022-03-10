@@ -12,13 +12,13 @@ def score(time_signatures):
             abjad.BassFlute(),
             abjad.EnglishHorn(),
             abjad.Tuba(),
+            abjad.Percussion(),
+            abjad.MezzoSopranoVoice(),
             abjad.Violin(),
             abjad.Cello(),
             abjad.Cello(),
-            abjad.MezzoSopranoVoice(),
-            abjad.Percussion(),
         ],
-        groups=[3, 1, 3, 1, 1,],
+        groups=[3, 1, 1, 1, 3,],
         time_signatures=time_signatures
     )
 
