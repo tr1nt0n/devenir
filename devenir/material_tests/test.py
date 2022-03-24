@@ -16,23 +16,7 @@ score = library.score(
     ]
 )
 
-# def attack_selector(selections):
-#     return abjad.select.leaf(selections, [1, 4, 10, 15,], n=23)
-
-def attack_selector(selections):
-    return abjad.select.leaves(selections)[0::5]
-
-def fuse_quarters_preprocessor_2_1(divisions):
-    duration = abjad.sequence.sum(divisions)
-    divisions = [duration]
-    divisions = [baca.sequence.quarters([_]) for _ in divisions]
-    divisions = abjad.sequence.flatten(divisions, depth=-1)
-    divisions = abjad.sequence.partition_by_counts(
-        divisions, (2, 1), cyclic=True, overhang=True
-    )
-    return [sum(_) for _ in divisions]
-
-trinton.rhythm_command(
+trinton.make_rhythms(
     selections=trinton.group_selections(score["English horn voice"], [0, 1, 2,], [3,]),
     rmaker=rmakers.talea(
                 [1],
@@ -41,12 +25,16 @@ trinton.rhythm_command(
             ),
     commands=[
         rmakers.force_rest(lambda _: abjad.select.leaves(_)),
-        rmakers.force_note(attack_selector),
-        rmakers.beam(),
+        rmakers.force_note(trinton.patterned_leaf_index_selector(indices=[1, 4, 10, 15,], period=23)),
+        rmakers.beam()
     ],
     rewrite_meter=1,
-    preprocessor=fuse_quarters_preprocessor_2_1
+    preprocessor=trinton.fuse_quarters_preprocessor((2, 1,))
 )
+
+# trinton.annotate_leaves(score)
+
+trinton.fuse_tuplet_rests(score["English horn voice"])
 
 # render file
 
