@@ -1,7 +1,5 @@
-from .library import (
-    score,
-)
+from . import library
 
 __all__ = [
-    "score",
+    "library",
 ]
