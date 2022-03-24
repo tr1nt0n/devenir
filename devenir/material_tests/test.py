@@ -17,19 +17,49 @@ score = library.score(
 )
 
 trinton.make_rhythms(
-    selections=trinton.group_selections(score["English horn voice"], [0, 1, 2,], [3,]),
+    selections=trinton.group_selections(
+        score["English horn voice"],
+        [
+            0,
+            1,
+            2,
+        ],
+        [
+            3,
+        ],
+    ),
     rmaker=rmakers.talea(
-                [1],
-                16,
-                extra_counts=[0, 2, 1, 1,],
-            ),
+        [1],
+        16,
+        extra_counts=[
+            0,
+            2,
+            1,
+            1,
+        ],
+    ),
     commands=[
         rmakers.force_rest(lambda _: abjad.select.leaves(_)),
-        rmakers.force_note(trinton.patterned_leaf_index_selector(indices=[1, 4, 10, 15,], period=23)),
-        rmakers.beam()
+        rmakers.force_note(
+            trinton.patterned_leaf_index_selector(
+                indices=[
+                    1,
+                    4,
+                    10,
+                    15,
+                ],
+                period=23,
+            )
+        ),
+        rmakers.beam(),
     ],
     rewrite_meter=1,
-    preprocessor=trinton.fuse_quarters_preprocessor((2, 1,))
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            2,
+            1,
+        )
+    ),
 )
 
 # trinton.annotate_leaves(score)
