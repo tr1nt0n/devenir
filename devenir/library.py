@@ -139,6 +139,9 @@ def pitch_english_horn_gliss(voice, measures, selector, index=0, forget=False):
         handler(selections)
 
 
+# attachment tools
+
+
 def english_horn_gliss_attachments(selections):
     for group in abjad.select.group_by_contiguity(selections):
         abjad.glissando(
