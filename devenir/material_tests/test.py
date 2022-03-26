@@ -42,8 +42,10 @@ library.english_horn_gliss(
     preprocessor=trinton.fuse_quarters_preprocessor(
         (
             3,
-            1,
+            3,
+            4,
             2,
+            5,
         )
     ),
 )

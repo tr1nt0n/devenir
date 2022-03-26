@@ -74,7 +74,7 @@
                         {
                             \set Staff.instrumentName =
                             \markup { Cor Anglais }
-                            d''2..
+                            c'''2..
                             \glissando
                             \(
                             \hide NoteHead
@@ -85,11 +85,12 @@
                             \revert NoteColumn.glissando-skip
                             \revert NoteHead.no-ledgers
                             \undo \hide NoteHead
-                            ef''8
+                            d'''8
                             \)
                         }
-                        r4
-                        cqs''8
+                        r4.
+                        r4.
+                        c'''2.
                         ~
                         \glissando
                         \(
@@ -97,35 +98,19 @@
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
                         \override NoteHead.no-ledgers = ##t
-                        cqs''4
-                        ~
-                        cqs''16
+                        c'''8
                         \revert Accidental.stencil
                         \revert NoteColumn.glissando-skip
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
-                        dqf''16
-                        \)
-                        r2.
-                        d''8..
-                        \glissando
-                        \(
-                        \hide NoteHead
-                        \override Accidental.stencil = ##f
-                        \override NoteColumn.glissando-skip = ##t
-                        \override NoteHead.no-ledgers = ##t
-                        \revert Accidental.stencil
-                        \revert NoteColumn.glissando-skip
-                        \revert NoteHead.no-ledgers
-                        \undo \hide NoteHead
-                        eqf''32
+                        d'''8
                         \)
                         r8
                         r4.
                         \tweak text #tuplet-number::calc-fraction-text
-                        \times 6/8
+                        \times 5/8
                         {
-                            c''2..
+                            aqs''1..
                             \glissando
                             \(
                             \hide NoteHead
@@ -136,47 +121,16 @@
                             \revert NoteColumn.glissando-skip
                             \revert NoteHead.no-ledgers
                             \undo \hide NoteHead
-                            cs''8
+                            bqs''4
                             \)
                         }
                         r4
-                        fqs''8
-                        ~
-                        \glissando
-                        \(
-                        \hide NoteHead
-                        \override Accidental.stencil = ##f
-                        \override NoteColumn.glissando-skip = ##t
-                        \override NoteHead.no-ledgers = ##t
-                        fqs''4
-                        ~
-                        fqs''16
-                        \revert Accidental.stencil
-                        \revert NoteColumn.glissando-skip
-                        \revert NoteHead.no-ledgers
-                        \undo \hide NoteHead
-                        gqf''16
-                        \)
-                        r2.
-                        dqf''8..
-                        \glissando
-                        \(
-                        \hide NoteHead
-                        \override Accidental.stencil = ##f
-                        \override NoteColumn.glissando-skip = ##t
-                        \override NoteHead.no-ledgers = ##t
-                        \revert Accidental.stencil
-                        \revert NoteColumn.glissando-skip
-                        \revert NoteHead.no-ledgers
-                        \undo \hide NoteHead
-                        dqs''32
-                        \)
-                        r8
                         r4.
+                        r8
                         \tweak text #tuplet-number::calc-fraction-text
                         \times 6/8
                         {
-                            d''2..
+                            cqs'''2..
                             \glissando
                             \(
                             \hide NoteHead
@@ -187,11 +141,12 @@
                             \revert NoteColumn.glissando-skip
                             \revert NoteHead.no-ledgers
                             \undo \hide NoteHead
-                            ef''8
+                            cs'''8
                             \)
                         }
                         r4
-                        cqs''8
+                        r2.
+                        a''4.
                         ~
                         \glissando
                         \(
@@ -199,40 +154,23 @@
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
                         \override NoteHead.no-ledgers = ##t
-                        cqs''4
-                        ~
-                        cqs''16
+                        a''16
                         [
                         \revert Accidental.stencil
                         \revert NoteColumn.glissando-skip
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
-                        dqf''16
+                        b''16
                         \)
                         ]
+                        r4
                         r4.
                         r4.
-                        d''8..
-                        [
-                        \glissando
-                        \(
-                        \hide NoteHead
-                        \override Accidental.stencil = ##f
-                        \override NoteColumn.glissando-skip = ##t
-                        \override NoteHead.no-ledgers = ##t
-                        \revert Accidental.stencil
-                        \revert NoteColumn.glissando-skip
-                        \revert NoteHead.no-ledgers
-                        \undo \hide NoteHead
-                        eqf''32
-                        \)
-                        ]
-                        r8
-                        r4.
+                        r4
                         \tweak text #tuplet-number::calc-fraction-text
                         \times 6/8
                         {
-                            c''2..
+                            d'''2..
                             \glissando
                             \(
                             \hide NoteHead
@@ -243,11 +181,13 @@
                             \revert NoteColumn.glissando-skip
                             \revert NoteHead.no-ledgers
                             \undo \hide NoteHead
-                            cs''8
+                            eqs'''8
                             \)
                         }
+                        r8
+                        r4.
                         r4
-                        fqs''16..
+                        g''16..
                         [
                         \glissando
                         \(
@@ -259,7 +199,7 @@
                         \revert NoteColumn.glissando-skip
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
-                        gqf''64
+                        a''64
                         \)
                         ]
                     }
