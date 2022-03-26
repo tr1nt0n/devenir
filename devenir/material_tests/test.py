@@ -1,6 +1,6 @@
 import abjad
-import evans
 import baca
+import evans
 import trinton
 from abjadext import rmakers
 from abjadext import microtones
@@ -10,61 +10,57 @@ from devenir import library
 
 score = library.score(
     [
-        (6, 4),
-        (7, 4),
-        (7, 4),
+        (9, 8),
+        (9, 8),
+        (9, 8),
+        (9, 8),
+        (9, 8),
+        (9, 8),
+        (9, 8),
+        (9, 8),
+        (9, 8),
     ]
 )
 
-trinton.make_rhythms(
-    selections=trinton.group_selections(
-        score["English horn voice"],
-        [
-            0,
-            1,
-            2,
-        ],
-        [
-            3,
-        ],
-    ),
-    rmaker=rmakers.talea(
-        [1],
-        16,
-        extra_counts=[
-            0,
-            2,
-            1,
-            1,
-        ],
-    ),
-    commands=[
-        rmakers.force_rest(lambda _: abjad.select.leaves(_)),
-        rmakers.force_note(
-            trinton.patterned_leaf_index_selector(
-                indices=[
-                    1,
-                    4,
-                    10,
-                    15,
-                ],
-                period=23,
-            )
-        ),
-        rmakers.beam(),
+library.english_horn_gliss(
+    voice=score["English horn voice"],
+    measures=[
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
     ],
-    rewrite_meter=1,
+    groups=[
+        9,
+    ],
+    rewrite_meter=-2,
     preprocessor=trinton.fuse_quarters_preprocessor(
         (
-            2,
+            3,
             1,
+            2,
         )
     ),
 )
 
-# trinton.annotate_leaves(score)
+library.pitch_english_horn_gliss(
+    voice=score["English horn voice"],
+    measures=list(range(1, 10)),
+    selector=baca.selectors.pleaves(),
+)
 
-trinton.fuse_tuplet_rests(score["English horn voice"])
+library.english_horn_gliss_attachments(
+    abjad.select.leaves(score["English horn voice"], pitched=True)
+)
+
+library.write_startmarkups(score)
+
+# trinton.annotate_leaves(score)
 
 # render file
 
