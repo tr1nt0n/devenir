@@ -6,7 +6,7 @@ from abjadext import rmakers
 from abjadext import microtones
 
 
-def score(time_signatures):
+def devenir_score(time_signatures):
     score = trinton.make_empty_score(
         instruments=[
             abjad.Flute(),
@@ -103,11 +103,55 @@ def english_horn_gliss(
         preprocessor=preprocessor,
     )
 
+def block_rhythms(voice, measures, groups=None, rewrite_meter=None, preprocessor=None):
+    def rest_selector(argument):
+        result = abjad.select.logical_ties(argument)
+        result = abjad.select.get(result, [1], 2)
+        return result
+
+    trinton.make_rhythms(
+        selections=trinton.group_selections(
+            voice=voice, leaves=[_ - 1 for _ in measures], groups=groups
+        ),
+        rmaker=rmakers.note(),
+        commands=[
+            rmakers.force_rest(rest_selector),
+            rmakers.beam(),
+        ],
+        rewrite_meter=rewrite_meter,
+        preprocessor=preprocessor,
+    )
+
+def tuba_swells(
+    voice, measures, groups=None, rewrite_meter=None, preprocessor=None
+):
+    def rest_selector(argument):
+        result = abjad.select.logical_ties(argument)
+        result = abjad.select.get(result, [1], 4)
+        return result
+
+    trinton.make_rhythms(
+        selections=trinton.group_selections(
+            voice=voice, leaves=[_ - 1 for _ in measures], groups=groups
+        ),
+        rmaker=rmakers.tuplet(
+            [
+                (1, 1, 1,),
+            ]
+        ),
+        commands=[
+            rmakers.force_rest(rest_selector),
+            rmakers.beam(),
+        ],
+        rewrite_meter=rewrite_meter,
+        preprocessor=preprocessor,
+    )
+
 
 # pitch tools
 
 
-def pitch_english_horn_gliss(voice, measures, selector, index=0, forget=False):
+def pitch_english_horn_gliss(voice, measures, selector=baca.selectors.pleaves(), index=0, forget=False):
     pitches = trinton.rotated_sequence(
         pitch_list=[
             24,
@@ -141,6 +185,68 @@ def pitch_english_horn_gliss(voice, measures, selector, index=0, forget=False):
         handler(selections)
 
 
+def pitch_spectral_strings(score, voice_name, measures, selector=baca.selectors.pleaves()):
+    _voice_to_pitch = {
+        "violin voice": [22,],
+        "cello 1 voice": [18,],
+        "cello 2 voice": [16,],
+    }
+
+    _voice_to_string = {
+        "violin voice": r"\markup \center-column { -31 }",
+        "cello 1 voice": r"\markup \center-column { -49 }",
+        "cello 2 voice": r"\markup \center-column { -14 }",
+    }
+
+    handler = evans.PitchHandler(_voice_to_pitch[voice_name], forget=False)
+
+    for measure in measures:
+
+        grouped_measures = trinton.group_leaves_by_measure(score[voice_name])
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+
+    for measure in measures:
+
+        grouped_measures = trinton.group_leaves_by_measure(score[voice_name])
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        for tie in abjad.select.logical_ties(selections):
+            abjad.attach(abjad.Markup(_voice_to_string[voice_name]), tie[0], direction=abjad.UP)
+
+def pitch_tuba_swells(voice, measures, selector=baca.selectors.pleaves(), index=0, forget=False):
+        pitches = trinton.rotated_sequence(
+            pitch_list=[
+                [-12, -19,],
+                [-10, -17,],
+                [-14, -21,],
+                [-6, -13,],
+                [-4, -11,],
+            ],
+            start_index=index,
+        )
+
+        handler = evans.PitchHandler(pitches, forget=forget)
+
+        for measure in measures:
+
+            grouped_measures = trinton.group_leaves_by_measure(voice)
+
+            current_measure = grouped_measures[measure - 1]
+
+            selections = selector(current_measure)
+
+            handler(selections)
+
+
 # attachment tools
 
 
@@ -156,6 +262,37 @@ def english_horn_gliss_attachments(selections):
         abjad.attach(abjad.StartPhrasingSlur(), group[0])
 
         abjad.attach(abjad.StopPhrasingSlur(), group[-1])
+
+def tuba_swells_attachments(selections):
+    for group in abjad.select.group_by_contiguity(selections):
+        if len(group) == 3:
+            abjad.attach(abjad.Tie(), group[0])
+            abjad.attach(abjad.Tie(), group[1])
+            abjad.attach(abjad.StartHairpin("o<"), group[0])
+            abjad.attach(abjad.StartHairpin(">o"), group[1])
+            abjad.attach(abjad.StopHairpin(), group[2])
+
+def mezzo_fff_attachments(selections, padding=5):
+    for group in abjad.select.group_by_contiguity(selections):
+        abjad.attach(abjad.StartHairpin("o<|"), group[0])
+        abjad.attach(abjad.Dynamic("ff"), group[-1])
+        abjad.attach(abjad.StartPhrasingSlur(), group[0])
+        abjad.attach(abjad.StopPhrasingSlur(), group[-1])
+        spanner = abjad.StartTextSpan(
+            left_text=abjad.Markup(r"\markup { f }"),
+            right_text=None,
+            style="solid-line-with-hook",
+        )
+        abjad.tweak(spanner).padding = padding
+        abjad.attach(
+            spanner,
+            group[0],
+            direction=abjad.DOWN
+        )
+        abjad.attach(
+            abjad.StopTextSpan(),
+            group[-1],
+        )
 
 
 # markups
@@ -197,3 +334,46 @@ def write_startmarkups(score):
 def write_marginmarkups(score):
     for staff, markup in zip(all_staves, all_marginmarkups):
         trinton.attach(voice=score[staff], leaves=[0], attachment=markup)
+
+# notation tools
+
+def one_line(score, voice, leaves):
+    trinton.attach_multiple(
+        score=score,
+        voice=voice,
+        leaves=leaves,
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\staff-line-count 1",
+                "absolute_before",
+            ),
+            abjad.Clef("percussion"),
+        ],
+    )
+
+def four_lines(score, voice, leaves):
+    trinton.attach_multiple(
+        score=score,
+        voice=voice,
+        leaves=leaves,
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\staff-line-count 4",
+                "absolute_before",
+            ),
+            abjad.Clef("percussion"),
+        ],
+    )
+
+def five_lines(score, voice, leaves):
+    trinton.attach_multiple(
+        score=score,
+        voice=voice,
+        leaves=leaves,
+        attachments=[
+            abjad.LilyPondLiteral(
+                r"\staff-line-count 5",
+                "absolute_before",
+            ),
+        ],
+    )
