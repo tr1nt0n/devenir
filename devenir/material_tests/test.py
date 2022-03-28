@@ -27,25 +27,46 @@ score = library.devenir_score(
 library.english_horn_gliss(
     voice=score["English horn voice"],
     measures=list(range(1, 10)),
-    groups=[9,],
+    groups=[
+        9,
+    ],
     rewrite_meter=-2,
-    preprocessor=trinton.fuse_quarters_preprocessor((5, 1, 3, 4, 5,))
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            5,
+            1,
+            3,
+            4,
+            5,
+        )
+    ),
 )
 
 library.pitch_english_horn_gliss(
-    voice=score["English horn voice"],
-    measures=list(range(1, 10))
+    voice=score["English horn voice"], measures=list(range(1, 10))
 )
 
-library.english_horn_gliss_attachments(abjad.select.leaves(score["English horn voice"], pitched=True))
+library.english_horn_gliss_attachments(
+    abjad.select.leaves(score["English horn voice"], pitched=True)
+)
 
 for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
     library.block_rhythms(
         voice=score[voice_name],
         measures=list(range(1, 10)),
-        groups=[9,],
+        groups=[
+            9,
+        ],
         rewrite_meter=-2,
-        preprocessor=trinton.fuse_quarters_preprocessor((3, 4, 2, 1, 5,))
+        preprocessor=trinton.fuse_quarters_preprocessor(
+            (
+                3,
+                4,
+                2,
+                1,
+                5,
+            )
+        ),
     )
 
 for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
@@ -58,32 +79,51 @@ for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
 library.tuba_swells(
     voice=score["tuba voice"],
     measures=list(range(1, 10)),
-    groups=[9,],
+    groups=[
+        9,
+    ],
     rewrite_meter=-2,
-    preprocessor=trinton.fuse_quarters_preprocessor((2, 2, 2, 5,))
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            2,
+            2,
+            2,
+            5,
+        )
+    ),
 )
 
 library.tuba_swells_attachments(abjad.select.leaves(score["tuba voice"], pitched=True))
 
 library.pitch_tuba_swells(voice=score["tuba voice"], measures=list(range(1, 10)))
 
-trinton.attach(
-    voice=score["tuba voice"],
-    leaves=[0],
-    attachment=abjad.Clef("bass")
-)
+trinton.attach(voice=score["tuba voice"], leaves=[0], attachment=abjad.Clef("bass"))
 
 library.english_horn_gliss(
     voice=score["mezzo-soprano voice"],
     measures=list(range(1, 10)),
-    groups=[9,],
+    groups=[
+        9,
+    ],
     rewrite_meter=-2,
-    preprocessor=trinton.fuse_quarters_preprocessor((1, 1, 1, 1, 3, 1, 2,))
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            1,
+            1,
+            1,
+            1,
+            3,
+            1,
+            2,
+        )
+    ),
 )
 
 library.one_line(score=score, voice="mezzo-soprano voice", leaves=[0])
 
-library.mezzo_fff_attachments(abjad.select.leaves(score["mezzo-soprano voice"], pitched=True))
+library.mezzo_fff_attachments(
+    abjad.select.leaves(score["mezzo-soprano voice"], pitched=True)
+)
 
 library.write_startmarkups(score)
 
