@@ -75,6 +75,7 @@ all_staves = eval(
     ]"""
 )
 
+
 # rhythm tools
 
 
@@ -307,22 +308,26 @@ def tuba_swells_attachments(selections):
             abjad.attach(abjad.StopHairpin(), group[2])
 
 
-def mezzo_fff_attachments(selections, padding=5):
+def mezzo_fff_attachments(selections, padding=7):
     for group in abjad.select.group_by_contiguity(selections):
-        abjad.attach(abjad.StartHairpin("o<|"), group[0])
-        abjad.attach(abjad.Dynamic("ff"), group[-1])
+        abjad.attach(abjad.StartHairpin("o<|"), group[0], direction=abjad.UP)
+        abjad.attach(abjad.Dynamic("ff"), group[-1], direction=abjad.UP)
         abjad.attach(abjad.StartPhrasingSlur(), group[0])
         abjad.attach(abjad.StopPhrasingSlur(), group[-1])
-        spanner = abjad.StartTextSpan(
-            left_text=abjad.Markup(r"\markup { f }"),
-            right_text=None,
-            style="solid-line-with-hook",
-        )
-        abjad.tweak(spanner).padding = padding
-        abjad.attach(spanner, group[0], direction=abjad.DOWN)
         abjad.attach(
-            abjad.StopTextSpan(),
-            group[-1],
+            abjad.LilyPondLiteral(
+                r"\textSpannerDown",
+                "before",
+            ),
+            group[0],
+        )
+        trinton.write_id_spanner(
+            style="solid-line-with-up-hook",
+            left_text="f",
+            right_text=None,
+            id="One",
+            start_selection=group[0],
+            stop_selection=group[-1],
         )
 
 

@@ -394,273 +394,363 @@
                     \markup { Mezzo-Soprano }
                     \set Staff.shortInstrumentName =
                     \markup { mezzo-s. }
+                    \textSpannerDown
                     \clef "percussion"
                     c'8..
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r8
                     r8
+                    \textSpannerDown
                     c'8..
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
                     \tweak text #tuplet-number::calc-fraction-text
                     \times 6/8
                     {
+                        \textSpannerDown
                         c'2..
                         - \tweak circled-tip ##t
                         - \tweak stencil #abjad-flared-hairpin
-                        \<
+                        ^ \<
                         \(
-                        - \abjad-solid-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                        - \tweak padding 5
-                        _ \startTextSpan
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        \tweak padding 9
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                         c'8
-                        \ff
+                        ^ \ff
                         \)
-                        \stopTextSpan
+                        \stopTextSpanOne
+                        \stopTextSpanTwo
                     }
                     r8
                     r8
+                    \textSpannerDown
                     c'4
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     ~
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'8.
                     [
                     c'16
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r8
                     r8
+                    \textSpannerDown
                     c'8..
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
+                    \textSpannerDown
                     c'8
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     ~
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     [
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
                     r4.
                     r8
+                    \textSpannerDown
                     c'8..
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4.
                     r8
+                    \textSpannerDown
                     c'8..
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
+                    \textSpannerDown
                     c'8
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     ~
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
                     \tweak text #tuplet-number::calc-fraction-text
                     \times 6/8
                     {
+                        \textSpannerDown
                         c'2..
                         - \tweak circled-tip ##t
                         - \tweak stencil #abjad-flared-hairpin
-                        \<
+                        ^ \<
                         \(
-                        - \abjad-solid-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                        - \tweak padding 5
-                        _ \startTextSpan
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        \tweak padding 9
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                         c'8
-                        \ff
+                        ^ \ff
                         \)
-                        \stopTextSpan
+                        \stopTextSpanOne
+                        \stopTextSpanTwo
                     }
                     r4
+                    \textSpannerDown
                     c'8
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     ~
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'4
                     ~
                     c'16
                     [
                     c'16
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
+                    \textSpannerDown
                     c'8
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     ~
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
+                    \textSpannerDown
                     c'8..
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r8
                     r4.
                     r4
+                    \textSpannerDown
                     c'8
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     ~
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     c'32
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                     r4
                     r4
+                    \textSpannerDown
                     c'16..
                     - \tweak circled-tip ##t
                     - \tweak stencil #abjad-flared-hairpin
-                    \<
+                    ^ \<
                     [
                     \(
-                    - \abjad-solid-line-with-hook
-                    - \tweak bound-details.left.text \markup \concat { { f } \hspace #0.5 }
-                    - \tweak padding 5
-                    _ \startTextSpan
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \tweak padding 9
+                    - \abjad-dashed-line-with-arrow
+                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
+                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'64
-                    \ff
+                    ^ \ff
                     \)
-                    \stopTextSpan
                     ]
+                    \stopTextSpanOne
+                    \stopTextSpanTwo
                 }
             }
             \context GrandStaff = "sub group 2"

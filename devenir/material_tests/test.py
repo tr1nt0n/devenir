@@ -122,7 +122,7 @@ library.english_horn_gliss(
 library.one_line(score=score, voice="mezzo-soprano voice", leaves=[0])
 
 library.mezzo_fff_attachments(
-    abjad.select.leaves(score["mezzo-soprano voice"], pitched=True)
+    abjad.select.leaves(score["mezzo-soprano voice"], pitched=True),
 )
 
 library.write_startmarkups(score)
