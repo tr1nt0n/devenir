@@ -406,16 +406,11 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r8
                     r8
                     \textSpannerDown
@@ -429,16 +424,11 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     \tweak text #tuplet-number::calc-fraction-text
                     \times 6/8
@@ -453,15 +443,10 @@
                         - \abjad-solid-line-with-up-hook
                         - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                         \startTextSpanOne
-                        \tweak padding 9
-                        - \abjad-dashed-line-with-arrow
-                        - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                        - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                         c'8
                         ^ \ff
                         \)
                         \stopTextSpanOne
-                        \stopTextSpanTwo
                     }
                     r8
                     r8
@@ -476,10 +461,6 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'8.
                     [
                     c'16
@@ -487,7 +468,6 @@
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r8
                     r8
                     \textSpannerDown
@@ -501,16 +481,11 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     \textSpannerDown
                     c'8
@@ -523,10 +498,6 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     [
                     c'32
@@ -534,7 +505,6 @@
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     r4.
                     r8
@@ -549,16 +519,11 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4.
                     r8
                     \textSpannerDown
@@ -572,16 +537,11 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     \textSpannerDown
                     c'8
@@ -595,17 +555,12 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     \tweak text #tuplet-number::calc-fraction-text
                     \times 6/8
@@ -620,15 +575,10 @@
                         - \abjad-solid-line-with-up-hook
                         - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                         \startTextSpanOne
-                        \tweak padding 9
-                        - \abjad-dashed-line-with-arrow
-                        - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                        - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                         c'8
                         ^ \ff
                         \)
                         \stopTextSpanOne
-                        \stopTextSpanTwo
                     }
                     r4
                     \textSpannerDown
@@ -642,10 +592,6 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'4
                     ~
                     c'16
@@ -655,7 +601,6 @@
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     \textSpannerDown
                     c'8
@@ -669,17 +614,12 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     \textSpannerDown
                     c'8..
@@ -692,16 +632,11 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r8
                     r4.
                     r4
@@ -717,17 +652,12 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'16.
                     c'32
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                     r4
                     r4
                     \textSpannerDown
@@ -741,16 +671,11 @@
                     - \abjad-solid-line-with-up-hook
                     - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
                     \startTextSpanOne
-                    \tweak padding 9
-                    - \abjad-dashed-line-with-arrow
-                    - \tweak bound-details.left.text \markup \concat { { \upright 0% } \hspace #0.5 }
-                    - \tweak bound-details.right.text \markup \concat { { \upright 100% } \hspace #0.5 }\startTextSpanTwo
                     c'64
                     ^ \ff
                     \)
                     ]
                     \stopTextSpanOne
-                    \stopTextSpanTwo
                 }
             }
             \context GrandStaff = "sub group 2"
