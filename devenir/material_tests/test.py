@@ -27,9 +27,6 @@ score = library.devenir_score(
 library.english_horn_gliss(
     voice=score["English horn voice"],
     measures=list(range(1, 10)),
-    groups=[
-        9,
-    ],
     rewrite_meter=-2,
     preprocessor=trinton.fuse_quarters_preprocessor(
         (
@@ -53,10 +50,7 @@ library.english_horn_gliss_attachments(
 for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
     library.block_rhythms(
         voice=score[voice_name],
-        measures=list(range(1, 10)),
-        groups=[
-            9,
-        ],
+        measures=list(range(5, 10)),
         rewrite_meter=-2,
         preprocessor=trinton.fuse_quarters_preprocessor(
             (
@@ -76,10 +70,25 @@ for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
         measures=list(range(1, 10)),
     )
 
+    ties = abjad.select.logical_ties(score[voice_name], pitched=True)
+
+    sel = []
+
+    for tie in ties:
+        sel.append(tie[0])
+
+    library.spectral_strings_dynamics(sel, index=7)
+
+    library.spectral_strings_hairpins(
+        abjad.select.leaves(score[voice_name], pitched=True)
+    )
+
 library.tuba_swells(
     voice=score["tuba voice"],
-    measures=list(range(1, 10)),
-    groups=[
+    measures=[
+        6,
+        7,
+        8,
         9,
     ],
     rewrite_meter=-2,
@@ -101,8 +110,10 @@ trinton.attach(voice=score["tuba voice"], leaves=[0], attachment=abjad.Clef("bas
 
 library.english_horn_gliss(
     voice=score["mezzo-soprano voice"],
-    measures=list(range(1, 10)),
-    groups=[
+    measures=[
+        6,
+        7,
+        8,
         9,
     ],
     rewrite_meter=-2,
@@ -125,12 +136,38 @@ library.mezzo_fff_attachments(
     abjad.select.leaves(score["mezzo-soprano voice"], pitched=True),
 )
 
+library.two_lines(score=score, voice="percussion voice", leaves=[0])
+
+library.percussion_tremoli(
+    voice=score["percussion voice"],
+    measures=[7, 8, 9],
+    rewrite_meter=-2,
+    preprocessor=trinton.fuse_eighths_preprocessor(
+        (
+            9,
+            5,
+            3,
+        )
+    ),
+)
+
+library.pitch_percussion_tremoli(
+    voice=score["percussion voice"],
+    measures=[
+        7,
+        8,
+        9,
+    ],
+)
+
 library.write_startmarkups(score)
 
 library.write_marginmarkups(score)
 
 for voice in library.all_voices:
     trinton.fill_empty_staves_with_skips(score[voice])
+
+trinton.beam_score_without_splitting(score)
 
 # trinton.annotate_leaves(score)
 
