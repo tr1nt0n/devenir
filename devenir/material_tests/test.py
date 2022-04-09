@@ -151,12 +151,16 @@ library.percussion_tremoli(
     ),
 )
 
-library.pitch_percussion_tremoli(
+library.pitch_percussion(
     voice=score["percussion voice"],
     measures=[
         7,
         8,
         9,
+    ],
+    pitch_list=[
+        1,
+        2,
     ],
 )
 

@@ -76,6 +76,19 @@ all_staves = eval(
     ]"""
 )
 
+whistle_tuplets = eval(
+    """[
+        (1, 2),
+        (1, 1, 1, 3),
+        (6, 1),
+        (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3),
+        (1, 1, 1, 1, 1, 2),
+        (4, 1),
+        (6, 1),
+        (1, 1, 1, 1, 1, 2),
+    ]"""
+)
+
 
 # rhythm tools
 
@@ -125,7 +138,7 @@ def block_rhythms(voice, measures, rewrite_meter=None, preprocessor=None):
 def tuba_swells(voice, measures, rewrite_meter=None, preprocessor=None):
     def rest_selector(argument):
         result = abjad.select.logical_ties(argument)
-        result = abjad.select.get(result, [1], 4)
+        result = abjad.select.get(result, [0], 4)
         return result
 
     trinton.make_rhythms(
@@ -184,6 +197,79 @@ def percussion_tremoli(voice, measures, rewrite_meter=None, preprocessor=None):
         rmaker=rmakers.even_division([16], extra_counts=[1]),
         commands=[
             rmakers.force_rest(rest_selector),
+            rmakers.beam(),
+        ],
+        rewrite_meter=rewrite_meter,
+        preprocessor=preprocessor,
+    )
+
+
+def whistle_rhythms(
+    voice, measures, index=0, rest_selector=None, rewrite_meter=None, preprocessor=None
+):
+    if rest_selector is not None:
+        selector = rest_selector
+        trinton.make_rhythms(
+            voice=voice,
+            time_signature_indices=[_ - 1 for _ in measures],
+            rmaker=rmakers.tuplet(trinton.rotated_sequence(whistle_tuplets, index)),
+            commands=[
+                rmakers.force_rest(selector),
+                rmakers.beam(),
+            ],
+            rewrite_meter=rewrite_meter,
+            preprocessor=preprocessor,
+        )
+    else:
+        selector = trinton.patterned_tie_index_selector(
+            [
+                2,
+                4,
+                5,
+                7,
+            ],
+            10,
+        )
+
+        trinton.make_rhythms(
+            voice=voice,
+            time_signature_indices=[_ - 1 for _ in measures],
+            rmaker=rmakers.tuplet(trinton.rotated_sequence(whistle_tuplets, index)),
+            commands=[
+                rmakers.force_rest(selector),
+                rmakers.beam(),
+            ],
+            rewrite_meter=rewrite_meter,
+            preprocessor=preprocessor,
+        )
+
+
+def flute_talea(
+    voice, measures, division, index=0, rewrite_meter=None, preprocessor=None
+):
+    map = trinton.rotated_sequence(
+        trinton.logistic_map(
+            x=4,
+            r=-1,
+            n=12,
+            seed=2,
+        ),
+        index,
+    )
+
+    talea = []
+
+    for i in map:
+        if i == 0:
+            pass
+        else:
+            talea.append(i)
+
+    trinton.make_rhythms(
+        voice=voice,
+        time_signature_indices=[_ - 1 for _ in measures],
+        rmaker=rmakers.talea(talea, division),
+        commands=[
             rmakers.beam(),
         ],
         rewrite_meter=rewrite_meter,
@@ -319,11 +405,20 @@ def pitch_tuba_swells(
         handler(selections)
 
 
-def pitch_percussion_tremoli(
-    voice, measures, selector=baca.selectors.pleaves(), forget=False
+def pitch_percussion(
+    voice, measures, pitch_list, selector=baca.selectors.pleaves(), forget=False
 ):
+    pitches = []
 
-    handler = evans.PitchHandler([-9, 9], forget=forget)
+    _number_to_pitch = {
+        1: 9,
+        2: -9,
+    }
+
+    for pitch in pitch_list:
+        pitches.append(_number_to_pitch[pitch])
+
+    handler = evans.PitchHandler(pitches, forget=forget)
 
     for measure in measures:
 
@@ -345,6 +440,114 @@ def pitch_percussion_tremoli(
 
         for leaf in selections:
             abjad.tweak(leaf.note_head).Accidental.transparent = True
+
+
+def pitch_whistle(
+    voice, measures, index=0, selector=baca.selectors.pleaves(), forget=False
+):
+    pitches = trinton.rotated_sequence(
+        [
+            9,
+            7,
+            0,
+            -6,
+            9,
+            -7,
+            -9,
+            -5,
+            0,
+            -6,
+            8,
+            5,
+            -5,
+            -7,
+            4,
+            0,
+        ],
+        index,
+    )
+
+    handler = evans.PitchHandler(pitches, forget=forget)
+
+    for measure in measures:
+
+        grouped_measures = trinton.group_leaves_by_measure(voice)
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+    for measure in measures:
+
+        grouped_measures = trinton.group_leaves_by_measure(voice)
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        for leaf in selections:
+            abjad.tweak(leaf.note_head).Accidental.transparent = True
+
+
+def pitch_violin_subharmonics(
+    voice, measures, index=0, padding=7, selector=baca.selectors.pleaves(), forget=False
+):
+
+    random_walk = trinton.random_walk(
+        chord=[
+            -1.5,
+            6.5,
+            -0.5,
+            1.5,
+            10.5,
+            13.5,
+            6.5,
+            22.5,
+            18.5,
+        ],
+        seed=14,
+    )
+
+    pitches = trinton.rotated_sequence(random_walk, index)
+
+    handler = evans.PitchHandler(
+        pitch_list=pitches,
+        forget=False,
+    )
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        for leaf in selections:
+            abjad.tweak(leaf.note_head).style = r"#'triangle"
+
+        start_text_span = abjad.StartTextSpan(
+            left_text=abjad.Markup(r"\markup { \upright IV }"),
+            right_text=None,
+            style="dashed-line-with-hook",
+        )
+
+        abjad.tweak(start_text_span).padding = padding
+
+        for tie in abjad.select.logical_ties(selections):
+            group = abjad.select.with_next_leaf(tie)
+            abjad.attach(start_text_span, group[0])
+            abjad.attach(abjad.StopTextSpan(), group[-1])
 
 
 # attachment tools
@@ -400,16 +603,16 @@ def mezzo_fff_attachments(selections):
 
 def spectral_strings_dynamics(selections, index):
     _map_to_string = {
-        0: "pppp",
-        1: "ppp",
-        2: "pp",
-        3: "p",
+        0: "pp",
+        1: "p",
+        2: "p",
+        3: "mp",
         4: "mp",
         5: "mf",
-        6: "f",
-        7: "ff",
-        8: "fff",
-        9: "ffff",
+        6: "mf",
+        7: "f",
+        8: "f",
+        9: "ff",
     }
 
     map = trinton.rotated_sequence(
@@ -504,7 +707,10 @@ def two_lines(score, voice, leaves):
         leaves=leaves,
         attachments=[
             abjad.LilyPondLiteral(
-                r"\staff-line-count 2 \override Staff.StaffSymbol.line-positions = #'(5 -5)",
+                [
+                    r"\staff-line-count 2 \override Staff.StaffSymbol.line-positions = #'(5 -5)",
+                    r"\override Staff.LedgerLineSpanner #'transparent = ##t",
+                ],
                 "absolute_before",
             ),
             abjad.Clef("percussion"),
@@ -512,21 +718,22 @@ def two_lines(score, voice, leaves):
     )
 
 
-def revert_lines(score, voice, leaves):
+def four_lines(score, voice, leaves):
     trinton.attach_multiple(
         score=score,
         voice=voice,
         leaves=leaves,
         attachments=[
             abjad.LilyPondLiteral(
-                r"\revert Staff.StaffSymbol",
+                r"\staff-line-count 4",
                 "absolute_before",
             ),
+            abjad.Clef("percussion"),
         ],
     )
 
 
-def five_lines(score, voice, leaves):
+def five_lines(score, voice, leaves, clef="treble"):
     trinton.attach_multiple(
         score=score,
         voice=voice,
@@ -536,5 +743,27 @@ def five_lines(score, voice, leaves):
                 r"\staff-line-count 5",
                 "absolute_before",
             ),
+            abjad.Clef(clef),
         ],
     )
+
+
+def noteheads_only(voice, measures):
+    for measure in measures:
+
+        grouped_measures = trinton.group_leaves_by_measure(voice)
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = abjad.select.leaves(current_measure)
+
+        for leaf in selections:
+            if isinstance(leaf, abjad.Note):
+                abjad.override(leaf).Stem.transparent = True
+                abjad.override(leaf).Beam.transparent = True
+                abjad.override(leaf).Flag.transparent = True
+                abjad.override(leaf).Dots.transparent = True
+
+            elif isinstance(leaf, abjad.Rest):
+                rest_duration = abjad.get.duration(leaf)
+                abjad.mutate.replace(leaf, abjad.Skip((1, 1), multiplier=rest_duration))

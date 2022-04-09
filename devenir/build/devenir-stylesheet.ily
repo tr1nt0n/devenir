@@ -75,6 +75,7 @@
 
         \override Glissando.thickness = #2
         \override Glissando.breakable = ##t
+        \override Glissando.after-line-breaking = ##t
 
         \override Hairpin.to-barline = ##f
 
@@ -120,7 +121,6 @@
         fontSize = #-1
         \remove Time_signature_engraver
         \override InstrumentName.self-alignment-X = #CENTER
-        \RemoveEmptyStaves
     }
 
     \context {
