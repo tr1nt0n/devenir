@@ -415,6 +415,18 @@ for voice_name in ["cello 1 voice", "cello 2 voice"]:
         leaves=[18],
         attachment=abjad.LilyPondLiteral(r'\boxed-markup "Ord." 1', "after"),
     )
+    trinton.attach(voice=score[voice_name], leaves=[8], attachment=abjad.Dynamic("ff"))
+    trinton.write_hooked_spanner(
+        voice=score[voice_name],
+        string=r"\markup { \upright IV }",
+        start_leaf=[
+            18,
+        ],
+        stop_leaf=[
+            22,
+        ],
+        padding=12,
+    )
 
 for voice_name, index in zip(
     ["cello 1 voice", "cello 2 voice"],
@@ -459,13 +471,11 @@ trinton.write_hooked_spanner(
     voice=score["cello 1 voice"],
     string=r"\markup { \upright IV }",
     start_leaf=[
-        18,
         28,
         45,
         64,
     ],
     stop_leaf=[
-        22,
         32,
         49,
         169,
@@ -477,13 +487,11 @@ trinton.write_hooked_spanner(
     voice=score["cello 2 voice"],
     string=r"\markup { \upright IV }",
     start_leaf=[
-        18,
         27,
         44,
         64,
     ],
     stop_leaf=[
-        22,
         31,
         48,
         155,
@@ -511,6 +519,86 @@ library.pitch_open_strings(
     ],
 )
 
+trinton.attach(
+    voice=score["cello 1 voice"],
+    leaves=[
+        18,
+        28,
+        45,
+        64,
+    ],
+    attachment=abjad.Dynamic("ff"),
+)
+
+trinton.attach(
+    voice=score["cello 1 voice"],
+    leaves=[
+        23,
+        33,
+        50,
+    ],
+    attachment=abjad.Dynamic("pp"),
+)
+
+trinton.attach(
+    voice=score["cello 1 voice"],
+    leaves=[
+        26,
+        44,
+        61,
+        142,
+    ],
+    attachment=abjad.StartHairpin("<|"),
+)
+
+trinton.attach(
+    voice=score["cello 1 voice"],
+    leaves=[
+        169,
+    ],
+    attachment=abjad.Dynamic("ffff"),
+)
+
+trinton.attach(
+    voice=score["cello 2 voice"],
+    leaves=[
+        18,
+        27,
+        44,
+        64,
+    ],
+    attachment=abjad.Dynamic("ff"),
+)
+
+trinton.attach(
+    voice=score["cello 2 voice"],
+    leaves=[
+        23,
+        32,
+        49,
+    ],
+    attachment=abjad.Dynamic("pp"),
+)
+
+trinton.attach(
+    voice=score["cello 2 voice"],
+    leaves=[
+        26,
+        42,
+        62,
+        128,
+    ],
+    attachment=abjad.StartHairpin("<|"),
+)
+
+trinton.attach(
+    voice=score["cello 2 voice"],
+    leaves=[
+        155,
+    ],
+    attachment=abjad.Dynamic("ffff"),
+)
+
 
 # global attachments
 
@@ -533,7 +621,7 @@ trinton.attach(
     ),
 )
 
-trinton.annotate_leaves(score)
+# trinton.annotate_leaves(score)
 
 trinton.beam_score_without_splitting(score)
 
