@@ -383,17 +383,133 @@ for voice_name, index in zip(
             rewrite_meter=-1,
         )
 
-    handler = evans.GraceHandler(
-        boolean_vector=[1],
+    library.harmonic_graces(
+        voice=score[voice_name],
         gesture_lengths=[2],
-        forget=False,
+        measures=[
+            18,
+            20,
+            22,
+            24,
+            26,
+        ],
+        selector=trinton.select_leaves_by_index([0]),
     )
 
-    leaves = abjad.select.group_by_measure(score[voice_name])
+# cello pitching and attachments
 
-    for measure in [18, 20, 22, 24, 26]:
-        current_measure = leaves[measure - 1]
-        handler(abjad.select.leaf(current_measure, 0))
+for voice_name in ["cello 1 voice", "cello 2 voice"]:
+    library.four_lines(score=score, voice=voice_name, leaves=[0])
+    library.five_lines(score=score, voice=voice_name, leaves=[18], clef="bass")
+    library.pitch_harmonic_graces(
+        score=score,
+        voice_name=voice_name,
+    )
+    trinton.attach(
+        voice=score[voice_name],
+        leaves=[8],
+        attachment=abjad.LilyPondLiteral(r'\boxed-markup "DP" 1', "after"),
+    )
+    trinton.attach(
+        voice=score[voice_name],
+        leaves=[18],
+        attachment=abjad.LilyPondLiteral(r'\boxed-markup "Ord." 1', "after"),
+    )
+
+for voice_name, index in zip(
+    ["cello 1 voice", "cello 2 voice"],
+    [
+        0,
+        1,
+    ],
+):
+    library.pitch_cello_duet(
+        voice=score[voice_name],
+        measures=[
+            18,
+            19,
+            20,
+            21,
+            22,
+        ],
+        stage=3,
+        index=index,
+        selector=trinton.exclude_graces(),
+    )
+    library.pitch_cello_duet(
+        voice=score[voice_name],
+        measures=[
+            23,
+            24,
+            25,
+            26,
+            27,
+        ],
+        stage=2,
+        index=index,
+        selector=trinton.exclude_graces(),
+    )
+
+for voice_name in ["cello 1 voice", "cello 2 voice"]:
+    library.flute_glissandi(voice=score[voice_name], measures=list(range(18, 28)))
+    library.harmonic_gliss_attachments(voice=score[voice_name])
+    trinton.attach(voice=score[voice_name], leaves=[18], attachment=abjad.Glissando())
+
+trinton.write_hooked_spanner(
+    voice=score["cello 1 voice"],
+    string=r"\markup { \upright IV }",
+    start_leaf=[
+        18,
+        28,
+        45,
+        64,
+    ],
+    stop_leaf=[
+        22,
+        32,
+        49,
+        169,
+    ],
+    padding=7,
+)
+
+trinton.write_hooked_spanner(
+    voice=score["cello 2 voice"],
+    string=r"\markup { \upright IV }",
+    start_leaf=[
+        18,
+        27,
+        44,
+        64,
+    ],
+    stop_leaf=[
+        22,
+        31,
+        48,
+        155,
+    ],
+    padding=7,
+)
+
+library.pitch_open_strings(
+    voice=score["cello 1 voice"],
+    measures=[
+        9,
+    ],
+    pitch_list=[
+        "I",
+    ],
+)
+
+library.pitch_open_strings(
+    voice=score["cello 2 voice"],
+    measures=[
+        9,
+    ],
+    pitch_list=[
+        "III",
+    ],
+)
 
 
 # global attachments
@@ -417,7 +533,7 @@ trinton.attach(
     ),
 )
 
-# trinton.annotate_leaves(score)
+trinton.annotate_leaves(score)
 
 trinton.beam_score_without_splitting(score)
 

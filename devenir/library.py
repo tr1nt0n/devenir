@@ -277,6 +277,29 @@ def flute_talea(
     )
 
 
+def harmonic_graces(
+    voice,
+    gesture_lengths,
+    measures,
+    selector,
+):
+    handler = evans.GraceHandler(
+        boolean_vector=[1],
+        gesture_lengths=gesture_lengths,
+        forget=False,
+    )
+
+    for measure in measures:
+
+        grouped_measures = trinton.group_leaves_by_measure(voice)
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+
 # pitch tools
 
 
@@ -550,6 +573,133 @@ def pitch_violin_subharmonics(
             abjad.attach(abjad.StopTextSpan(), group[-1])
 
 
+def pitch_harmonic_graces(
+    score, voice_name, selector=trinton.grace_selector(), fundamental="c"
+):
+    _fundamental_to_pitches = {
+        "c": [
+            12,
+            19,
+            24,
+            28,
+            31,
+        ],
+        "ef": [
+            15,
+            22,
+            27,
+            31,
+            34,
+        ],
+    }
+
+    _voice_to_pitch = {
+        "flute voice": _fundamental_to_pitches[fundamental],
+        "bass flute voice": _fundamental_to_pitches[fundamental],
+        "cello 1 voice": [
+            -23,
+            20,
+        ],
+        "cello 2 voice": [
+            -23,
+            20,
+        ],
+    }
+
+    handler = evans.PitchHandler(_voice_to_pitch[voice_name], forget=True)
+
+    graces = selector(score[voice_name])
+
+    selections = abjad.select.leaves(graces)
+
+    handler(selections)
+
+    for grace in selector(score[voice_name]):
+        pleaves = abjad.select.leaves(grace, pitched=True)
+        for leaf in pleaves:
+            abjad.tweak(leaf.note_head).style = r"#'harmonic"
+
+
+_open_strings_to_pitches = {"I": 5, "II": 2, "III": -2, "IV": -5}
+
+
+def pitch_open_strings(voice, measures, pitch_list, selector=baca.selectors.pleaves()):
+    pitches = []
+
+    for pitch in pitch_list:
+        pitches.append(_open_strings_to_pitches[pitch])
+
+    handler = evans.PitchHandler(pitches, forget=False)
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        for selection in selections:
+            abjad.attach(abjad.Articulation("marcato"), selection)
+            abjad.tweak(selection.note_head).Accidental.transparent = True
+
+
+def pitch_cello_duet(voice, measures, stage, index, selector=baca.selectors.pleaves()):
+    _stage_to_pitches = {
+        1: [
+            -24,
+        ],
+        2: [
+            -23,
+            -17,
+            -3,
+            2,
+            -10,
+            -5,
+            -12,
+            -23,
+            -20,
+            -23,
+            -12,
+            0,
+            -1,
+            2,
+            -16,
+        ],
+        3: [
+            0,
+            0.5,
+            0,
+            1,
+            0.5,
+            1,
+            0,
+            0.5,
+        ],
+    }
+
+    pitches = trinton.rotated_sequence(_stage_to_pitches[stage], index)
+
+    handler = evans.PitchHandler(pitches, forget=False)
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+
 # attachment tools
 
 
@@ -639,6 +789,48 @@ def spectral_strings_hairpins(selections):
         else:
             abjad.attach(abjad.StartHairpin("--"), new_group[0])
             abjad.attach(abjad.StopHairpin(), new_group[-2])
+
+
+def flute_glissandi(voice, measures):
+    grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+    measure_group = []
+
+    for measure in measures:
+        leaves = abjad.select.leaves(grouped_measures[measure - 1])
+        for leaf in leaves:
+            measure_group.append(leaf)
+
+    tie_groups = abjad.select.logical_ties(measure_group)
+
+    tie_groups_without_last = abjad.select.exclude(tie_groups, [-1])
+
+    for group in tie_groups_without_last:
+        new_group = abjad.select.with_next_leaf(group)
+
+        abjad.glissando(
+            new_group,
+            hide_middle_note_heads=True,
+            allow_repeats=True,
+            allow_ties=True,
+        )
+
+
+def harmonic_gliss_attachments(voice):
+    selector = trinton.grace_selector()
+
+    graces = selector(voice)
+
+    selections = abjad.select.leaves(graces, pitched=True)
+
+    for selection in selections:
+        if selections.index(selection) % 2 == 1:
+            abjad.attach(abjad.StopPhrasingSlur(), selection)
+            abjad.attach(abjad.Clef("treble"), selection)
+            with_next_leaf = abjad.select.with_next_leaf(selection)
+            abjad.attach(abjad.Clef("bass"), with_next_leaf[-1])
+        else:
+            abjad.attach(abjad.StartPhrasingSlur(), selection)
 
 
 # markups
