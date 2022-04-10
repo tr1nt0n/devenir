@@ -67,6 +67,7 @@
                 {
                     \context Voice = "flute voice"
                     {
+                        \slurDashed
                         \set Staff.instrumentName =
                         \markup { Flute }
                         \set Staff.shortInstrumentName =
@@ -79,6 +80,7 @@
                         \pp
                         \fermata
                         \glissando
+                        (
                         s1 * 2
                         s1 * 9/4
                         s1 * 9/4
@@ -163,12 +165,15 @@
                         cqs'4
                         s1 * 2
                         \f
+                        )
+                        \slurSolid
                     }
                 }
                 \context Staff = "bass flute staff"
                 {
                     \context Voice = "bass flute voice"
                     {
+                        \slurDashed
                         \set Staff.instrumentName =
                         \markup { Bass Flute }
                         \set Staff.shortInstrumentName =
@@ -181,6 +186,7 @@
                         \pp
                         \fermata
                         \glissando
+                        (
                         s1 * 2
                         s1 * 9/4
                         s1 * 9/4
@@ -265,6 +271,8 @@
                         c''4
                         s1 * 2
                         \f
+                        )
+                        \slurSolid
                     }
                 }
                 \context Staff = "English horn staff"
@@ -295,14 +303,206 @@
                         s1 * 9/4
                         s1 * 9/4
                         s1 * 9/4
-                        s1 * 9/4
-                        s1 * 9/4
-                        s1 * 9/4
-                        s1 * 9/4
-                        s1 * 9/4
-                        s1 * 9/4
-                        s1 * 9/4
-                        s1 * 9/4
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        d'''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        d'''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
+                        \override Staff.Stem.stemlet-length = 0.75
+                        aqs''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        bqs''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cqs'''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        cs'''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
+                        \override Staff.Stem.stemlet-length = 0.75
+                        a''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        b''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
+                        \override Staff.Stem.stemlet-length = 0.75
+                        d'''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        eqs'''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
+                        \override Staff.Stem.stemlet-length = 0.75
+                        g''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        a''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'''8..
+                        \ff
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \>
+                        \glissando
+                        \(
+                        \startTrillSpan
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        d'''32
+                        \!
+                        \)
+                        \stopTrillSpan
+                        ]
+                        r\breve
                     }
                 }
             >>
@@ -314,6 +514,7 @@
                     \markup { Tuba }
                     \set Staff.shortInstrumentName =
                     \markup { tb. }
+                    \clef "bass"
                     s1 * 9/4
                     \fermata
                     s1 * 9/4
@@ -335,13 +536,279 @@
                     s1 * 9/4
                     s1 * 9/4
                     s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r8
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r2.
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r8
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r2.
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r8
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r2.
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r8
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r2.
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r8
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r2.
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r8
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r2.
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r8
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        f,,4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright Air } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright Pitch }
+                        - \tweak padding 7
+                        \startTextSpan
+                        f,,16
+                        \ff
+                        \stopTextSpan
+                    }
+                    r2.
                 }
             }
             \context Staff = "percussion staff"
@@ -650,13 +1117,293 @@
                     s1 * 9/4
                     s1 * 9/4
                     s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
-                    s1 * 9/4
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        cs''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        bf'16
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        b'4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        d''16
+                        ^ \ff
+                        \)
+                    }
+                    r2.
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        cs''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        bf'16
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        b'4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        d''16
+                        ^ \ff
+                        \)
+                    }
+                    r2.
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        ef''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        c''16
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        b'4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        af'16
+                        ^ \ff
+                        \)
+                    }
+                    r2.
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        cs''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        bf'16
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        cs''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        bf'16
+                        ^ \ff
+                        \)
+                    }
+                    r2.
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        fs''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        ef''16
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        c''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        ef''16
+                        ^ \ff
+                        \)
+                    }
+                    r2.
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        c''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        ef''16
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        ef''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        c''16
+                        ^ \ff
+                        \)
+                    }
+                    r2.
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        cs''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        bf'16
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
+                    r4
+                    r4
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        cs''4..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        bf'16
+                        ^ \ff
+                        \)
+                    }
+                    r2.
+                    \stopTextSpanOne
                 }
             }
             \context GrandStaff = "sub group 2"
@@ -762,6 +1509,7 @@
                         s1 * 9/4
                         s1 * 9/4
                         s1 * 9/4
+                        \slurDashed
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
                             \staff-line-count 5
@@ -797,6 +1545,7 @@
                         c'1..
                         \pp
                         \glissando
+                        (
                         \hide NoteHead
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
@@ -827,6 +1576,9 @@
                         \override NoteColumn.glissando-skip = ##t
                         \override NoteHead.no-ledgers = ##t
                         c'2.
+                        )
+                        \slurSolid
+                        \slurDashed
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
                             \slash
@@ -905,6 +1657,7 @@
                         \pp
                         ~
                         \glissando
+                        (
                         \hide NoteHead
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
@@ -975,7 +1728,10 @@
                         c'2.
                         - \tweak stencil #abjad-flared-hairpin
                         \<
+                        )
                         \glissando
+                        \slurSolid
+                        \slurDashed
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
                             \slash
@@ -1058,6 +1814,7 @@
                         \pp
                         ~
                         \glissando
+                        (
                         \hide NoteHead
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
@@ -1146,7 +1903,9 @@
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
                         c'8.
+                        )
                         [
+                        \slurSolid
                         \revert Accidental.stencil
                         \revert NoteColumn.glissando-skip
                         \revert NoteHead.no-ledgers
@@ -1154,11 +1913,13 @@
                         \revert Staff.Stem.stemlet-length
                         cs,16
                         \ff
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         - \abjad-dashed-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { { \upright IV } \hspace #0.5 }
-                        - \tweak padding 7
+                        - \tweak bound-details.left.text \markup \concat { \upright "IV, full bows as possible" \hspace #0.5 }
+                        - \tweak padding 9
                         \startTextSpan
                         ]
                         \hide NoteHead
@@ -1176,6 +1937,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         g,8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1194,6 +1957,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         a8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1210,6 +1975,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1226,6 +1993,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1244,6 +2013,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         g8.
+                        - \upbow
+                        - \accent
                         \glissando
                         ]
                         \scaleDurations #'(1 . 1) {
@@ -1319,6 +2090,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         c4
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1334,6 +2107,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         cs,16
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1352,6 +2127,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         e,8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1365,6 +2142,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         cs,4
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1380,6 +2159,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1396,6 +2177,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1414,6 +2197,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         b16
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1432,6 +2217,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1450,6 +2237,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         af,8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1466,6 +2255,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         cs,8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1482,6 +2273,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         g,8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1500,6 +2293,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         a8.
+                        - \upbow
+                        - \accent
                         \glissando
                         ]
                         \scaleDurations #'(1 . 1) {
@@ -1576,6 +2371,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         d'8..
+                        - \downbow
+                        - \accent
                         \glissando
                         [
                         \hide NoteHead
@@ -1588,6 +2385,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d32
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1606,6 +2405,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         g16.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1622,6 +2423,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1637,6 +2440,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         cs,16
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1650,6 +2455,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         e,16
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1666,6 +2473,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         cs,32
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1682,6 +2491,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c16
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1700,6 +2511,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c'16.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1715,6 +2528,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         b16
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1728,6 +2543,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'16
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1746,6 +2563,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         af,16.
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1762,6 +2581,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         cs,8
+                        - \downbow
+                        - \accent
                         - \tweak stencil #abjad-flared-hairpin
                         \<
                         ~
@@ -1780,6 +2601,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         g,8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1796,6 +2619,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         a8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1811,6 +2636,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         d'32
+                        - \upbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -1822,6 +2649,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1837,6 +2666,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         g32
+                        - \upbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -1847,6 +2678,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         c32
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1865,6 +2698,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         cs,16
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1878,6 +2713,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         e,32
+                        - \downbow
+                        - \accent
                         \glissando
                         ]
                         \hide NoteHead
@@ -1890,6 +2727,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         cs,32
+                        - \upbow
+                        - \accent
                         \glissando
                         [
                         \hide NoteHead
@@ -1901,6 +2740,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         c16.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1914,6 +2755,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c'16
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -1929,6 +2772,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         b16
+                        - \downbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -1939,6 +2784,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         d'16
+                        - \upbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -1950,6 +2797,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         af,16
+                        - \downbow
+                        - \accent
                         \glissando
                         ]
                         \hide NoteHead
@@ -1962,6 +2811,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         cs,32
+                        - \upbow
+                        - \accent
                         \glissando
                         [
                         \hide NoteHead
@@ -1973,6 +2824,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         g,16.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -1987,6 +2840,8 @@
                         \revert Staff.Stem.stemlet-length
                         a16
                         \ffff
+                        - \upbow
+                        - \accent
                         \stopTextSpan
                         ]
                     }
@@ -2024,6 +2879,7 @@
                         s1 * 9/4
                         s1 * 9/4
                         s1 * 9/4
+                        \slurDashed
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
                             \staff-line-count 5
@@ -2059,6 +2915,7 @@
                         cqs'1.
                         \pp
                         \glissando
+                        (
                         \hide NoteHead
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
@@ -2082,7 +2939,10 @@
                         cs'\breve
                         - \tweak stencil #abjad-flared-hairpin
                         \<
+                        )
                         \glissando
+                        \slurSolid
+                        \slurDashed
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
                             \slash
@@ -2164,6 +3024,7 @@
                         cqs'2.
                         \pp
                         \glissando
+                        (
                         \hide NoteHead
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
@@ -2232,14 +3093,17 @@
                         cqs'8
                         - \tweak stencil #abjad-flared-hairpin
                         \<
+                        )
                         ~
                         \glissando
                         ]
+                        \slurSolid
                         \hide NoteHead
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
                         \override NoteHead.no-ledgers = ##t
                         cqs'4
+                        \slurDashed
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
                             \slash
@@ -2318,6 +3182,7 @@
                         \pp
                         ~
                         \glissando
+                        (
                         \hide NoteHead
                         \override Accidental.stencil = ##f
                         \override NoteColumn.glissando-skip = ##t
@@ -2412,7 +3277,9 @@
                         \override NoteHead.no-ledgers = ##t
                         \override Staff.Stem.stemlet-length = 0.75
                         cqs'8
+                        )
                         [
+                        \slurSolid
                         \revert Accidental.stencil
                         \revert NoteColumn.glissando-skip
                         \revert NoteHead.no-ledgers
@@ -2420,11 +3287,13 @@
                         \revert Staff.Stem.stemlet-length
                         g,8
                         \ff
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         - \abjad-dashed-line-with-hook
-                        - \tweak bound-details.left.text \markup \concat { { \upright IV } \hspace #0.5 }
-                        - \tweak padding 7
+                        - \tweak bound-details.left.text \markup \concat { \upright "IV, full bows as possible" \hspace #0.5 }
+                        - \tweak padding 9
                         \startTextSpan
                         ]
                         \hide NoteHead
@@ -2440,6 +3309,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         a8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2458,6 +3329,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2471,6 +3344,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         d4
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -2483,6 +3358,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         g2
+                        - \downbow
+                        - \accent
                         \glissando
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
@@ -2557,6 +3434,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         c4
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -2572,6 +3451,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         cs,8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2588,6 +3469,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         e,8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2606,6 +3489,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         cs,16
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2624,6 +3509,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2642,6 +3529,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c'8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2658,6 +3547,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         b8
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2674,6 +3565,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2692,6 +3585,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         af,8.
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2705,6 +3600,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         cs,4
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -2717,6 +3614,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         g,2
+                        - \upbow
+                        - \accent
                         \glissando
                         \scaleDurations #'(1 . 1) {
                         \slashedGrace {
@@ -2792,6 +3691,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         a8.
+                        - \downbow
+                        - \accent
                         \glissando
                         [
                         \hide NoteHead
@@ -2804,6 +3705,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'16
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2820,6 +3723,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2835,6 +3740,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         g32
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -2854,6 +3761,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2869,6 +3778,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         cs,16.
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -2882,6 +3793,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         e,16
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2898,6 +3811,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         cs,8.
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -2914,6 +3829,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c8..
+                        - \downbow
+                        - \accent
                         \glissando
                         ]
                         \hide NoteHead
@@ -2925,6 +3842,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         c'4
+                        - \upbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -2935,6 +3854,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         b4
+                        - \downbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -2946,6 +3867,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         d'8..
+                        - \upbow
+                        - \accent
                         - \tweak stencil #abjad-flared-hairpin
                         \<
                         \glissando
@@ -2960,6 +3883,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         af,32
+                        - \downbow
+                        - \accent
                         \glissando
                         ]
                         \hide NoteHead
@@ -2972,6 +3897,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         cs,8.
+                        - \upbow
+                        - \accent
                         \glissando
                         [
                         \hide NoteHead
@@ -2983,6 +3910,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         g,32
+                        - \downbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -2994,6 +3923,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         a32
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -3010,6 +3941,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'16
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -3025,6 +3958,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         d32
+                        - \upbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -3035,6 +3970,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         g32
+                        - \downbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -3046,6 +3983,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         c16.
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -3061,6 +4000,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         cs,16
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         \hide NoteHead
@@ -3074,6 +4015,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         e,16
+                        - \upbow
+                        - \accent
                         \glissando
                         ]
                         \hide NoteHead
@@ -3086,6 +4029,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         cs,16
+                        - \downbow
+                        - \accent
                         \glissando
                         [
                         \hide NoteHead
@@ -3097,6 +4042,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         c16
+                        - \upbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -3107,6 +4054,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         c'32
+                        - \downbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -3118,6 +4067,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         b16.
+                        - \upbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -3134,6 +4085,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         d'8.
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         ]
@@ -3149,6 +4102,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         af,32
+                        - \upbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -3159,6 +4114,8 @@
                         \revert NoteHead.no-ledgers
                         \undo \hide NoteHead
                         cs,32
+                        - \downbow
+                        - \accent
                         \glissando
                         \hide NoteHead
                         \override Accidental.stencil = ##f
@@ -3170,6 +4127,8 @@
                         \undo \hide NoteHead
                         \revert Staff.Stem.stemlet-length
                         g,8
+                        - \upbow
+                        - \accent
                         \glissando
                         ]
                         \hide NoteHead
@@ -3182,6 +4141,8 @@
                         \undo \hide NoteHead
                         \override Staff.Stem.stemlet-length = 0.75
                         a8
+                        - \downbow
+                        - \accent
                         ~
                         \glissando
                         [
@@ -3197,6 +4158,8 @@
                         \revert Staff.Stem.stemlet-length
                         d'16.
                         \ffff
+                        - \upbow
+                        - \accent
                         \stopTextSpan
                         ]
                     }

@@ -699,11 +699,60 @@ def pitch_cello_duet(voice, measures, stage, index, selector=baca.selectors.plea
 
         handler(selections)
 
+def pitch_mezzo(voice, measures, index=0, transpose=0, selector=baca.selectors.pleaves()):
+    _number_to_pitch = {
+        0: [5, 8],
+        1: [10, 7],
+        2: [9, 6],
+        3: [6, 9],
+        4: [8, 5],
+        5: [11, 8],
+        6: [4, 7],
+        7: [6, 3],
+        8: [2, 5],
+        9: [4, 1],
+    }
+
+    map = trinton.rotated_sequence(
+        trinton.logistic_map(
+            x=4,
+            r=-1,
+            n=12,
+            seed=2,
+        ),
+        index,
+    )
+
+    pitch_lists = []
+
+    pitches = []
+
+    for n in map:
+        pitch_lists.append(_number_to_pitch[n])
+
+    for l in pitch_lists:
+        for pitch in l:
+            pitches.append(pitch)
+
+    transposed_pitches = trinton.transpose(pitches, transpose)
+
+    handler = evans.PitchHandler(transposed_pitches, forget=False)
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+
 
 # attachment tools
 
 
-def english_horn_gliss_attachments(selections):
+def english_horn_gliss_attachments(selections, trill=False):
     for group in abjad.select.group_by_contiguity(selections):
         abjad.glissando(
             group,
@@ -715,6 +764,10 @@ def english_horn_gliss_attachments(selections):
         abjad.attach(abjad.StartPhrasingSlur(), group[0])
 
         abjad.attach(abjad.StopPhrasingSlur(), group[-1])
+
+        if trill is True:
+            abjad.attach(abjad.StartTrillSpan(), group[0])
+            abjad.attach(abjad.StopTrillSpan(), group[-1])
 
 
 def tuba_swells_attachments(selections):
@@ -749,6 +802,22 @@ def mezzo_fff_attachments(selections):
             start_selection=new_group[0],
             stop_selection=new_group[-1],
         )
+
+def tuba_fff_attachments(selections, span=False, padding=7):
+    for group in abjad.select.group_by_contiguity(selections):
+        abjad.attach(abjad.StartHairpin("o<|"), group[0])
+        abjad.attach(abjad.Dynamic("ff"), group[-1])
+        abjad.attach(abjad.Tie(), group[0])
+        new_group = abjad.select.with_next_leaf(group)
+        if span is True:
+            start_text_span = abjad.StartTextSpan(
+                left_text=abjad.Markup(r"\markup { \upright Air }"),
+                right_text=abjad.Markup(r"\markup { \upright Pitch }"),
+                style="dashed-line-with-arrow",
+            )
+            abjad.tweak(start_text_span).padding = padding
+            abjad.attach(start_text_span, group[0])
+            abjad.attach(abjad.StopTextSpan(), group[-1])
 
 
 def spectral_strings_dynamics(selections, index):
@@ -831,6 +900,24 @@ def harmonic_gliss_attachments(voice):
             abjad.attach(abjad.Clef("bass"), with_next_leaf[-1])
         else:
             abjad.attach(abjad.StartPhrasingSlur(), selection)
+
+def cello_duet_attachments(voice, measures):
+    grouped_measures = trinton.group_leaves_by_measure(voice=voice)
+    all_measures = []
+    first_leaves = []
+    for measure in measures:
+        all_measures.append(abjad.select.logical_ties(grouped_measures[measure - 1], grace=False))
+    for measure in all_measures:
+        measure_ties = abjad.select.logical_ties(measure)
+        for tie in measure_ties:
+            first_leaves.append(tie[0])
+    for leaf in first_leaves:
+        if first_leaves.index(leaf) % 2 == 1:
+            abjad.attach(abjad.Articulation("upbow"), leaf)
+        else:
+            abjad.attach(abjad.Articulation("downbow"), leaf)
+        abjad.attach(abjad.Articulation(">"), leaf)
+
 
 
 # markups
