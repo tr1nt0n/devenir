@@ -473,16 +473,44 @@ for voice_name in ["cello 1 voice", "cello 2 voice"]:
     trinton.attach(voice=score[voice_name], leaves=[18], attachment=abjad.Glissando())
     library.cello_duet_attachments(
         voice=score[voice_name],
-        measures=[23, 24, 25, 26, 27,]
+        measures=[
+            23,
+            24,
+            25,
+            26,
+            27,
+        ],
     )
 
-for start, stop in zip([23, 33, 50,], [27, 44, 63,]):
+for start, stop in zip(
+    [
+        23,
+        33,
+        50,
+    ],
+    [
+        27,
+        44,
+        63,
+    ],
+):
     trinton.dashed_slur(
         abjad.select.leaf(score["cello 1 voice"], start),
         abjad.select.leaf(score["cello 1 voice"], stop),
     )
 
-for start, stop in zip([23, 32, 49,], [26, 42, 63,]):
+for start, stop in zip(
+    [
+        23,
+        32,
+        49,
+    ],
+    [
+        26,
+        42,
+        63,
+    ],
+):
     trinton.dashed_slur(
         abjad.select.leaf(score["cello 2 voice"], start),
         abjad.select.leaf(score["cello 2 voice"], stop),
@@ -647,16 +675,19 @@ library.english_horn_gliss(
     voice=score["English horn voice"],
     measures=list(range(20, 28)),
     rewrite_meter=-1,
-    preprocessor=trinton.fuse_quarters_preprocessor(
-        (1, 8)
-    )
+    preprocessor=trinton.fuse_quarters_preprocessor((1, 8)),
 )
 
 # english horn pitching and attachments
 
-library.pitch_english_horn_gliss(voice=score["English horn voice"], measures=list(range(20, 28)))
+library.pitch_english_horn_gliss(
+    voice=score["English horn voice"], measures=list(range(20, 28))
+)
 
-library.english_horn_gliss_attachments(selections=abjad.select.leaves(score["English horn voice"], pitched=True), trill=True)
+library.english_horn_gliss_attachments(
+    selections=abjad.select.leaves(score["English horn voice"], pitched=True),
+    trill=True,
+)
 
 english_horn_measures = trinton.group_leaves_by_measure(score["English horn voice"])
 
@@ -669,31 +700,39 @@ for number in list(range(20, 28)):
 
 # soprano and tuba rhythms
 
-for voice_name in ["mezzo-soprano voice", "tuba voice",]:
+for voice_name in [
+    "mezzo-soprano voice",
+    "tuba voice",
+]:
     library.english_horn_gliss(
         voice=score[voice_name],
         measures=list(range(21, 28)),
         rewrite_meter=-1,
-        preprocessor=trinton.fuse_eighths_preprocessor(
-            (3, 6)
-        )
+        preprocessor=trinton.fuse_eighths_preprocessor((3, 6)),
     )
 
 # soprano and tuba pitching and attachments
 
-library.pitch_mezzo(voice=score["mezzo-soprano voice"], measures=list(range(21, 28)), index=0, transpose=7)
-
-trinton.pitch_by_hand(voice=score["tuba voice"], measures=list(range(21, 28)), pitch_list=[-31])
-
-library.mezzo_fff_attachments(abjad.select.leaves(score["mezzo-soprano voice"], pitched=True))
-
-library.tuba_fff_attachments(abjad.select.leaves(score["tuba voice"], pitched=True), span=True)
-
-trinton.attach(
-    voice=score["tuba voice"],
-    leaves=[0],
-    attachment=abjad.Clef("bass")
+library.pitch_mezzo(
+    voice=score["mezzo-soprano voice"],
+    measures=list(range(21, 28)),
+    index=0,
+    transpose=7,
 )
+
+trinton.pitch_by_hand(
+    voice=score["tuba voice"], measures=list(range(21, 28)), pitch_list=[-31]
+)
+
+library.mezzo_fff_attachments(
+    abjad.select.leaves(score["mezzo-soprano voice"], pitched=True)
+)
+
+library.tuba_fff_attachments(
+    abjad.select.leaves(score["tuba voice"], pitched=True), span=True
+)
+
+trinton.attach(voice=score["tuba voice"], leaves=[0], attachment=abjad.Clef("bass"))
 
 
 # global attachments

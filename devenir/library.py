@@ -699,7 +699,10 @@ def pitch_cello_duet(voice, measures, stage, index, selector=baca.selectors.plea
 
         handler(selections)
 
-def pitch_mezzo(voice, measures, index=0, transpose=0, selector=baca.selectors.pleaves()):
+
+def pitch_mezzo(
+    voice, measures, index=0, transpose=0, selector=baca.selectors.pleaves()
+):
     _number_to_pitch = {
         0: [5, 8],
         1: [10, 7],
@@ -746,7 +749,6 @@ def pitch_mezzo(voice, measures, index=0, transpose=0, selector=baca.selectors.p
         selections = selector(current_measure)
 
         handler(selections)
-
 
 
 # attachment tools
@@ -802,6 +804,7 @@ def mezzo_fff_attachments(selections):
             start_selection=new_group[0],
             stop_selection=new_group[-1],
         )
+
 
 def tuba_fff_attachments(selections, span=False, padding=7):
     for group in abjad.select.group_by_contiguity(selections):
@@ -901,12 +904,15 @@ def harmonic_gliss_attachments(voice):
         else:
             abjad.attach(abjad.StartPhrasingSlur(), selection)
 
+
 def cello_duet_attachments(voice, measures):
     grouped_measures = trinton.group_leaves_by_measure(voice=voice)
     all_measures = []
     first_leaves = []
     for measure in measures:
-        all_measures.append(abjad.select.logical_ties(grouped_measures[measure - 1], grace=False))
+        all_measures.append(
+            abjad.select.logical_ties(grouped_measures[measure - 1], grace=False)
+        )
     for measure in all_measures:
         measure_ties = abjad.select.logical_ties(measure)
         for tie in measure_ties:
@@ -917,7 +923,6 @@ def cello_duet_attachments(voice, measures):
         else:
             abjad.attach(abjad.Articulation("downbow"), leaf)
         abjad.attach(abjad.Articulation(">"), leaf)
-
 
 
 # markups
