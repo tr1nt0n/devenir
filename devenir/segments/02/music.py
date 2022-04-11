@@ -83,6 +83,18 @@ trinton.attach(
     ),
 )
 
+trinton.populate_fermata_measures(
+    score=score, voices=library.all_voices_include_ts_context, leaves=[-1]
+)
+
+trinton.attach(
+    voice=score["Global Context"],
+    leaves=[
+        -1,
+    ],
+    attachment=abjad.Markup(r'\markup \huge { \musicglyph "scripts.ufermata" }'),
+)
+
 # percussion rhythms
 
 library.whistle_rhythms(
@@ -822,18 +834,6 @@ abjad.attach(
 # cosmetics
 
 # trinton.annotate_leaves(score)
-
-trinton.populate_fermata_measures(
-    score=score, voices=library.all_voices_include_ts_context, leaves=[-1]
-)
-
-trinton.attach(
-    voice=score["Global Context"],
-    leaves=[
-        -1,
-    ],
-    attachment=abjad.Markup(r'\markup \huge { \musicglyph "scripts.ufermata" }'),
-)
 
 trinton.beam_score_without_splitting(score)
 

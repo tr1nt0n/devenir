@@ -1665,6 +1665,7 @@
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                     \once \override MultiMeasureRest.transparent = ##t
                     R1 * 1/4
+                    - \markup { \upright " \"Ama\" " }
                     \stopStaff \startStaff
                 }
             }
