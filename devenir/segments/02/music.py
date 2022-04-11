@@ -606,15 +606,12 @@ for voice_name in [
         )
 
 for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
-    for n in [
-        13,
-    ]:
-        grouped_measures = trinton.group_leaves_by_measure(score[voice_name])
-        current_measure = grouped_measures[n - 1]
-        abjad.attach(
-            abjad.LilyPondLiteral(r'\boxed-markup "Directly on bridge" 1', "after"),
-            abjad.select.leaf(current_measure, 0),
-        )
+    grouped_measures = trinton.group_leaves_by_measure(score[voice_name])
+    current_measure = grouped_measures[12]
+    abjad.attach(
+        abjad.LilyPondLiteral(r'\boxed-markup "Directly on bridge" 1', "after"),
+        abjad.select.leaf(current_measure, 0),
+    )
 
 for voice_name in ["cello 1 voice", "cello 2 voice"]:
     for n in [
@@ -760,13 +757,6 @@ library.five_lines(
         53,
     ],
 )
-
-# trinton.ficta(
-#     score=score,
-#     voice="English horn voice",
-#     start_ficta=[15,],
-#     stop_ficta=[35,],
-# )
 
 for leaf, multiphonic in zip(
     [
