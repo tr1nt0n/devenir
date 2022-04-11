@@ -1082,6 +1082,16 @@ def english_horn_warble_attachments(voice, measures):
     for measure in measures:
         selected_measures.append(measure_groups[measure - 1])
     tuplets = abjad.select.tuplets(selected_measures)
+    first_tuplet = tuplets[0]
+    last_tuplet = tuplets[-1]
+    abjad.attach(
+        abjad.LilyPondLiteral(r"\set suggestAccidentals = ##t", "absolute_before"),
+        first_tuplet[0],
+    )
+    abjad.attach(
+        abjad.LilyPondLiteral(r"\set suggestAccidentals = ##f", "absolute_after"),
+        last_tuplet[-1],
+    )
     for tuplet in tuplets:
         all_leaves = abjad.select.leaves(tuplet)
         abjad.attach(abjad.StartTrillSpan(), all_leaves[0])

@@ -484,6 +484,7 @@
                             }
                         \times 1/1
                         {
+                            \set suggestAccidentals = ##t
                             \staff-line-count 5
                             \once \override Beam.grow-direction = #right
                             \clef "treble"
@@ -629,6 +630,7 @@
                             \stopTrillSpan
                             \)
                             ]
+                            \set suggestAccidentals = ##f
                         }
                         \revert TupletNumber.text
                         r8

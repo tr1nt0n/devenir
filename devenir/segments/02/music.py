@@ -761,6 +761,13 @@ library.five_lines(
     ],
 )
 
+# trinton.ficta(
+#     score=score,
+#     voice="English horn voice",
+#     start_ficta=[15,],
+#     stop_ficta=[35,],
+# )
+
 for leaf, multiphonic in zip(
     [
         53,
