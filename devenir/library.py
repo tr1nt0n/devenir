@@ -300,6 +300,47 @@ def harmonic_graces(
         handler(selections)
 
 
+def english_horn_warble(
+    voice, measures, rests=False, rewrite_meter=None, preprocessor=None
+):
+    commands_ = [
+        rmakers.beam(),
+        rmakers.duration_bracket(),
+    ]
+
+    def selector(argument):
+        result = abjad.select.tuplets(argument)
+        result = abjad.select.get(result, [1], 2)
+        return result
+
+    if rests is True:
+        commands_.append(rmakers.force_rest(selector))
+        trinton.make_rhythms(
+            voice=voice,
+            time_signature_indices=[_ - 1 for _ in measures],
+            rmaker=rmakers.accelerando(
+                [(1, 8), (1, 20), (1, 32)],
+                [(1, 8), (1, 20), (1, 32)],
+                [(1, 20), (1, 8), (1, 32)],
+            ),
+            commands=commands_,
+            rewrite_meter=rewrite_meter,
+            preprocessor=preprocessor,
+        )
+    else:
+        trinton.make_rhythms(
+            voice=voice,
+            time_signature_indices=[_ - 1 for _ in measures],
+            rmaker=rmakers.accelerando(
+                [(1, 8), (1, 20), (1, 32)],
+                [(1, 20), (1, 8), (1, 32)],
+            ),
+            commands=commands_,
+            rewrite_meter=rewrite_meter,
+            preprocessor=preprocessor,
+        )
+
+
 # pitch tools
 
 
@@ -648,8 +689,12 @@ def pitch_open_strings(voice, measures, pitch_list, selector=baca.selectors.plea
         selections = selector(current_measure)
 
         for selection in selections:
-            abjad.attach(abjad.Articulation("marcato"), selection)
             abjad.tweak(selection.note_head).Accidental.transparent = True
+
+        ties = abjad.select.logical_ties(selections)
+
+        for tie in ties:
+            abjad.attach(abjad.Articulation("marcato"), tie[0])
 
 
 def pitch_cello_duet(voice, measures, stage, index, selector=baca.selectors.pleaves()):
@@ -751,6 +796,47 @@ def pitch_mezzo(
         handler(selections)
 
 
+def pitch_english_horn_warble(voice, measures):
+    sequence = [
+        9,
+        9.5,
+        9,
+        10,
+        10.5,
+        9,
+        10,
+    ]
+    pitch_lists = [
+        sequence,
+        trinton.transpose(sequence, 2),
+        trinton.transpose(sequence, -3),
+        trinton.transpose(sequence, 1),
+        sequence,
+    ]
+    measure_groups = abjad.select.group_by_measure(voice)
+    selected_measures = []
+    for measure in measures:
+        selected_measures.append(measure_groups[measure - 1])
+    for pitches, tuplet in zip(pitch_lists, abjad.select.tuplets(selected_measures)):
+        handler = evans.PitchHandler(pitches, forget=False)
+        handler(tuplet)
+
+
+_multiphonics_to_pitches = {
+    1: (
+        [1],
+        r"\markup \override #'(size . .4) { \woodwind-diagram #'oboe #'((cc . (one two three five six)) (lh . ()) (rh . ()))}",
+    ),
+    2: (
+        [3],
+        r"\markup \override #'(size . .4) { \woodwind-diagram #'oboe #'((cc . (one two three four five six)) (lh . ()) (rh . ()))}",
+    ),
+    3: (
+        [0],
+        r"\markup \override #'(size . .4) { \woodwind-diagram #'oboe #'((cc . (oneT two three six)) (lh . ()) (rh . ()))}",
+    ),
+}
+
 # attachment tools
 
 
@@ -806,6 +892,38 @@ def mezzo_fff_attachments(selections):
         )
 
 
+def mezzo_air_attachments(
+    voice, measures, right_vowel="e", left_vowel="u", still_vowel="ʊ"
+):
+    grouped_measures = trinton.group_leaves_by_measure(voice)
+    for measure in measures:
+        current_measure = grouped_measures[measure - 1]
+        ties = abjad.select.logical_ties(current_measure)
+        start_text_span = abjad.StartTextSpan(
+            left_text=abjad.Markup(rf"\markup {{ \upright {right_vowel} }}"),
+            right_text=abjad.Markup(rf"\markup {{ \upright {left_vowel} }}"),
+            style="dashed-line-with-arrow",
+        )
+        abjad.tweak(start_text_span).padding = 7
+        for tie in ties:
+            if len(tie) == 1:
+                abjad.attach(
+                    abjad.Markup(rf"\markup {{ \upright {still_vowel} }}"),
+                    tie[0],
+                    direction=abjad.DOWN,
+                )
+            else:
+                abjad.attach(
+                    abjad.LilyPondLiteral(
+                        r"\textSpannerDown",
+                        "before",
+                    ),
+                    tie[0],
+                )
+                abjad.attach(start_text_span, tie[0])
+                abjad.attach(abjad.StopTextSpan(), tie[-1])
+
+
 def tuba_fff_attachments(selections, span=False, padding=7):
     for group in abjad.select.group_by_contiguity(selections):
         abjad.attach(abjad.StartHairpin("o<|"), group[0])
@@ -823,7 +941,7 @@ def tuba_fff_attachments(selections, span=False, padding=7):
             abjad.attach(abjad.StopTextSpan(), group[-1])
 
 
-def spectral_strings_dynamics(selections, index):
+def spectral_strings_attachments(voice, measures, index):
     _map_to_string = {
         0: "pp",
         1: "p",
@@ -847,13 +965,20 @@ def spectral_strings_dynamics(selections, index):
         index,
     )
 
-    for string, sel in zip(map, selections):
-        abjad.attach(abjad.Dynamic(_map_to_string[string]), sel)
+    all_measures = abjad.select.group_by_measure(voice)
 
+    sel = []
 
-def spectral_strings_hairpins(selections):
-    for group in abjad.select.logical_ties(selections, pitched=True):
-        new_group = abjad.select.with_next_leaf(group)
+    for measure in measures:
+        sel.append(all_measures[measure - 1])
+
+    ties = abjad.select.logical_ties(sel, pitched=True)
+
+    for string, tie in zip(map, ties):
+        abjad.attach(abjad.Dynamic(_map_to_string[string]), tie[0])
+
+    for tie in ties:
+        new_group = abjad.select.with_next_leaf(tie)
         if len(new_group) == 2:
             abjad.attach(abjad.StartHairpin("--"), new_group[0])
             abjad.attach(abjad.StopHairpin(), new_group[-1])
@@ -923,6 +1048,53 @@ def cello_duet_attachments(voice, measures):
         else:
             abjad.attach(abjad.Articulation("downbow"), leaf)
         abjad.attach(abjad.Articulation(">"), leaf)
+
+
+def circle_attachments(voice, measures):
+    grouped_measures = trinton.group_leaves_by_measure(voice=voice)
+    for measure in measures:
+        current_measure = grouped_measures[measure - 1]
+        ties = abjad.select.logical_ties(current_measure)
+        for tie in ties:
+            abjad.attach(
+                abjad.LilyPondLiteral(r"- \baca-circle-markup", "after"), tie[0]
+            )
+
+
+def whistle_attachments(voice, measures):
+    grouped_measures = trinton.group_leaves_by_measure(voice=voice)
+    for measure in measures:
+        current_measure = grouped_measures[measure - 1]
+        leaves = abjad.select.exclude(abjad.select.leaves(current_measure), [-1])
+        for leaf in leaves:
+            with_next_leaf = abjad.select.with_next_leaf(leaf)
+            if isinstance(with_next_leaf[-1], abjad.Rest):
+                pass
+            elif isinstance(with_next_leaf[-1], abjad.Skip):
+                pass
+            else:
+                abjad.attach(abjad.Glissando(), leaf)
+
+
+def english_horn_warble_attachments(voice, measures):
+    measure_groups = abjad.select.group_by_measure(voice)
+    selected_measures = []
+    for measure in measures:
+        selected_measures.append(measure_groups[measure - 1])
+    tuplets = abjad.select.tuplets(selected_measures)
+    for tuplet in tuplets:
+        all_leaves = abjad.select.leaves(tuplet)
+        abjad.attach(abjad.StartTrillSpan(), all_leaves[0])
+        abjad.attach(abjad.StopTrillSpan(), all_leaves[-1])
+        abjad.attach(abjad.StartPhrasingSlur(), all_leaves[0])
+        abjad.attach(abjad.StopPhrasingSlur(), all_leaves[-1])
+        all_but_last_leaf = abjad.select.exclude(abjad.select.leaves(tuplet), [-1])
+        for leaf in all_but_last_leaf:
+            abjad.attach(abjad.Glissando(), leaf)
+        if tuplets.index(tuplet) % 2 == 1:
+            abjad.override(all_leaves[0]).Beam.grow_direction = abjad.LEFT
+        else:
+            abjad.override(all_leaves[0]).Beam.grow_direction = abjad.RIGHT
 
 
 # markups
