@@ -821,6 +821,64 @@ abjad.attach(
     abjad.select.leaf(score["violin voice"], 31),
 )
 
+# flute rhythms
+
+for voice_name in ["flute voice", "bass flute voice"]:
+
+    library.flute_talea(
+        voice=score[voice_name],
+        measures=[
+            22,
+            23,
+            24,
+        ],
+        division=32,
+        rewrite_meter=-2,
+    )
+
+# flute pitching and attachments
+
+library.five_lines(score=score, voice="flute voice", leaves=[35])
+
+library.five_lines(score=score, voice="bass flute voice", leaves=[32])
+
+for voice_name, pitch_list in zip(
+    ["flute voice", "bass flute voice"],
+    [
+        [0.5, 0, 1, 0, 2, 0.5, 3, 1.5, 5, 14.5],
+        [
+            13,
+            12.5,
+            12,
+            13,
+            9,
+            11.5,
+            7.5,
+            3,
+            2,
+            1.5,
+        ],
+    ],
+):
+    trinton.pitch_by_hand(
+        voice=score[voice_name],
+        measures=[
+            22,
+            23,
+            24,
+        ],
+        pitch_list=pitch_list,
+    )
+
+    library.flute_fireworks(
+        voice=score[voice_name],
+        measures=[
+            22,
+            23,
+            24,
+        ],
+    )
+
 # mezzo attachments
 
 abjad.attach(

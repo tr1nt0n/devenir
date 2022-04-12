@@ -5,6 +5,7 @@ import trinton
 import random
 from abjadext import rmakers
 from abjadext import microtones
+from itertools import cycle
 
 
 def devenir_score(time_signatures):
@@ -339,6 +340,74 @@ def english_horn_warble(
             rewrite_meter=rewrite_meter,
             preprocessor=preprocessor,
         )
+
+
+def mezzo_rhythms(voice, measures, division, rewrite_meter=None, preprocessor=None):
+    trinton.make_rhythms(
+        voice=voice,
+        time_signature_indices=[_ - 1 for _ in measures],
+        rmaker=rmakers.even_division(
+            [division],
+            extra_counts=[
+                0,
+                1,
+                0,
+                0,
+                3,
+            ],
+        ),
+        commands=[
+            rmakers.beam(),
+        ],
+        rewrite_meter=rewrite_meter,
+        preprocessor=preprocessor,
+    )
+
+
+def cello_talea(
+    voice, measures, division=16, index=0, rewrite_meter=None, preprocessor=None
+):
+    extra_counts = trinton.rotated_sequence(
+        [
+            0,
+            1,
+            0,
+            0,
+            2,
+        ],
+        index,
+    )
+
+    trinton.make_rhythms(
+        voice=voice,
+        time_signature_indices=[_ - 1 for _ in measures],
+        rmaker=rmakers.talea(
+            [
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                3,
+            ],
+            division,
+            extra_counts=extra_counts,
+        ),
+        commands=[
+            rmakers.beam(),
+        ],
+        rewrite_meter=rewrite_meter,
+        preprocessor=preprocessor,
+    )
 
 
 # pitch tools
@@ -806,13 +875,15 @@ def pitch_english_horn_warble(voice, measures):
         9,
         10,
     ]
-    pitch_lists = [
-        sequence,
-        trinton.transpose(sequence, 2),
-        trinton.transpose(sequence, -3),
-        trinton.transpose(sequence, 1),
-        sequence,
-    ]
+    pitch_lists = cycle(
+        [
+            sequence,
+            trinton.transpose(sequence, 2),
+            trinton.transpose(sequence, -3),
+            trinton.transpose(sequence, 1),
+            sequence,
+        ]
+    )
     measure_groups = abjad.select.group_by_measure(voice)
     selected_measures = []
     for measure in measures:
@@ -1030,15 +1101,15 @@ def harmonic_gliss_attachments(voice):
             abjad.attach(abjad.StartPhrasingSlur(), selection)
 
 
-def cello_duet_attachments(voice, measures):
+def cello_duet_attachments(voice, measures, spanner=False, padding=9):
     grouped_measures = trinton.group_leaves_by_measure(voice=voice)
-    all_measures = []
+    selected_measures = []
     first_leaves = []
     for measure in measures:
-        all_measures.append(
+        selected_measures.append(
             abjad.select.logical_ties(grouped_measures[measure - 1], grace=False)
         )
-    for measure in all_measures:
+    for measure in selected_measures:
         measure_ties = abjad.select.logical_ties(measure)
         for tie in measure_ties:
             first_leaves.append(tie[0])
@@ -1048,6 +1119,18 @@ def cello_duet_attachments(voice, measures):
         else:
             abjad.attach(abjad.Articulation("downbow"), leaf)
         abjad.attach(abjad.Articulation(">"), leaf)
+    leaves = abjad.select.leaves(selected_measures)
+    if spanner is True:
+        start_text_span = abjad.StartTextSpan(
+            left_text=abjad.Markup(r'\markup \upright "IV, full bows as possible"'),
+            right_text=None,
+            style="dashed-line-with-hook",
+        )
+        abjad.tweak(start_text_span).padding = padding
+
+        abjad.attach(start_text_span, leaves[0])
+
+        abjad.attach(abjad.StopTextSpan(), leaves[-1])
 
 
 def circle_attachments(voice, measures):
@@ -1105,6 +1188,34 @@ def english_horn_warble_attachments(voice, measures):
             abjad.override(all_leaves[0]).Beam.grow_direction = abjad.LEFT
         else:
             abjad.override(all_leaves[0]).Beam.grow_direction = abjad.RIGHT
+
+
+def flute_fireworks(voice, measures, padding=5.5):
+    measure_groups = abjad.select.group_by_measure(voice)
+    selected_measures = []
+    for measure in measures:
+        selected_measures.append(measure_groups[measure - 1])
+
+    ties = abjad.select.logical_ties(selected_measures, pitched=True)
+
+    start_text_span = abjad.StartTextSpan(
+        left_text=abjad.Markup(r"\markup { \upright 90° }"),
+        right_text=abjad.Markup(r"\markup { \upright 0° }"),
+        style="dashed-line-with-arrow",
+    )
+    abjad.tweak(start_text_span).padding = padding
+
+    for tie in ties:
+        if len(tie) == 1:
+            abjad.attach(abjad.Dynamic("pp"), tie[0])
+            abjad.attach(
+                abjad.Markup(r"\markup { \upright 45° }"), tie[0], direction=abjad.UP
+            )
+        else:
+            abjad.attach(abjad.StartHairpin("o<|"), tie[0])
+            abjad.attach(start_text_span, tie[0])
+            abjad.attach(abjad.Dynamic("ff"), tie[-1])
+            abjad.attach(abjad.StopTextSpan(), tie[-1])
 
 
 # markups

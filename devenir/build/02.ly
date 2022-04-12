@@ -191,9 +191,150 @@
                         ~
                         c'8
                         \mp
-                        s1 * 1
-                        s1 * 5/8
-                        s1 * 1/4
+                        \staff-line-count 5
+                        \clef "treble"
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cqs'8..
+                        \pp
+                        ^ \markup { \upright 45° }
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        c'32
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'8
+                        ~
+                        [
+                        c'32
+                        \ff
+                        \stopTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        cs'16.
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cs'8
+                        \ff
+                        \stopTextSpan
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        c'8
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'16
+                        \ff
+                        \stopTextSpan
+                        [
+                        d'16
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        d'16
+                        \ff
+                        \stopTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        cqs'16
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cqs'8..
+                        \ff
+                        \stopTextSpan
+                        [
+                        ef'32
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        ef'8
+                        ~
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        ef'16
+                        \ff
+                        \stopTextSpan
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        dqf'8.
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        dqf'32
+                        \ff
+                        \stopTextSpan
+                        [
+                        f'16.
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        f'16
+                        \ff
+                        \stopTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        dqs''16
+                        \pp
+                        ^ \markup { \upright 45° }
+                        ]
                         \staff-line-count 1
                         \clef "percussion"
                         c'2.
@@ -336,9 +477,150 @@
                         ~
                         c'8
                         \mp
-                        s1 * 1
-                        s1 * 5/8
-                        s1 * 1/4
+                        \staff-line-count 5
+                        \clef "treble"
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cs''8..
+                        \pp
+                        ^ \markup { \upright 45° }
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        cqs''32
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cqs''8
+                        ~
+                        [
+                        cqs''32
+                        \ff
+                        \stopTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        c''16.
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c''8
+                        \ff
+                        \stopTextSpan
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        cs''8
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cs''16
+                        \ff
+                        \stopTextSpan
+                        [
+                        a'16
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        a'16
+                        \ff
+                        \stopTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        bqs'16
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        bqs'8..
+                        \ff
+                        \stopTextSpan
+                        [
+                        gqs'32
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        gqs'8
+                        ~
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        gqs'16
+                        \ff
+                        \stopTextSpan
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        ef'8.
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        ]
+                        \override Staff.Stem.stemlet-length = 0.75
+                        ef'32
+                        \ff
+                        \stopTextSpan
+                        [
+                        d'16.
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        \<
+                        ~
+                        - \abjad-dashed-line-with-arrow
+                        - \tweak bound-details.left.text \markup \concat { { \upright 90° } \hspace #0.5 }
+                        - \tweak bound-details.right.text \markup { \upright 0° }
+                        - \tweak padding 5.5
+                        \startTextSpan
+                        d'16
+                        \ff
+                        \stopTextSpan
+                        \revert Staff.Stem.stemlet-length
+                        dqf'16
+                        \pp
+                        ^ \markup { \upright 45° }
+                        ]
                         \staff-line-count 1
                         \clef "percussion"
                         c'2.

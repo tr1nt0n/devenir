@@ -79,7 +79,7 @@
 
         \override Hairpin.to-barline = ##f
 
-        \override MetronomeMark.padding = 2.5
+        \override MetronomeMark.padding = 4
         \override MetronomeMark.font-size = 4
         \override MetronomeMark.extra-offset = #'(4.5 . 0)
 
