@@ -90,6 +90,14 @@ whistle_tuplets = eval(
     ]"""
 )
 
+logistic_map = eval(
+    """trinton.logistic_map(
+        x=4,
+        r=-1,
+        n=12,
+        seed=2,
+    )"""
+)
 
 # rhythm tools
 
@@ -249,12 +257,7 @@ def flute_talea(
     voice, measures, division, index=0, rewrite_meter=None, preprocessor=None
 ):
     map = trinton.rotated_sequence(
-        trinton.logistic_map(
-            x=4,
-            r=-1,
-            n=12,
-            seed=2,
-        ),
+        logistic_map,
         index,
     )
 
@@ -831,12 +834,7 @@ def pitch_mezzo(
     }
 
     map = trinton.rotated_sequence(
-        trinton.logistic_map(
-            x=4,
-            r=-1,
-            n=12,
-            seed=2,
-        ),
+        logistic_map,
         index,
     )
 
@@ -1027,12 +1025,7 @@ def spectral_strings_attachments(voice, measures, index):
     }
 
     map = trinton.rotated_sequence(
-        trinton.logistic_map(
-            x=4,
-            r=-1,
-            n=12,
-            seed=2,
-        ),
+        logistic_map,
         index,
     )
 
