@@ -47,7 +47,7 @@ for met, leaf in zip(
         12,
         15,
         18,
-    ]
+    ],
 ):
     trinton.attach(
         voice=score["Global Context"],
@@ -109,7 +109,7 @@ for voice_name, preprocessor in zip(
                 4,
             )
         ),
-    ]
+    ],
 ):
     library.mezzo_rhythms(
         voice=score[voice_name],
@@ -133,7 +133,7 @@ for voice_name, division in zip(
     [
         8,
         4,
-    ]
+    ],
 ):
     library.mezzo_rhythms(
         voice=score[voice_name],
@@ -171,7 +171,7 @@ for voice_name, preprocessor in zip(
                 4,
             )
         ),
-    ]
+    ],
 ):
     library.mezzo_rhythms(
         voice=score[voice_name],
@@ -199,7 +199,9 @@ for voice_name in ["mezzo-soprano voice", "violin voice"]:
 
 library.mezzo_rhythms(
     voice=score["violin voice"],
-    measures=[18,],
+    measures=[
+        18,
+    ],
     division=16,
     rewrite_meter=-2,
     preprocessor=trinton.fuse_eighths_preprocessor(
@@ -208,12 +210,14 @@ library.mezzo_rhythms(
             3,
             2,
         )
-    )
+    ),
 )
 
 library.english_horn_gliss(
     voice=score["mezzo-soprano voice"],
-    measures=[18,],
+    measures=[
+        18,
+    ],
     rewrite_meter=-2,
     preprocessor=trinton.fuse_sixteenths_preprocessor(
         (
@@ -221,7 +225,7 @@ library.english_horn_gliss(
             3,
             2,
         )
-    )
+    ),
 )
 
 # violin and mezzo pitching and attachments
@@ -234,7 +238,7 @@ for voice_name, index in zip(
     [
         4,
         7,
-    ]
+    ],
 ):
     for measures, transpose in zip(
         [
@@ -250,9 +254,15 @@ for voice_name, index in zip(
                 7,
                 8,
             ],
-            [9,],
-            [10,],
-            [11,],
+            [
+                9,
+            ],
+            [
+                10,
+            ],
+            [
+                11,
+            ],
             [
                 12,
                 13,
@@ -272,7 +282,7 @@ for voice_name, index in zip(
             10,
             13,
             0,
-        ]
+        ],
     ):
         library.pitch_mezzo(
             voice=score[voice_name],
@@ -283,7 +293,9 @@ for voice_name, index in zip(
 
 library.pitch_mezzo(
     voice=score["violin voice"],
-    measures=[18,],
+    measures=[
+        18,
+    ],
     transpose=21,
     index=19,
 )
@@ -297,7 +309,16 @@ trinton.attach(
     ),
 )
 
-for start, stop in zip([0, 47,], [22, 55,]):
+for start, stop in zip(
+    [
+        0,
+        47,
+    ],
+    [
+        22,
+        55,
+    ],
+):
     trinton.write_id_spanner(
         style="solid-line-with-up-hook",
         left_text=r"0%",
@@ -305,12 +326,20 @@ for start, stop in zip([0, 47,], [22, 55,]):
         id="Two",
         start_selection=abjad.select.leaf(score["mezzo-soprano voice"], start),
         stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], stop),
-        padding=9
+        padding=9,
     )
 
 for start, stop in zip(
-    [22, 27, 31,],
-    [26, 30, 35,],
+    [
+        22,
+        27,
+        31,
+    ],
+    [
+        26,
+        30,
+        35,
+    ],
 ):
     trinton.write_id_spanner(
         style="dashed-line-with-arrow",
@@ -319,12 +348,18 @@ for start, stop in zip(
         id="Two",
         start_selection=abjad.select.leaf(score["mezzo-soprano voice"], start),
         stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], stop),
-        padding=9
+        padding=9,
     )
 
 for start, stop in zip(
-    [22, 30,],
-    [27, 32,],
+    [
+        22,
+        30,
+    ],
+    [
+        27,
+        32,
+    ],
 ):
     trinton.write_id_spanner(
         style="dashed-line-with-arrow",
@@ -340,8 +375,14 @@ trinton.write_id_spanner(
     left_text=r"ɔ",
     right_text=r"ʌ",
     id="One",
-    start_selection=abjad.select.leaf(score["mezzo-soprano voice"], 33,),
-    stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], 35,),
+    start_selection=abjad.select.leaf(
+        score["mezzo-soprano voice"],
+        33,
+    ),
+    stop_selection=abjad.select.leaf(
+        score["mezzo-soprano voice"],
+        35,
+    ),
 )
 
 trinton.write_id_spanner(
@@ -364,117 +405,223 @@ trinton.write_id_spanner(
 
 trinton.write_slur(
     voice=score["mezzo-soprano voice"],
-    start_slur=[0, 4, 13, 22, 28, 30, 33, 36, 40, 44, 47, 51,],
-    stop_slur=[3, 12, 21, 27, 29, 32, 35, 39, 43, 46, 50, 54,],
+    start_slur=[
+        0,
+        4,
+        13,
+        22,
+        28,
+        30,
+        33,
+        36,
+        40,
+        44,
+        47,
+        51,
+    ],
+    stop_slur=[
+        3,
+        12,
+        21,
+        27,
+        29,
+        32,
+        35,
+        39,
+        43,
+        46,
+        50,
+        54,
+    ],
 )
 
 library.mezzo_fff_attachments(
-    abjad.select.group_by_measure(abjad.select.leaves(score["mezzo-soprano voice"], pitched=True))[-1]
+    abjad.select.group_by_measure(
+        abjad.select.leaves(score["mezzo-soprano voice"], pitched=True)
+    )[-1]
 )
 
 trinton.attach(
     voice=score["mezzo-soprano voice"],
-    leaves=[0, 47,],
-    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Breathy" 1', "after")
+    leaves=[
+        0,
+        47,
+    ],
+    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Breathy" 1', "after"),
 )
 
 trinton.attach(
     voice=score["mezzo-soprano voice"],
-    leaves=[22,],
-    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Color like speech, but with exact pitch" 1', "after")
+    leaves=[
+        22,
+    ],
+    attachment=abjad.LilyPondLiteral(
+        r'\boxed-markup "Color like speech, but with exact pitch" 1', "after"
+    ),
 )
 
 library.one_line(
     score=score,
     voice="mezzo-soprano voice",
-    leaves=[55,]
+    leaves=[
+        55,
+    ],
 )
 
 trinton.attach(
     voice=score["mezzo-soprano voice"],
-    leaves=[0, 47,],
+    leaves=[
+        0,
+        47,
+    ],
     attachment=abjad.Dynamic("pp"),
-    direction=abjad.UP
+    direction=abjad.UP,
 )
 
 trinton.attach(
     voice=score["mezzo-soprano voice"],
-    leaves=[22,],
+    leaves=[
+        22,
+    ],
     attachment=abjad.Dynamic("mp"),
-    direction=abjad.UP
+    direction=abjad.UP,
 )
 
 trinton.attach(
     voice=score["mezzo-soprano voice"],
-    leaves=[8, 30,],
+    leaves=[
+        8,
+        30,
+    ],
     attachment=abjad.StartHairpin("<"),
-    direction=abjad.UP
+    direction=abjad.UP,
 )
 
 trinton.attach(
     voice=score["mezzo-soprano voice"],
-    leaves=[36,],
+    leaves=[
+        36,
+    ],
     attachment=abjad.Dynamic("f"),
-    direction=abjad.UP
+    direction=abjad.UP,
 )
 
 trinton.attach(
     voice=score["violin voice"],
-    leaves=[0, 61,],
-    attachment=abjad.LilyPondLiteral(r'\boxed-markup "MST, XFB" 1', "after")
+    leaves=[
+        0,
+        61,
+    ],
+    attachment=abjad.LilyPondLiteral(r'\boxed-markup "MST, XFB" 1', "after"),
 )
 
 trinton.write_hooked_spanner(
     voice=score["violin voice"],
     string=r'\markup \upright "XSB, spazzolato"',
-    start_leaf=[50, 69,],
-    stop_leaf=[60, 85,],
-    padding=8.5
+    start_leaf=[
+        50,
+        69,
+    ],
+    stop_leaf=[
+        60,
+        85,
+    ],
+    padding=8.5,
 )
 
 trinton.write_text_span(
     voice=score["violin voice"],
     begin_text=r"\markup { \upright FB }",
     end_text=r"\markup { \upright XSB }",
-    start_leaf=[10,],
-    stop_leaf=[16,],
-    padding=7
+    start_leaf=[
+        10,
+    ],
+    stop_leaf=[
+        16,
+    ],
+    padding=7,
 )
 
 trinton.write_slur(
     voice=score["violin voice"],
-    start_slur=[16, 21, 24, 26, 31, 36, 41, 50, 53, 56, 58, 69, 72, 75, 78, 81,],
-    stop_slur=[20, 23, 25, 30, 35, 40, 43, 52, 55, 57, 60, 71, 74, 77, 80, 83,],
+    start_slur=[
+        16,
+        21,
+        24,
+        26,
+        31,
+        36,
+        41,
+        50,
+        53,
+        56,
+        58,
+        69,
+        72,
+        75,
+        78,
+        81,
+    ],
+    stop_slur=[
+        20,
+        23,
+        25,
+        30,
+        35,
+        40,
+        43,
+        52,
+        55,
+        57,
+        60,
+        71,
+        74,
+        77,
+        80,
+        83,
+    ],
 )
 
 trinton.attach(
     voice=score["violin voice"],
-    leaves=[0, 61,],
-    attachment=abjad.Dynamic("pp")
+    leaves=[
+        0,
+        61,
+    ],
+    attachment=abjad.Dynamic("pp"),
 )
 
 trinton.attach(
     voice=score["violin voice"],
-    leaves=[18,],
-    attachment=abjad.Dynamic("mp")
+    leaves=[
+        18,
+    ],
+    attachment=abjad.Dynamic("mp"),
 )
 
 trinton.attach(
     voice=score["violin voice"],
-    leaves=[50,],
-    attachment=abjad.Dynamic("f")
+    leaves=[
+        50,
+    ],
+    attachment=abjad.Dynamic("f"),
 )
 
 trinton.attach(
     voice=score["violin voice"],
-    leaves=[69,],
-    attachment=abjad.Dynamic("ff")
+    leaves=[
+        69,
+    ],
+    attachment=abjad.Dynamic("ff"),
 )
 
 trinton.attach(
     voice=score["violin voice"],
-    leaves=[10, 36,],
-    attachment=abjad.StartHairpin("<")
+    leaves=[
+        10,
+        36,
+    ],
+    attachment=abjad.StartHairpin("<"),
 )
 
 # tuba rhythms
@@ -495,33 +642,60 @@ library.english_horn_gliss(
 
 trinton.attach(
     voice=score["tuba voice"],
-    leaves=[0, 21,],
-    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Air" 1', "after")
+    leaves=[
+        0,
+        21,
+    ],
+    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Air" 1', "after"),
 )
 
 tuba_measures = trinton.group_leaves_by_measure(score["tuba voice"])
 
-for number in [0, 2, 4, 14, 16, 17,]:
+for number in [
+    0,
+    2,
+    4,
+    14,
+    16,
+    17,
+]:
     library.tuba_fff_attachments(tuba_measures[number])
 
-for number in [6, 8, 10, 12,]:
+for number in [
+    6,
+    8,
+    10,
+    12,
+]:
     library.tuba_fff_attachments(tuba_measures[number], span=True)
 
 library.one_line(
     score=score,
     voice="tuba voice",
-    leaves=[21,]
+    leaves=[
+        21,
+    ],
 )
 
 library.five_lines(
     score=score,
     voice="tuba voice",
-    leaves=[9, 27,],
-    clef="bass"
+    leaves=[
+        9,
+        27,
+    ],
+    clef="bass",
 )
 
 trinton.pitch_by_hand(
-    voice=score["tuba voice"], measures=[7, 9, 11, 13,], pitch_list=[-31]
+    voice=score["tuba voice"],
+    measures=[
+        7,
+        9,
+        11,
+        13,
+    ],
+    pitch_list=[-31],
 )
 
 library.pitch_tuba_swells(
@@ -533,13 +707,22 @@ library.pitch_tuba_swells(
 
 library.block_rhythms(
     voice=score["percussion voice"],
-    measures=[1, 2,],
-    rewrite_meter=-2
+    measures=[
+        1,
+        2,
+    ],
+    rewrite_meter=-2,
 )
 
 library.percussion_tremoli(
     voice=score["percussion voice"],
-    measures=[7, 8, 9, 10, 11,],
+    measures=[
+        7,
+        8,
+        9,
+        10,
+        11,
+    ],
     rewrite_meter=-2,
     preprocessor=trinton.fuse_eighths_preprocessor(
         (
@@ -553,12 +736,16 @@ library.percussion_tremoli(
             2,
             2,
         )
-    )
+    ),
 )
 
 library.block_rhythms(
     voice=score["percussion voice"],
-    measures=[15, 16, 17,],
+    measures=[
+        15,
+        16,
+        17,
+    ],
     rewrite_meter=-2,
     preprocessor=trinton.fuse_eighths_preprocessor(
         (
@@ -573,70 +760,132 @@ library.block_rhythms(
             1,
             1,
         )
-    )
+    ),
 )
 
 # percussion pitching and attachments
 
 library.pitch_percussion(
     voice=score["percussion voice"],
-    measures=[1, 15, 16, 17,],
-    pitch_list=[2, 2, 1, 2,]
+    measures=[
+        1,
+        15,
+        16,
+        17,
+    ],
+    pitch_list=[
+        2,
+        2,
+        1,
+        2,
+    ],
 )
 
 library.pitch_percussion(
     voice=score["percussion voice"],
-    measures=[7, 9, 10, 11,],
-    pitch_list=[1, 2,]
+    measures=[
+        7,
+        9,
+        10,
+        11,
+    ],
+    pitch_list=[
+        1,
+        2,
+    ],
 )
 
 trinton.attach_multiple(
     score=score,
     voice="percussion voice",
-    leaves=[0,],
-    attachments=[abjad.LilyPondLiteral(r'\boxed-markup "Gong, let ring" 1', "after"), abjad.Dynamic("mf")]
+    leaves=[
+        0,
+    ],
+    attachments=[
+        abjad.LilyPondLiteral(r'\boxed-markup "Gong, let ring" 1', "after"),
+        abjad.Dynamic("mf"),
+    ],
 )
 
 trinton.attach_multiple(
     score=score,
     voice="percussion voice",
-    leaves=[7,],
-    attachments=[abjad.LilyPondLiteral(r'\boxed-markup "Stone, with sticks" 1', "after"), abjad.Dynamic("fff")]
+    leaves=[
+        7,
+    ],
+    attachments=[
+        abjad.LilyPondLiteral(r'\boxed-markup "Stone, with sticks" 1', "after"),
+        abjad.Dynamic("fff"),
+    ],
 )
 
 trinton.attach(
     voice=score["percussion voice"],
-    leaves=[8,],
-    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Tom, with sticks" 1', "after")
+    leaves=[
+        8,
+    ],
+    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Tom, with sticks" 1', "after"),
 )
 
 trinton.attach_multiple(
     score=score,
     voice="percussion voice",
-    leaves=[55,],
-    attachments=[abjad.LilyPondLiteral(r'\boxed-markup "Brake drum, with stones" 1', "after"), abjad.LilyPondLiteral(r"- \baca-circle-markup", "after"), abjad.Dynamic("p")]
+    leaves=[
+        55,
+    ],
+    attachments=[
+        abjad.LilyPondLiteral(r'\boxed-markup "Brake drum, with stones" 1', "after"),
+        abjad.LilyPondLiteral(r"- \baca-circle-markup", "after"),
+        abjad.Dynamic("p"),
+    ],
 )
 
 trinton.attach_multiple(
     score=score,
     voice="percussion voice",
-    leaves=[60,],
-    attachments=[abjad.LilyPondLiteral(r'\boxed-markup "Stone, with stones" 1', "after"), abjad.LilyPondLiteral(r"- \baca-circle-markup", "after"), abjad.Dynamic("p")]
+    leaves=[
+        60,
+    ],
+    attachments=[
+        abjad.LilyPondLiteral(r'\boxed-markup "Stone, with stones" 1', "after"),
+        abjad.LilyPondLiteral(r"- \baca-circle-markup", "after"),
+        abjad.Dynamic("p"),
+    ],
 )
 
 trinton.attach_multiple(
     score=score,
     voice="percussion voice",
-    leaves=[53, 58, 63,],
-    attachments=[abjad.LilyPondLiteral(r'\boxed-markup "Gong, choke" 1', "after"), abjad.Dynamic("ff")]
+    leaves=[
+        53,
+        58,
+        63,
+    ],
+    attachments=[
+        abjad.LilyPondLiteral(r'\boxed-markup "Gong, choke" 1', "after"),
+        abjad.Dynamic("ff"),
+    ],
 )
 
 # cello rhythms
 
-for voice_name, index, pitch in zip(["cello 1 voice", "cello 2 voice"], [9, 15,], ["II", "IV"]):
+for voice_name, index, pitch in zip(
+    ["cello 1 voice", "cello 2 voice"],
+    [
+        9,
+        15,
+    ],
+    ["II", "IV"],
+):
     library.block_rhythms(
         voice=score[voice_name],
-        measures=[7, 8, 9, 10, 11,],
+        measures=[
+            7,
+            8,
+            9,
+            10,
+            11,
+        ],
         rewrite_meter=-2,
         preprocessor=trinton.fuse_eighths_preprocessor(
             (
@@ -650,53 +899,78 @@ for voice_name, index, pitch in zip(["cello 1 voice", "cello 2 voice"], [9, 15,]
                 2,
                 2,
             )
-        )
+        ),
     )
 
     library.flute_talea(
         voice=score[voice_name],
-        measures=[15, 16, 17,],
+        measures=[
+            15,
+            16,
+            17,
+        ],
         rewrite_meter=-2,
         division=8,
-        index=index
+        index=index,
     )
 
-# cello pitching and attachments
+    # cello pitching and attachments
 
     library.four_lines(
         score=score,
         voice=voice_name,
-        leaves=[6,]
+        leaves=[
+            6,
+        ],
     )
 
     trinton.attach(
         voice=score[voice_name],
-        leaves=[6,],
-        attachment=abjad.LilyPondLiteral(r'\boxed-markup "DP" 1', "after")
+        leaves=[
+            6,
+        ],
+        attachment=abjad.LilyPondLiteral(r'\boxed-markup "DP" 1', "after"),
     )
 
     library.one_line(
         score=score,
         voice=voice_name,
-        leaves=[19,]
+        leaves=[
+            19,
+        ],
     )
 
     trinton.attach_multiple(
         score=score,
         voice=voice_name,
-        leaves=[19,],
-        attachments=[abjad.LilyPondLiteral(r'\boxed-markup "Directly on bridge" 1', "after"), abjad.Dynamic("pp")]
+        leaves=[
+            19,
+        ],
+        attachments=[
+            abjad.LilyPondLiteral(r'\boxed-markup "Directly on bridge" 1', "after"),
+            abjad.Dynamic("pp"),
+        ],
     )
 
     library.pitch_open_strings(
         voice=score[voice_name],
-        measures=[7, 8, 10, 11,],
-        pitch_list=[pitch]
+        measures=[
+            7,
+            8,
+            10,
+            11,
+        ],
+        pitch_list=[pitch],
     )
 
     library.spectral_strings_attachments(
         voice=score[voice_name],
-        measures=[7, 8, 10, 11,],
+        measures=[
+            7,
+            8,
+            10,
+            11,
+        ],
         index=index,
     )
 
@@ -713,7 +987,7 @@ library.english_horn_gliss(
             1,
             2,
         )
-    )
+    ),
 )
 
 library.english_horn_warble(
@@ -724,12 +998,15 @@ library.english_horn_warble(
             7,
             7,
         )
-    )
+    ),
 )
 
 library.block_rhythms(
     voice=score["English horn voice"],
-    measures=[10, 11,],
+    measures=[
+        10,
+        11,
+    ],
     rewrite_meter=-2,
     preprocessor=trinton.fuse_eighths_preprocessor(
         (
@@ -739,7 +1016,7 @@ library.block_rhythms(
             2,
             2,
         )
-    )
+    ),
 )
 
 for voice_name, index in zip(
@@ -752,61 +1029,79 @@ for voice_name, index in zip(
         3,
         6,
         10,
-    ]
+    ],
 ):
     library.flute_talea(
         voice=score[voice_name],
-        measures=[15, 16, 17,],
+        measures=[
+            15,
+            16,
+            17,
+        ],
         division=8,
         rewrite_meter=-2,
-        index=index
+        index=index,
     )
 
 # english horn pitching and attachments
 
 library.pitch_english_horn_gliss(
     voice=score["English horn voice"],
-    measures=[7,],
-    index=4
+    measures=[
+        7,
+    ],
+    index=4,
 )
 
 library.pitch_english_horn_warble(
     voice=score["English horn voice"],
-    measures=[8,],
+    measures=[
+        8,
+    ],
 )
 
 trinton.write_multiphonics(
     score=score,
     voice="English horn voice",
     dict=library._multiphonics_to_pitches,
-    leaves=[25, 27, 30,],
+    leaves=[
+        25,
+        27,
+        30,
+    ],
     multiphonic=1,
     markup=True,
 )
 
 english_horn_measures = abjad.select.group_by_measure(score["English horn voice"])
 
-library.english_horn_gliss_attachments(abjad.select.leaves(english_horn_measures[6], pitched=True), trill=True)
+library.english_horn_gliss_attachments(
+    abjad.select.leaves(english_horn_measures[6], pitched=True), trill=True
+)
 
 library.english_horn_warble_attachments(voice=score["English horn voice"], measures=[8])
 
 library.spectral_strings_attachments(
     voice=score["English horn voice"],
-    measures=[10, 11,],
-    index=17
+    measures=[
+        10,
+        11,
+    ],
+    index=17,
 )
 
-for voice_name, leaf in zip(["English horn voice", "flute voice", "bass flute voice"], [34, 14, 14]):
-    library.one_line(
-        score=score,
-        voice=voice_name,
-        leaves=[leaf]
-    )
+for voice_name, leaf in zip(
+    ["English horn voice", "flute voice", "bass flute voice"], [34, 14, 14]
+):
+    library.one_line(score=score, voice=voice_name, leaves=[leaf])
     trinton.attach_multiple(
         score=score,
         voice=voice_name,
         leaves=[leaf],
-        attachments=[abjad.Dynamic("pp"), abjad.LilyPondLiteral(r'\boxed-markup "Air" 1', "after")]
+        attachments=[
+            abjad.Dynamic("pp"),
+            abjad.LilyPondLiteral(r'\boxed-markup "Air" 1', "after"),
+        ],
     )
 
 # cosmetics
