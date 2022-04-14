@@ -863,6 +863,52 @@ def pitch_mezzo(
         handler(selections)
 
 
+def pitch_flute_graces(voice, measures, selector=trinton.grace_selector()):
+    handler = evans.PitchHandler(
+        [
+            12,
+            19,
+            24,
+            28,
+            31,
+            15,
+            22,
+            27,
+            31,
+            34,
+        ],
+        forget=False,
+    )
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        handler(selections)
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = grouped_measures[measure - 1]
+
+        selections = selector(current_measure)
+
+        pleaves = abjad.select.leaves(selections, pitched=True)
+
+        grouped_pleaves = [pleaves[i : i + 5] for i in range(0, len(pleaves), 5)]
+
+        for leaf in pleaves:
+            abjad.tweak(leaf.note_head).style = r"#'harmonic"
+
+        for group in grouped_pleaves:
+            abjad.attach(abjad.StartPhrasingSlur(), group[0])
+            abjad.attach(abjad.Dynamic("fff"), group[0])
+            abjad.attach(abjad.StopPhrasingSlur(), group[-1])
+
+
 def pitch_english_horn_warble(voice, measures):
     sequence = [
         9,
