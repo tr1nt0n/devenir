@@ -1104,6 +1104,32 @@ for voice_name, leaf in zip(
         ],
     )
 
+for voice_name, selector in zip(
+    [
+        "flute voice",
+        "bass flute voice",
+        "English horn voice",
+        "cello 1 voice",
+        "cello 2 voice",
+    ],
+    [
+        trinton.patterned_leaf_index_selector([2, 4, 5, 7], 8),
+        trinton.patterned_leaf_index_selector([2, 4, 6, 7], 8),
+        trinton.patterned_leaf_index_selector([1, 3, 4, 8], 8),
+        trinton.patterned_leaf_index_selector([2, 4, 5, 7], 9),
+        trinton.patterned_leaf_index_selector([2, 4, 6, 7], 9),
+    ],
+):
+    library.patterned_tremolo(
+        voice=score[voice_name],
+        measures=[
+            15,
+            16,
+            17,
+        ],
+        selector=selector,
+    )
+
 # cosmetics
 
 # trinton.annotate_leaves(score)

@@ -769,7 +769,9 @@ def pitch_open_strings(voice, measures, pitch_list, selector=baca.selectors.plea
             abjad.attach(abjad.Articulation("marcato"), tie[0])
 
 
-def pitch_cello_duet(voice, measures, stage, index, selector=baca.selectors.pleaves()):
+def pitch_cello_duet(
+    voice, measures, stage, index=0, selector=baca.selectors.pleaves()
+):
     _stage_to_pitches = {
         1: [
             -24,
@@ -1098,6 +1100,38 @@ def spectral_strings_attachments(voice, measures, index):
             abjad.attach(abjad.StopHairpin(), new_group[-2])
 
 
+def gong_solo_dynamics(voice, measures, index):
+    _map_to_string = {
+        0: "pp",
+        1: "p",
+        2: "p",
+        3: "mp",
+        4: "mp",
+        5: "mf",
+        6: "mf",
+        7: "f",
+        8: "f",
+        9: "ff",
+    }
+
+    map = trinton.rotated_sequence(
+        logistic_map,
+        index,
+    )
+
+    all_measures = abjad.select.group_by_measure(voice)
+
+    sel = []
+
+    for measure in measures:
+        sel.append(all_measures[measure - 1])
+
+    ties = abjad.select.logical_ties(sel, pitched=True)
+
+    for string, tie in zip(map, ties):
+        abjad.attach(abjad.Dynamic(_map_to_string[string]), tie[0])
+
+
 def flute_glissandi(voice, measures):
     grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
 
@@ -1255,6 +1289,23 @@ def flute_fireworks(voice, measures, padding=5.5):
             abjad.attach(start_text_span, tie[0])
             abjad.attach(abjad.Dynamic("ff"), tie[-1])
             abjad.attach(abjad.StopTextSpan(), tie[-1])
+
+
+def patterned_tremolo(voice, measures, selector):
+    selected_measures = []
+
+    for measure in measures:
+        grouped_measures = abjad.select.group_by_measure(abjad.select.leaves(voice))
+
+        current_measure = abjad.select.leaves(grouped_measures[measure - 1])
+
+        for leaf in current_measure:
+            selected_measures.append(leaf)
+
+    tremolo_leaves = selector(selected_measures)
+
+    for leaf in tremolo_leaves:
+        trinton.unmeasured_stem_tremolo([leaf])
 
 
 # markups

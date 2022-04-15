@@ -116,32 +116,39 @@
                         \ppp
                         ~
                         c'4.
+                        :32
                         \mf
                         c'4.
                         ~
                         c'4.
+                        :32
                         \mp
                         ~
                         c'8
+                        :64
                         \mf
                         ~
                         c'4.
                         \pp
                         ~
                         c'4
+                        :32
                         c'8
                         ~
                         c'4.
                         ~
                         c'4.
+                        :32
                         \mp
                         ~
                         c'4
                         ~
                         c'4
+                        :32
                         \p
                         ~
                         c'4
+                        :32
                         \mf
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
@@ -149,6 +156,7 @@
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        :64
                         ~
                         ]
                         c'2
@@ -162,6 +170,7 @@
                         ~
                         \boxed-markup "Air" 1
                         c'2.
+                        :32
                         \ppp
                         ~
                         c'4.
@@ -169,14 +178,17 @@
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
                         c'8
+                        :64
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        :64
                         ~
                         ]
                         c'4
                         ~
                         c'8
+                        :64
                         \p
                         ~
                         c'2.
@@ -184,18 +196,22 @@
                         c'4.
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'4
                         \mp
                         c'8
+                        :64
                         ~
                         c'2.
+                        :32
                         ~
                         c'4.
                         \p
                         ~
                         c'8
+                        :64
                         \mp
                         \staff-line-count 5
                         \clef "treble"
@@ -351,34 +367,42 @@
                         \f
                         ~
                         c'4.
+                        :32
                         \mp
                         c'8
                         ~
                         c'2..
+                        :32
                         \f
                         ~
                         c'2
+                        :32
                         \mf
                         ~
                         c'4
                         \ff
                         c'8
+                        :64
                         ~
                         c'8
                         c'4
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'8
                         \pp
                         ~
                         c'2.
+                        :32
                         \mp
                         c'4
+                        :32
                         c'8
                         ~
                         c'4.
+                        :32
                         \p
                         ~
                         c'4
@@ -387,6 +411,7 @@
                         \mf
                         ~
                         c'2.
+                        :32
                         \p
                         c'4
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
@@ -412,31 +437,38 @@
                         \ppp
                         ~
                         c'8
+                        :64
                         \mf
                         c'4
+                        :32
                         ~
                         c'4.
                         ~
                         c'4.
+                        :32
                         \mp
                         ~
                         c'8
                         \mf
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'4
                         c'8
                         ~
                         c'4.
+                        :32
                         ~
                         c'4.
+                        :32
                         \mp
                         ~
                         c'4
                         ~
                         c'4
+                        :32
                         \p
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
@@ -445,6 +477,7 @@
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        :64
                         ~
                         ]
                         c'2.
@@ -458,18 +491,22 @@
                         ~
                         \boxed-markup "Air" 1
                         c'2.
+                        :32
                         \ppp
                         c'2..
+                        :32
                         \mf
                         ~
                         c'8
                         \p
                         c'2.
+                        :32
                         \f
                         ~
                         c'4.
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'4
@@ -477,8 +514,10 @@
                         c'8
                         ~
                         c'2.
+                        :32
                         ~
                         c'4.
+                        :32
                         \p
                         ~
                         c'8
@@ -630,6 +669,7 @@
                         \staff-line-count 1
                         \clef "percussion"
                         c'2.
+                        :32
                         \p
                         ~
                         \boxed-markup "Air" 1
@@ -637,22 +677,27 @@
                         \f
                         ~
                         c'8
+                        :64
                         \mp
                         c'4
                         c'8
                         ~
                         c'2..
+                        :32
                         \f
                         ~
                         c'2
+                        :32
                         \mf
                         c'4
                         \ff
                         c'8
+                        :64
                         ~
                         c'4.
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'8
@@ -661,17 +706,21 @@
                         c'2.
                         \mp
                         c'4.
+                        :32
                         ~
                         c'4.
+                        :32
                         \p
                         ~
                         c'4
                         ~
                         c'4
+                        :32
                         \mf
                         c'4
                         \p
                         c'4
+                        :32
                         c'2
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         \once \override MultiMeasureRest.transparent = ##t
@@ -696,24 +745,29 @@
                         \ppp
                         ~
                         c'4.
+                        :32
                         \mf
                         c'4.
                         ~
                         c'4.
+                        :32
                         \mp
                         ~
                         c'8
                         \mf
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'4
+                        :32
                         c'8
                         ~
                         c'4.
                         ~
                         c'4.
+                        :32
                         \mp
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
@@ -721,12 +775,14 @@
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        :64
                         ~
                         ]
                         c'4
                         \p
                         ~
                         c'1
+                        :32
                         \mf
                         \override TupletNumber.text = \markup \scale #'(0.75 . 0.75) \score
                             {
@@ -919,6 +975,7 @@
                         \staff-line-count 1
                         \clef "percussion"
                         c'2
+                        :32
                         \mp
                         ~
                         \boxed-markup "Air" 1
@@ -927,18 +984,22 @@
                         ~
                         c'8
                         c'4
+                        :32
                         ~
                         c'2..
                         \mf
                         ~
                         c'8
+                        :64
                         \p
                         ~
                         c'4.
                         \f
                         ~
                         c'8
+                        :64
                         c'4
+                        :32
                         ~
                         c'4.
                         ~
@@ -946,10 +1007,12 @@
                         \pp
                         ~
                         c'2.
+                        :32
                         \mp
                         c'4.
                         ~
                         c'4.
+                        :32
                         \p
                         ~
                         c'8
@@ -983,9 +1046,11 @@
                         \staff-line-count 1
                         \clef "percussion"
                         c'4
+                        :32
                         \p
                         \boxed-markup "Air" 1
                         c'8
+                        :64
                         ~
                         c'4.
                         ~
@@ -993,44 +1058,54 @@
                         \f
                         ~
                         c'8
+                        :64
                         \mp
                         c'4
                         c'8
+                        :64
                         ~
                         c'2..
                         \f
                         ~
                         c'2
+                        :32
                         \mf
                         ~
                         c'4
+                        :32
                         \ff
                         c'8
                         ~
                         c'4.
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'8
                         \pp
                         ~
                         c'4
+                        :32
                         \mp
                         c'8
                         ~
                         c'8
+                        :64
                         c'4
+                        :32
                         c'4.
                         ~
                         c'4.
                         \p
                         ~
                         c'4
+                        :32
                         ~
                         c'4
                         \mf
                         c'1
+                        :32
                         \p
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         \once \override MultiMeasureRest.transparent = ##t
@@ -1048,18 +1123,22 @@
                     \markup { tb. }
                     \clef "percussion"
                     c'2..
+                    :32
                     \mp
                     \fermata
                     ~
                     \boxed-markup "Air" 1
                     c'2
+                    :32
                     \ppp
                     ~
                     c'8
                     \mf
                     c'4
+                    :32
                     ~
                     c'4.
+                    :32
                     ~
                     c'4.
                     \mp
@@ -1070,17 +1149,21 @@
                     \pp
                     ~
                     c'4.
+                    :32
                     ~
                     c'4.
+                    :32
                     \mp
                     ~
                     c'4
                     ~
                     c'4
+                    :32
                     \p
                     ~
                     \override Staff.Stem.stemlet-length = 0.75
                     c'8
+                    :64
                     \mf
                     [
                     \revert Staff.Stem.stemlet-length
@@ -1098,15 +1181,19 @@
                     ~
                     \boxed-markup "Air" 1
                     c'4.
+                    :32
                     \ppp
                     ~
                     c'8
+                    :64
                     c'4
                     ~
                     c'2..
+                    :32
                     \mf
                     ~
                     c'8
+                    :64
                     \p
                     ~
                     c'4.
@@ -1116,15 +1203,19 @@
                     c'4
                     ~
                     c'4.
+                    :32
                     ~
                     c'4.
+                    :32
                     \pp
                     ~
                     c'2.
                     \mp
                     c'4.
+                    :32
                     ~
                     c'4.
+                    :32
                     \p
                     ~
                     c'8
@@ -1142,17 +1233,21 @@
                     \f
                     ~
                     c'4
+                    :32
                     ~
                     \override Staff.Stem.stemlet-length = 0.75
                     c'8
+                    :64
                     [
                     \revert Staff.Stem.stemlet-length
                     c'8
                     ~
                     ]
                     c'8
+                    :64
                     \mp
                     c'4.
+                    :32
                     ~
                     c'2..
                     \f
@@ -1163,15 +1258,19 @@
                     \ff
                     ~
                     c'4.
+                    :32
                     \pp
                     ~
                     c'8
+                    :64
                     \pp
                     c'4
                     \mp
                     c'8
+                    :64
                     ~
                     c'8
+                    :64
                     c'4
                     ~
                     c'4.
@@ -1180,12 +1279,15 @@
                     \p
                     ~
                     c'4
+                    :32
                     c'4
+                    :32
                     \mf
                     ~
                     c'2.
                     \p
                     c'4
+                    :32
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                     \once \override MultiMeasureRest.transparent = ##t
                     R1 * 1/4
@@ -1978,19 +2080,23 @@
                         \ppp
                         ~
                         c'2.
+                        :32
                         \mf
                         ~
                         c'8
                         \mp
                         c'4
+                        :32
                         ~
                         c'8
+                        :64
                         \mf
                         ~
                         c'2.
                         \pp
                         ~
                         c'4.
+                        :32
                         ~
                         c'4
                         \mp
@@ -1999,6 +2105,7 @@
                         c'4
                         ~
                         c'4
+                        :32
                         \p
                         ~
                         c'1
@@ -2009,10 +2116,12 @@
                         \staff-line-count 1
                         \clef "percussion"
                         c'2
+                        :32
                         \mp
                         ~
                         \boxed-markup "Directly on bridge" 1
                         c'2.
+                        :32
                         \ppp
                         ~
                         c'4.
@@ -2020,6 +2129,7 @@
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
                         c'8
+                        :64
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
@@ -2031,18 +2141,22 @@
                         \p
                         ~
                         c'2.
+                        :32
                         \f
                         ~
                         c'4.
                         ~
                         c'8
+                        :64
                         \pp
                         c'4
+                        :32
                         ~
                         c'2.
                         \mp
                         ~
                         c'4.
+                        :32
                         ~
                         c'4.
                         \p
@@ -2099,17 +2213,21 @@
                         ~
                         \boxed-markup "NB, Directly on bridge" 1
                         c'2..
+                        :32
                         \f
                         ~
                         c'8
                         \mp
                         c'4.
+                        :32
                         ~
                         c'2..
+                        :32
                         \f
                         c'4
                         \mf
                         c'4
+                        :32
                         c'2.
                         \ff
                         ~
@@ -2119,16 +2237,20 @@
                         c'8
                         \pp
                         c'2.
+                        :32
                         \mp
                         ~
                         c'4
                         c'8
+                        :64
                         ~
                         c'4.
+                        :32
                         \p
                         c'4
                         ~
                         c'4
+                        :32
                         \mf
                         c'2
                         \p
@@ -2157,19 +2279,23 @@
                         \ppp
                         ~
                         c'4.
+                        :32
                         \mf
                         c'4.
+                        :32
                         ~
                         c'4.
                         \mp
                         ~
                         c'8
+                        :64
                         \mf
                         ~
                         c'2.
                         \pp
                         ~
                         c'8
+                        :64
                         c'4
                         ~
                         c'4.
@@ -2178,10 +2304,12 @@
                         c'4
                         ~
                         c'4
+                        :32
                         \p
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
                         c'8
+                        :64
                         \mf
                         [
                         \revert Staff.Stem.stemlet-length
@@ -2189,6 +2317,7 @@
                         ~
                         ]
                         c'2.
+                        :32
                         s1 * 1/4
                         s1 * 1
                         s1 * 5/8
@@ -2199,6 +2328,7 @@
                         ~
                         \boxed-markup "Directly on bridge" 1
                         c'2.
+                        :32
                         \ppp
                         ~
                         c'4.
@@ -2212,18 +2342,22 @@
                         ~
                         ]
                         c'4
+                        :32
                         ~
                         c'8
+                        :64
                         \p
                         ~
                         c'2.
                         \f
                         ~
                         c'4.
+                        :32
                         ~
                         c'4.
                         \pp
                         c'2.
+                        :32
                         \mp
                         ~
                         c'4.
@@ -2267,19 +2401,23 @@
                         \staff-line-count 1
                         \clef "percussion"
                         c'2.
+                        :32
                         \p
                         ~
                         \boxed-markup "Directly on bridge" 1
                         c'2..
+                        :32
                         \f
                         ~
                         c'8
                         \mp
                         c'4.
+                        :32
                         ~
                         c'2..
                         \f
                         c'4
+                        :32
                         \mf
                         c'4
                         c'2.
@@ -2289,16 +2427,20 @@
                         \pp
                         ~
                         c'8
+                        :64
                         \pp
                         c'2.
+                        :32
                         \mp
                         ~
                         c'4
                         c'8
+                        :64
                         ~
                         c'4.
                         \p
                         c'4
+                        :32
                         ~
                         c'4
                         \mf
@@ -2306,6 +2448,7 @@
                         \p
                         c'4
                         c'4
+                        :32
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         \once \override MultiMeasureRest.transparent = ##t
                         R1 * 1/4
@@ -2329,18 +2472,22 @@
                         \ppp
                         ~
                         c'4.
+                        :32
                         \mf
                         c'4.
                         ~
                         c'4.
+                        :32
                         \mp
                         ~
                         c'8
                         \mf
                         ~
                         c'4.
+                        :32
                         \pp
                         c'2.
+                        :32
                         ~
                         c'4
                         \mp
@@ -2349,6 +2496,7 @@
                         c'4
                         ~
                         c'4
+                        :32
                         \p
                         ~
                         c'1
@@ -2359,6 +2507,7 @@
                         \staff-line-count 1
                         \clef "percussion"
                         c'2
+                        :32
                         \mp
                         ~
                         \boxed-markup "Directly on bridge" 1
@@ -2366,9 +2515,11 @@
                         \ppp
                         ~
                         c'4.
+                        :32
                         \mf
                         ~
                         c'4
+                        :32
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
                         c'8
@@ -2381,18 +2532,22 @@
                         \p
                         ~
                         c'2.
+                        :32
                         \f
                         ~
                         c'4.
                         ~
                         c'4.
+                        :32
                         \pp
                         ~
                         c'4
                         \mp
                         c'8
+                        :64
                         ~
                         c'2.
+                        :32
                         ~
                         c'4.
                         \p
@@ -2437,6 +2592,7 @@
                         ~
                         \boxed-markup "Directly on bridge" 1
                         c'4.
+                        :32
                         \f
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
@@ -2444,6 +2600,7 @@
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        :64
                         ~
                         ]
                         \override Staff.Stem.stemlet-length = 0.75
@@ -2451,9 +2608,11 @@
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        :64
                         ~
                         ]
                         c'8
+                        :64
                         \mp
                         c'4.
                         ~
@@ -2463,16 +2622,20 @@
                         \mf
                         ~
                         c'4.
+                        :32
                         \ff
                         ~
                         c'8
                         c'4
+                        :32
                         ~
                         c'4
                         \pp
                         c'8
+                        :64
                         ~
                         c'8
+                        :64
                         \pp
                         ~
                         c'4
@@ -2481,17 +2644,21 @@
                         ~
                         c'4.
                         c'4
+                        :32
                         c'8
                         ~
                         c'4.
+                        :32
                         \p
                         ~
                         c'4
                         ~
                         c'4
+                        :32
                         \mf
                         ~
                         c'4
+                        :32
                         \p
                         c'2.
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff

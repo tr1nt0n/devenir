@@ -87,11 +87,14 @@
                         \boxed-markup "Air" 1
                         c'8
                         c'4
+                        :32
                         ~
                         c'4.
                         ~
                         c'4
+                        :32
                         c'4
+                        :32
                         s1 * 1
                     }
                 }
@@ -123,15 +126,19 @@
                         \boxed-markup "Air" 1
                         c'8
                         c'4
+                        :32
                         ~
                         c'4.
                         ~
                         c'4
+                        :32
                         c'8
                         ~
                         c'4
+                        :32
                         ~
                         c'4
+                        :32
                         s1 * 1
                     }
                 }
@@ -334,14 +341,18 @@
                         \staff-line-count 1
                         \clef "percussion"
                         c'2.
+                        :32
                         \pp
                         \boxed-markup "Air" 1
                         c'4.
+                        :32
                         ~
                         c'8
                         c'4
+                        :32
                         ~
                         c'4
+                        :32
                         ~
                         c'4
                         s1 * 1
@@ -1308,15 +1319,19 @@
                         \boxed-markup "Directly on bridge" 1
                         c'8
                         c'4
+                        :32
                         ~
                         c'4.
                         ~
                         c'4
+                        :32
                         c'8
+                        :64
                         ~
                         c'4
                         ~
                         c'4
+                        :32
                         s1 * 1
                     }
                 }
@@ -1389,16 +1404,19 @@
                         \boxed-markup "Directly on bridge" 1
                         c'4
                         c'8
+                        :64
                         ~
                         c'4.
                         ~
                         c'4
+                        :32
                         ~
                         \override Staff.Stem.stemlet-length = 0.75
                         c'8
                         [
                         \revert Staff.Stem.stemlet-length
                         c'8
+                        :64
                         ]
                         s1 * 1
                     }

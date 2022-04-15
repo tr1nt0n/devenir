@@ -886,6 +886,63 @@ abjad.attach(
     abjad.select.leaf(score["mezzo-soprano voice"], -1),
 )
 
+for voice_name, selector in zip(
+    [
+        "flute voice",
+        "bass flute voice",
+        "English horn voice",
+        "tuba voice",
+        "violin voice",
+        "cello 1 voice",
+        "cello 2 voice",
+    ],
+    [
+        trinton.patterned_leaf_index_selector([2, 4, 5, 7], 8),
+        trinton.patterned_leaf_index_selector([2, 3, 5, 7], 8),
+        trinton.patterned_leaf_index_selector([2, 4, 6, 7], 8),
+        trinton.patterned_leaf_index_selector([1, 3, 4, 8], 8),
+        trinton.patterned_leaf_index_selector([2, 4, 5, 7], 9),
+        trinton.patterned_leaf_index_selector([2, 3, 5, 7], 9),
+        trinton.patterned_leaf_index_selector([2, 4, 6, 7], 9),
+    ],
+):
+    library.patterned_tremolo(
+        voice=score[voice_name],
+        measures=[
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+        ],
+        selector=selector,
+    )
+
 # cosmetics
 
 # trinton.annotate_leaves(score)
