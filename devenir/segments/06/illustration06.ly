@@ -42,6 +42,7 @@
             \once \override Rest.transparent = ##t
             r1 * 1/8
             - \markup \huge { \musicglyph "scripts.ufermata" }
+            \break
         }
         \context StaffGroup = "Staff Group"
         <<

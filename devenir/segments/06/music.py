@@ -483,8 +483,15 @@ abjad.attach(abjad.StartHairpin("|>"), leaf1)
 
 abjad.attach(abjad.Dynamic("pp"), leaf2)
 
-
 # cosmetics
+
+trinton.attach(
+    voice=score["Global Context"],
+    leaves=[
+        -1,
+    ],
+    attachment=abjad.LilyPondLiteral(r"\break", "absolute_after"),
+)
 
 # trinton.annotate_leaves(score)
 
