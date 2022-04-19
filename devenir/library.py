@@ -1213,7 +1213,7 @@ def circle_attachments(voice, measures):
     grouped_measures = trinton.group_leaves_by_measure(voice=voice)
     for measure in measures:
         current_measure = grouped_measures[measure - 1]
-        ties = abjad.select.logical_ties(current_measure)
+        ties = abjad.select.logical_ties(current_measure, pitched=True)
         for tie in ties:
             abjad.attach(
                 abjad.LilyPondLiteral(r"- \baca-circle-markup", "after"), tie[0]

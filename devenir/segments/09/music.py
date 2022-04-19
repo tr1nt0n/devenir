@@ -60,29 +60,6 @@ trinton.attach(
     attachment=abjad.MetronomeMark((3, 8), 54),
 )
 
-trinton.populate_fermata_measures(
-    score=score,
-    voices=library.all_voices_include_ts_context,
-    leaves=[],
-    fermata_measures=[
-        9,
-    ],
-)
-
-trinton.attach_multiple(
-    score=score,
-    voice="Global Context",
-    leaves=[
-        10,
-    ],
-    attachments=[
-        abjad.Markup(r'\markup \huge { \musicglyph "scripts.ufermata" }'),
-        abjad.Markup(
-            r'\markup { \center-align \abs-fontsize #8.5 { \upright "37\"" } }'
-        ),
-    ],
-)
-
 trinton.attach(
     voice=score["Global Context"],
     leaves=[0],
@@ -143,11 +120,11 @@ trinton.attach(
     attachment=abjad.BarLine(":|."),
 )
 
-# trinton.attach(
-#     voice=score["Global Context"],
-#     leaves=[-1],
-#     attachment=abjad.BarLine("|.")
-# )
+trinton.attach(
+    voice=score["Global Context"],
+    leaves=[-1],
+    attachment=abjad.BarLine("|.")
+)
 
 # cello rhythms
 
@@ -178,6 +155,24 @@ for voice_name, index in zip(
         index=index + 1,
     )
 
+for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
+    library.block_rhythms(
+        voice=score[voice_name],
+        measures=list(range(22, 38)),
+        rewrite_meter=-2,
+        preprocessor=trinton.fuse_eighths_preprocessor(
+            (
+                5,
+                6,
+                4,
+                7,
+                3,
+                6,
+                2,
+            )
+        ),
+    )
+
 # cello pitching and attachments
 
 for voice_name, index in zip(
@@ -196,7 +191,9 @@ for voice_name, index in zip(
         stage=1,
     )
 
-    # abjad.attach(abjad.Clef("bass"), abjad.select.leaf(score[voice_name], 0))
+    measures = trinton.group_leaves_by_measure(score[voice_name])
+
+    abjad.attach(abjad.Clef("treble"), abjad.select.leaf(measures[21], 0))
 
     for measure in [
         2,
@@ -230,14 +227,23 @@ for voice_name, index in zip(
         ],
     )
 
-    measures = trinton.group_leaves_by_measure(score[voice_name])
-
-    abjad.attach(
-        abjad.Markup(
-            r'\markup \center-column { \italic "After 15\"" \upright "\"Ama\"" }'
-        ),
-        abjad.select.leaf(measures[9], 0),
+for voice_name in ["violin voice", "cello 1 voice", "cello 2 voice"]:
+    library.pitch_spectral_strings(
+        score=score, voice_name=voice_name, measures=list(range(22, 38))
     )
+
+    library.spectral_strings_attachments(
+        voice=score[voice_name], measures=list(range(22, 37)), index=0
+    )
+
+    abjad.attach(abjad.Dynamic("mf"), abjad.select.leaf(score[voice_name], -1))
+
+violin_measures = trinton.group_leaves_by_measure(score["violin voice"])
+
+abjad.attach(
+    abjad.LilyPondLiteral(r'\boxed-markup "NB" 1', "after"),
+    abjad.select.leaf(violin_measures[21], 0),
+)
 
 # percussion rhythms
 
@@ -289,6 +295,21 @@ library.percussion_tremoli(
     ),
 )
 
+library.percussion_tremoli(
+    voice=score["percussion voice"],
+    measures=list(range(22, 38)),
+    rewrite_meter=-2,
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            2,
+            1,
+            2,
+            3,
+            1,
+        )
+    ),
+)
+
 trinton.fuse_tuplet_rests(score["percussion voice"])
 
 # percussion pitching and attachments
@@ -310,6 +331,15 @@ for measure in [
     3,
 ]:
     library.pitch_whistle(voice=score["percussion voice"], measures=[measure], index=4)
+
+library.pitch_percussion(
+    voice=score["percussion voice"],
+    measures=list(range(22, 38)),
+    pitch_list=[
+        2,
+        1,
+    ],
+)
 
 library.whistle_attachments(
     voice=score["percussion voice"],
@@ -340,9 +370,39 @@ trinton.attach(
 trinton.attach(
     voice=score["percussion voice"],
     leaves=[
+        77,
+    ],
+    attachment=abjad.LilyPondLiteral(
+        r'\boxed-markup "Brake drum, with stones" 1', "after"
+    ),
+)
+
+trinton.attach(
+    voice=score["percussion voice"],
+    leaves=[
+        76,
+    ],
+    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Stone, with stones" 1', "after"),
+)
+
+trinton.attach(
+    voice=score["percussion voice"],
+    leaves=[
         13,
     ],
     attachment=abjad.LilyPondLiteral(r'\boxed-markup "Samba whistle" 1', "after"),
+)
+
+trinton.attach(
+    voice=score["percussion voice"],
+    leaves=[
+        76,
+    ],
+    attachment=abjad.Dynamic("mp"),
+)
+
+library.circle_attachments(
+    voice=score["percussion voice"], measures=list(range(22, 38))
 )
 
 # english horn rhythms
@@ -385,6 +445,23 @@ library.english_horn_warble(
     preprocessor=trinton.fuse_eighths_preprocessor((2,)),
 )
 
+library.english_horn_gliss(
+    voice=score["English horn voice"],
+    measures=list(range(16, 38)),
+    rewrite_meter=-2,
+    preprocessor=trinton.fuse_eighths_preprocessor(
+        (
+            5,
+            6,
+            4,
+            7,
+            3,
+            6,
+            2,
+        )
+    ),
+)
+
 # english horn pitching and attachments
 
 library.pitch_english_horn_warble(
@@ -407,6 +484,10 @@ library.english_horn_warble_attachments(
     voice=score["English horn voice"], measures=[1, 4]
 )
 
+library.pitch_english_horn_gliss(
+    voice=score["English horn voice"], measures=list(range(16, 38))
+)
+
 english_horn_measures = trinton.group_leaves_by_measure(score["English horn voice"])
 
 for measure in [
@@ -418,9 +499,24 @@ for measure in [
         trill=True,
     )
 
+library.english_horn_gliss_attachments(
+    selections=abjad.select.leaves(english_horn_measures[15:], pitched=True),
+)
+
+trinton.attach_multiple(
+    score=score,
+    voice="English horn voice",
+    leaves=[35],
+    attachments=[abjad.Dynamic("f"), abjad.StartHairpin("--")],
+)
+
+trinton.attach(
+    voice=score["English horn voice"], leaves=[-1], attachment=abjad.StopHairpin()
+)
+
 # flute rhythms
 
-for voice_name, index, groupings in zip(
+for voice_name, index, groupings, pitch_list in zip(
     ["flute voice", "bass flute voice"],
     [
         0,
@@ -437,6 +533,28 @@ for voice_name, index, groupings in zip(
             5,
             3,
         ),
+    ],
+    [
+        [
+            0,
+            0.5,
+            0,
+            1,
+            0.5,
+            1,
+            0,
+            0.5,
+        ],
+        [
+            12,
+            11.5,
+            12.5,
+            12,
+            12.5,
+            12,
+            12.5,
+            12,
+        ],
     ],
 ):
     for measure in [1, 2, 3, 4]:
@@ -472,6 +590,45 @@ for voice_name, index, groupings in zip(
         division=4,
         rewrite_meter=-2,
         preprocessor=trinton.fuse_eighths_preprocessor(groupings),
+    )
+
+    library.block_rhythms(
+        voice=score[voice_name],
+        measures=list(range(11, 38)),
+        preprocessor=trinton.fuse_eighths_preprocessor(
+            (
+                2,
+                7,
+            )
+        ),
+    )
+
+    trinton.pitch_by_hand(
+        voice=score[voice_name], measures=list(range(11, 38)), pitch_list=pitch_list
+    )
+
+    library.noteheads_only(voice=score[voice_name], measures=list(range(11, 38)))
+
+    library.harmonic_graces(
+        voice=score[voice_name],
+        gesture_lengths=[
+            5,
+        ],
+        measures=[
+            14,
+            17,
+            21,
+            24,
+            28,
+            31,
+            35,
+        ],
+        selector=trinton.patterned_leaf_index_selector(
+            [
+                0,
+            ],
+            8,
+        ),
     )
 
 # flute pitching and attachments
@@ -542,6 +699,44 @@ for voice_name, pitch_list, index in zip(
         transpose=-2,
     )
 
+    library.pitch_flute_graces(voice=score[voice_name], measures=list(range(11, 38)))
+
+    for measures in [
+        [
+            11,
+            12,
+        ],
+        [
+            14,
+            15,
+        ],
+        [
+            17,
+            18,
+            19,
+        ],
+        [
+            21,
+            22,
+        ],
+        [
+            24,
+            25,
+            26,
+        ],
+        [28, 29],
+        [
+            31,
+            32,
+            33,
+        ],
+        [
+            35,
+            36,
+        ],
+    ]:
+        library.flute_glissandi(voice=score[voice_name], measures=measures)
+
 trinton.write_slur(
     voice=score["flute voice"],
     start_slur=[
@@ -588,6 +783,36 @@ for voice_name, leaf in zip(
         direction=abjad.DOWN,
     )
 
+trinton.attach(
+    voice=score["flute voice"],
+    leaves=[
+        110,
+        127,
+        144,
+        163,
+        180,
+        198,
+        216,
+        235,
+    ],
+    attachment=abjad.Dynamic("p"),
+)
+
+trinton.attach(
+    voice=score["bass flute voice"],
+    leaves=[
+        106,
+        123,
+        140,
+        159,
+        176,
+        195,
+        212,
+        231,
+    ],
+    attachment=abjad.Dynamic("p"),
+)
+
 # tuba rhythms
 
 for measure in [
@@ -624,9 +849,34 @@ library.tuba_swells(
     ),
 )
 
-abjad.override(
-    abjad.select.tuplet(score["tuba voice"], 3)
-).TupletNumber.text = r"\markup \italic { 6:5 }"
+library.tuba_swells(
+    voice=score["tuba voice"],
+    measures=list(
+        range(
+            33,
+            38,
+        )
+    ),
+    rewrite_meter=-2,
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            2,
+            5,
+            4,
+            1,
+            2,
+        )
+    ),
+)
+
+for n in [
+    3,
+    6,
+    11,
+]:
+    abjad.override(
+        abjad.select.tuplet(score["tuba voice"], n)
+    ).TupletNumber.text = r"\markup \italic { 6:5 }"
 
 # tuba pitching and attachments
 
@@ -647,11 +897,18 @@ tuba_measures = trinton.group_leaves_by_measure(score["tuba voice"])
 
 library.tuba_swells_attachments(abjad.select.leaves(tuba_measures[7:9], pitched=True))
 
+library.tuba_swells_attachments(abjad.select.leaves(tuba_measures[32:], pitched=True))
+
 library.pitch_tuba_swells(
     voice=score["tuba voice"],
     measures=[
         8,
         9,
+        33,
+        34,
+        35,
+        36,
+        37,
     ],
 )
 
@@ -669,6 +926,9 @@ trinton.attach(
     voice=score["tuba voice"],
     leaves=[
         28,
+        68,
+        72,
+        80,
     ],
     attachment=abjad.Dynamic("mp"),
 )
@@ -677,8 +937,18 @@ trinton.attach(
     voice=score["tuba voice"],
     leaves=[
         32,
+        60,
     ],
     attachment=abjad.Dynamic("p"),
+)
+
+trinton.attach(
+    voice=score["tuba voice"],
+    leaves=[
+        64,
+        76,
+    ],
+    attachment=abjad.Dynamic("mf"),
 )
 
 # mezzo and violin rhythms
@@ -741,6 +1011,19 @@ library.whistle_rhythms(
     ],
     rewrite_meter=-1,
     index=3,
+)
+
+library.english_horn_gliss(
+    voice=score["mezzo-soprano voice"],
+    measures=list(range(33, 38)),
+    rewrite_meter=-2,
+    preprocessor=trinton.fuse_quarters_preprocessor(
+        (
+            1,
+            3,
+            2,
+        )
+    ),
 )
 
 trinton.fuse_tuplet_rests(score["mezzo-soprano voice"])
@@ -956,6 +1239,8 @@ trinton.attach(
     ),
 )
 
+library.mezzo_fff_attachments(abjad.select.leaves(mezzo_measures[32:], pitched=True))
+
 # all voices
 
 for voice_name in library.all_voices:
@@ -969,6 +1254,39 @@ for voice_name in library.all_voices:
         )
     else:
         abjad.attach(abjad.Dynamic("fffff"), abjad.select.leaf(score[voice_name], 0))
+
+trinton.populate_fermata_measures(
+    score=score,
+    voices=library.all_voices_include_ts_context,
+    leaves=[],
+    fermata_measures=[
+        9,
+    ],
+)
+
+trinton.attach_multiple(
+    score=score,
+    voice="Global Context",
+    leaves=[
+        10,
+    ],
+    attachments=[
+        abjad.Markup(r'\markup \huge { \musicglyph "scripts.ufermata" }'),
+        abjad.Markup(
+            r'\markup { \center-align \abs-fontsize #8.5 { \upright "37\"" } }'
+        ),
+    ],
+)
+
+for voice_name in ["cello 1 voice", "cello 2 voice"]:
+    measures = trinton.group_leaves_by_measure(score[voice_name])
+
+    abjad.attach(
+        abjad.Markup(
+            r'\markup \center-column { \italic "After 15\"" \upright "\"Ama\"" }'
+        ),
+        abjad.select.leaf(measures[9], 0),
+    )
 
 # cosmetics
 

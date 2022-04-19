@@ -91,6 +91,7 @@
             s1 * 9/8
             \time 9/8
             s1 * 9/8
+            \bar "|."
             \once \override Score.BarLine.transparent = ##f
         }
         \context StaffGroup = "Staff Group"
@@ -405,33 +406,645 @@
                         \once \override MultiMeasureRest.transparent = ##t
                         R1 * 1/4
                         \stopStaff \startStaff
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cs'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cs'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            ef''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            bf''16
+                            s8..
+                            \tweak style #'harmonic
+                            ef'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            s8..
+                            \tweak style #'harmonic
+                            bf'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            ef''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            bf''16
+                            s8..
+                            \tweak style #'harmonic
+                            ef'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            s8..
+                            \tweak style #'harmonic
+                            bf'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cs'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            \p
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cs'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            ef''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            bf''16
+                            s8..
+                            \tweak style #'harmonic
+                            ef'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            s8..
+                            \tweak style #'harmonic
+                            bf'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c'4
+                        s1 * 7/8
                     }
                 }
                 \context Staff = "bass flute staff"
@@ -730,33 +1343,645 @@
                         \once \override MultiMeasureRest.transparent = ##t
                         R1 * 1/4
                         \stopStaff \startStaff
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        bqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs''4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            ef''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            bf''16
+                            s8..
+                            \tweak style #'harmonic
+                            ef'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            s8..
+                            \tweak style #'harmonic
+                            bf'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs''4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        bqs'4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs''4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs''4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            ef''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            bf''16
+                            s8..
+                            \tweak style #'harmonic
+                            ef'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            s8..
+                            \tweak style #'harmonic
+                            bf'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        bqs'4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            ef''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            bf''16
+                            s8..
+                            \tweak style #'harmonic
+                            ef'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            s8..
+                            \tweak style #'harmonic
+                            bf'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs''4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        c''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cqs''4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        s1 * 7/8
+                        \scaleDurations #'(1 . 1) {
+                        \slashedGrace {
+                            \slash
+                            \override Stem.direction = #UP
+                            \override Staff.Stem.stemlet-length = 0
+                            \tweak style #'harmonic
+                            c''16
+                            \fff
+                            [
+                            \(
+                            s8..
+                            \tweak style #'harmonic
+                            g''16
+                            s8..
+                            \tweak style #'harmonic
+                            c'''16
+                            s8..
+                            \tweak style #'harmonic
+                            e'''16
+                            s8..
+                            \tweak style #'harmonic
+                            g'''16
+                            \)
+                            \revert Stem.direction
+                            s8..
+                            \revert Staff.Stem.stemlet-length
+                            s2
+                            ]
+                        }
+                        }
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        c''4
+                        \p
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        bqs'4
+                        \glissando
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        s1 * 7/8
+                        \once \override Beam.transparent = ##t
+                        \once \override Dots.transparent = ##t
+                        \once \override Flag.transparent = ##t
+                        \once \override Stem.transparent = ##t
+                        cqs''4
+                        s1 * 7/8
                     }
                 }
                 \context Staff = "English horn staff"
@@ -1026,28 +2251,415 @@
                         s1 * 9/8
                         s1 * 9/8
                         s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 5/8
+                        {
+                            c'''2..
+                            \f
+                            - \tweak stencil #constante-hairpin
+                            \<
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            d'''8
+                            \)
+                        }
+                        r8
+                        r4.
+                        r4
+                        c'''8
+                        ~
+                        \glissando
+                        \(
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        c'''4
+                        ~
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'''16
+                        [
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        d'''16
+                        \)
+                        ]
+                        r4.
+                        r4.
+                        r8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            aqs''4..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            bqs''16
+                            \)
+                        }
+                        r4
+                        r4.
+                        r8
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cqs'''8..
+                        \glissando
+                        \(
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        cs'''32
+                        \)
+                        ]
+                        r4.
+                        r4
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            a''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            b''8
+                            \)
+                        }
+                        r8
+                        r4.
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 7/8
+                        {
+                            d'''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            eqs'''8
+                            \)
+                        }
+                        r4.
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            g''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            a''8
+                            \)
+                        }
+                        r4
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 5/8
+                        {
+                            c'''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            d'''8
+                            \)
+                        }
+                        r8
+                        r4.
+                        r4
+                        c'''8
+                        ~
+                        \glissando
+                        \(
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        c'''4
+                        ~
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'''16
+                        [
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        d'''16
+                        \)
+                        ]
+                        r2.
+                        r8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            aqs''4..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            bqs''16
+                            \)
+                        }
+                        r2.
+                        cqs'''8..
+                        \glissando
+                        \(
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        cs'''32
+                        \)
+                        r4.
+                        r4
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            a''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            b''8
+                            \)
+                        }
+                        r4.
+                        r8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 7/8
+                        {
+                            d'''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            eqs'''8
+                            \)
+                        }
+                        r4.
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            g''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            a''8
+                            \)
+                        }
+                        r4
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 5/8
+                        {
+                            c'''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            d'''8
+                            \)
+                        }
+                        r2.
+                        c'''8
+                        ~
+                        \glissando
+                        \(
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        c'''4
+                        ~
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'''16
+                        [
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        d'''16
+                        \)
+                        ]
+                        r2.
+                        r8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            aqs''4..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            bqs''16
+                            \)
+                        }
+                        r4
+                        r4.
+                        r8
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cqs'''8..
+                        \glissando
+                        \(
+                        [
+                        \hide NoteHead
+                        \override Accidental.stencil = ##f
+                        \override NoteColumn.glissando-skip = ##t
+                        \override NoteHead.no-ledgers = ##t
+                        \revert Accidental.stencil
+                        \revert NoteColumn.glissando-skip
+                        \revert NoteHead.no-ledgers
+                        \undo \hide NoteHead
+                        \revert Staff.Stem.stemlet-length
+                        cs'''32
+                        \)
+                        ]
+                        r4.
+                        r4
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            a''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            b''8
+                            \)
+                        }
+                        r4.
+                        r8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 7/8
+                        {
+                            d'''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            eqs'''8
+                            \)
+                        }
+                        r4
+                        r8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 6/8
+                        {
+                            g''2..
+                            \glissando
+                            \(
+                            \hide NoteHead
+                            \override Accidental.stencil = ##f
+                            \override NoteColumn.glissando-skip = ##t
+                            \override NoteHead.no-ledgers = ##t
+                            \revert Accidental.stencil
+                            \revert NoteColumn.glissando-skip
+                            \revert NoteHead.no-ledgers
+                            \undo \hide NoteHead
+                            a''8
+                            \)
+                        }
+                        r4
+                        \!
                     }
                 }
             >>
@@ -1265,11 +2877,107 @@
                     s1 * 9/8
                     s1 * 9/8
                     s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
+                    \times 2/3
+                    {
+                        r4
+                        <ef, bf,>4
+                        - \tweak circled-tip ##t
+                        \<
+                        ~
+                        <ef, bf,>4
+                        \p
+                        - \tweak circled-tip ##t
+                        \>
+                        ~
+                    }
+                    \override TupletNumber.text = \markup \italic { 6:5 }
+                    \times 15/18
+                    {
+                        <ef, bf,>2
+                        \!
+                        r2
+                        <b, fs>2
+                        - \tweak circled-tip ##t
+                        \<
+                        ~
+                    }
+                    \revert TupletNumber.text
+                    \times 2/3
+                    {
+                        <b, fs>2
+                        \mf
+                        - \tweak circled-tip ##t
+                        \>
+                        ~
+                        <b, fs>2
+                        \!
+                        r2
+                    }
+                    \times 2/3
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        <cs af>8
+                        - \tweak circled-tip ##t
+                        \<
+                        ~
+                        [
+                        <cs af>8
+                        \mp
+                        - \tweak circled-tip ##t
+                        \>
+                        ~
+                        \revert Staff.Stem.stemlet-length
+                        <cs af>8
+                        \!
+                        ]
+                    }
+                    \times 2/3
+                    {
+                        r4
+                        <f, c>4
+                        - \tweak circled-tip ##t
+                        \<
+                        ~
+                        <f, c>4
+                        \mp
+                        - \tweak circled-tip ##t
+                        \>
+                        ~
+                    }
+                    \times 2/3
+                    {
+                        <f, c>4
+                        \!
+                        r4
+                        <g, d>4
+                        - \tweak circled-tip ##t
+                        \<
+                        ~
+                    }
+                    \override TupletNumber.text = \markup \italic { 6:5 }
+                    \times 15/18
+                    {
+                        <g, d>2
+                        \mf
+                        - \tweak circled-tip ##t
+                        \>
+                        ~
+                        <g, d>2
+                        \!
+                        r2
+                    }
+                    \revert TupletNumber.text
+                    <ef, bf,>8
+                    - \tweak circled-tip ##t
+                    \<
+                    ~
+                    <ef, bf,>8
+                    \mp
+                    - \tweak circled-tip ##t
+                    \>
+                    ~
+                    <ef, bf,>8
+                    \!
                 }
             }
             \context Staff = "percussion staff"
@@ -1506,22 +3214,823 @@
                     s1 * 9/8
                     s1 * 9/8
                     s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        \mp
+                        [
+                        \boxed-markup "Stone, with stones" 1
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        \boxed-markup "Brake drum, with stones" 1
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r4.
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 12/13
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r4
+                    r4.
+                    r8
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 12/13
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r4.
+                    r8
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r4.
+                    r2.
+                    r8
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r2.
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r2.
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 12/13
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r4
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r2.
+                    r4
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 12/13
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r4
+                    \times 8/9
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    r4
+                    r4.
+                    r8
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 12/13
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        ]
+                        - \baca-circle-markup
+                    }
+                    \times 4/5
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        [
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        - \baca-circle-markup
+                        \tweak Accidental.transparent ##t
+                        a'16
+                        - \baca-circle-markup
+                        \revert Staff.Stem.stemlet-length
+                        \tweak Accidental.transparent ##t
+                        ef16
+                        ]
+                        - \baca-circle-markup
+                    }
                 }
             }
             \context Staff = "mezzo-soprano staff"
@@ -1772,11 +4281,129 @@
                     s1 * 9/8
                     s1 * 9/8
                     s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
-                    s1 * 9/8
+                    \textSpannerDown
+                    \override Staff.Stem.stemlet-length = 0.75
+                    c'8..
+                    - \tweak circled-tip ##t
+                    - \tweak stencil #abjad-flared-hairpin
+                    ^ \<
+                    \(
+                    [
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    \revert Staff.Stem.stemlet-length
+                    c'32
+                    ^ \ff
+                    \)
+                    ]
+                    r8
+                    \stopTextSpanOne
+                    r4.
+                    r4
+                    \textSpannerDown
+                    c'8
+                    - \tweak circled-tip ##t
+                    - \tweak stencil #abjad-flared-hairpin
+                    ^ \<
+                    ~
+                    \(
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    c'4
+                    ~
+                    \override Staff.Stem.stemlet-length = 0.75
+                    c'16
+                    [
+                    \revert Staff.Stem.stemlet-length
+                    c'16
+                    ^ \ff
+                    \)
+                    ]
+                    r4
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        c'2..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        c'8
+                        ^ \ff
+                        \)
+                    }
+                    r4.
+                    \stopTextSpanOne
+                    r8
+                    \textSpannerDown
+                    c'8..
+                    - \tweak circled-tip ##t
+                    - \tweak stencil #abjad-flared-hairpin
+                    ^ \<
+                    \(
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    c'32
+                    ^ \ff
+                    \)
+                    r8
+                    \stopTextSpanOne
+                    r4.
+                    r4
+                    \textSpannerDown
+                    c'8
+                    - \tweak circled-tip ##t
+                    - \tweak stencil #abjad-flared-hairpin
+                    ^ \<
+                    ~
+                    \(
+                    \tweak padding 7
+                    - \abjad-solid-line-with-up-hook
+                    - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                    \startTextSpanOne
+                    c'4
+                    ~
+                    \override Staff.Stem.stemlet-length = 0.75
+                    c'16
+                    [
+                    \revert Staff.Stem.stemlet-length
+                    c'16
+                    ^ \ff
+                    \)
+                    ]
+                    r4
+                    \stopTextSpanOne
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 6/8
+                    {
+                        \textSpannerDown
+                        c'2..
+                        - \tweak circled-tip ##t
+                        - \tweak stencil #abjad-flared-hairpin
+                        ^ \<
+                        \(
+                        \tweak padding 7
+                        - \abjad-solid-line-with-up-hook
+                        - \tweak bound-details.left.text \markup \concat { { \upright f } \hspace #0.5 }
+                        \startTextSpanOne
+                        c'8
+                        ^ \ff
+                        \)
+                    }
+                    r8
+                    \stopTextSpanOne
                 }
             }
             \context GrandStaff = "sub group 2"
@@ -1967,22 +4594,170 @@
                         s1 * 9/8
                         s1 * 9/8
                         s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
+                        bf''4.
+                        \f
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        \boxed-markup "NB" 1
+                        bf''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        bf''8
+                        \mf
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4.
+                        \!
+                        r4.
+                        r4.
+                        r8
+                        bf''4
+                        \f
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''8
+                        \!
+                        r4
+                        r4.
+                        r8
+                        bf''4
+                        \mf
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        r4.
+                        \!
+                        r4
+                        bf''8
+                        \mp
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4.
+                        ~
+                        bf''4
+                        \!
+                        r8
+                        r4.
+                        bf''2.
+                        \ff
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''8
+                        \!
+                        r4
+                        r8
+                        bf''4
+                        \f
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4.
+                        ~
+                        bf''8
+                        \!
+                        r4
+                        bf''4.
+                        \f
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        bf''8
+                        \mf
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4.
+                        \!
+                        r2.
+                        r8
+                        bf''4
+                        \pp
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''8
+                        \!
+                        r4
+                        r4.
+                        r8
+                        bf''4
+                        \pp
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        r4.
+                        \!
+                        r4
+                        bf''8
+                        \mp
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4.
+                        ~
+                        bf''4
+                        \!
+                        r8
+                        r4.
+                        bf''4.
+                        \f
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4.
+                        ~
+                        bf''8
+                        \!
+                        r4
+                        r8
+                        bf''4
+                        \f
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4.
+                        ~
+                        bf''8
+                        \!
+                        r4
+                        bf''4.
+                        \f
+                        ^ \markup \center-column { -31 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        bf''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        bf''8
+                        \mf
+                        ^ \markup \center-column { -31 }
                     }
                 }
                 \context Staff = "cello 1 staff"
@@ -2755,22 +5530,170 @@
                         s1 * 9/8
                         s1 * 9/8
                         s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
+                        \clef "treble"
+                        fs''4.
+                        \f
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        fs''8
+                        \mf
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4.
+                        \!
+                        r4.
+                        r4.
+                        r8
+                        fs''4
+                        \f
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''8
+                        \!
+                        r4
+                        r4.
+                        r8
+                        fs''4
+                        \mf
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        r4.
+                        \!
+                        r4
+                        fs''8
+                        \mp
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4.
+                        ~
+                        fs''4
+                        \!
+                        r8
+                        r4.
+                        fs''2.
+                        \ff
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''8
+                        \!
+                        r4
+                        r8
+                        fs''4
+                        \f
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4.
+                        ~
+                        fs''8
+                        \!
+                        r4
+                        fs''4.
+                        \f
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        fs''8
+                        \mf
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4.
+                        \!
+                        r2.
+                        r8
+                        fs''4
+                        \pp
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''8
+                        \!
+                        r4
+                        r4.
+                        r8
+                        fs''4
+                        \pp
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        r4.
+                        \!
+                        r4
+                        fs''8
+                        \mp
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4.
+                        ~
+                        fs''4
+                        \!
+                        r8
+                        r4.
+                        fs''4.
+                        \f
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4.
+                        ~
+                        fs''8
+                        \!
+                        r4
+                        r8
+                        fs''4
+                        \f
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4.
+                        ~
+                        fs''8
+                        \!
+                        r4
+                        fs''4.
+                        \f
+                        ^ \markup \center-column { -49 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        fs''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        fs''8
+                        \mf
+                        ^ \markup \center-column { -49 }
                     }
                 }
                 \context Staff = "cello 2 staff"
@@ -3569,22 +6492,170 @@
                         s1 * 9/8
                         s1 * 9/8
                         s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
-                        s1 * 9/8
+                        \clef "treble"
+                        e''4.
+                        \f
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        e''8
+                        \mf
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4.
+                        \!
+                        r4.
+                        r4.
+                        r8
+                        e''4
+                        \f
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''8
+                        \!
+                        r4
+                        r4.
+                        r8
+                        e''4
+                        \mf
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        r4.
+                        \!
+                        r4
+                        e''8
+                        \mp
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4.
+                        ~
+                        e''4
+                        \!
+                        r8
+                        r4.
+                        e''2.
+                        \ff
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''8
+                        \!
+                        r4
+                        r8
+                        e''4
+                        \f
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4.
+                        ~
+                        e''8
+                        \!
+                        r4
+                        e''4.
+                        \f
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        e''8
+                        \mf
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4.
+                        \!
+                        r2.
+                        r8
+                        e''4
+                        \pp
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''8
+                        \!
+                        r4
+                        r4.
+                        r8
+                        e''4
+                        \pp
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        r4.
+                        \!
+                        r4
+                        e''8
+                        \mp
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4.
+                        ~
+                        e''4
+                        \!
+                        r8
+                        r4.
+                        e''4.
+                        \f
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4.
+                        ~
+                        e''8
+                        \!
+                        r4
+                        r8
+                        e''4
+                        \f
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4.
+                        ~
+                        e''8
+                        \!
+                        r4
+                        e''4.
+                        \f
+                        ^ \markup \center-column { -14 }
+                        - \tweak stencil #constante-hairpin
+                        \<
+                        ~
+                        e''4
+                        \!
+                        r8
+                        r4.
+                        r4
+                        e''8
+                        \mf
+                        ^ \markup \center-column { -14 }
                     }
                 }
             >>
