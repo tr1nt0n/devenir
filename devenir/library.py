@@ -865,7 +865,9 @@ def pitch_mezzo(
         handler(selections)
 
 
-def pitch_flute_graces(voice, measures, selector=trinton.grace_selector()):
+def pitch_flute_graces(
+    voice, measures, selector=trinton.grace_selector(), dynamic=True
+):
     handler = evans.PitchHandler(
         [
             12,
@@ -907,8 +909,9 @@ def pitch_flute_graces(voice, measures, selector=trinton.grace_selector()):
 
         for group in grouped_pleaves:
             abjad.attach(abjad.StartPhrasingSlur(), group[0])
-            abjad.attach(abjad.Dynamic("fff"), group[0])
             abjad.attach(abjad.StopPhrasingSlur(), group[-1])
+            if dynamic is True:
+                abjad.attach(abjad.Dynamic("fff"), group[0])
 
 
 def pitch_english_horn_warble(voice, measures):

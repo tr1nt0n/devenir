@@ -51,7 +51,6 @@
 
         \override BarLine.hair-thickness = 0.5
         \override BarLine.transparent = ##t
-        \override BarLine.X-extent = #'(0 . 0)
         \override BarLine.thick-thickness = #8
 
         \override BarNumber.stencil = #(make-stencil-circler 0.1 0.75 ly:text-interface::print)
