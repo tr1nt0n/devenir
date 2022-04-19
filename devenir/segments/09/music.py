@@ -196,7 +196,7 @@ for voice_name, index in zip(
         stage=1,
     )
 
-    abjad.attach(abjad.Clef("bass"), abjad.select.leaf(score[voice_name], 0))
+    # abjad.attach(abjad.Clef("bass"), abjad.select.leaf(score[voice_name], 0))
 
     for measure in [
         2,
@@ -228,6 +228,15 @@ for voice_name, index in zip(
             2,
             3,
         ],
+    )
+
+    measures = trinton.group_leaves_by_measure(score[voice_name])
+
+    abjad.attach(
+        abjad.Markup(
+            r'\markup \center-column { \italic "After 15\"" \upright "\"Ama\"" }'
+        ),
+        abjad.select.leaf(measures[9], 0),
     )
 
 # percussion rhythms
@@ -411,11 +420,23 @@ for measure in [
 
 # flute rhythms
 
-for voice_name, index in zip(
+for voice_name, index, groupings in zip(
     ["flute voice", "bass flute voice"],
     [
         0,
         1,
+    ],
+    [
+        (
+            3,
+            5,
+            4,
+        ),
+        (
+            4,
+            5,
+            3,
+        ),
     ],
 ):
     for measure in [1, 2, 3, 4]:
@@ -445,9 +466,17 @@ for voice_name, index in zip(
         ),
     )
 
+    library.mezzo_rhythms(
+        voice=score[voice_name],
+        measures=[7, 8, 9],
+        division=4,
+        rewrite_meter=-2,
+        preprocessor=trinton.fuse_eighths_preprocessor(groupings),
+    )
+
 # flute pitching and attachments
 
-for voice_name, pitch_list in zip(
+for voice_name, pitch_list, index in zip(
     ["flute voice", "bass flute voice"],
     [
         [
@@ -460,6 +489,10 @@ for voice_name, pitch_list in zip(
             4,
             1,
         ],
+    ],
+    [
+        0,
+        1,
     ],
 ):
     trinton.pitch_by_hand(
@@ -498,6 +531,63 @@ for voice_name, pitch_list in zip(
         ],
     )
 
+    library.pitch_mezzo(
+        voice=score[voice_name],
+        measures=[
+            7,
+            8,
+            9,
+        ],
+        index=index,
+        transpose=-2,
+    )
+
+trinton.write_slur(
+    voice=score["flute voice"],
+    start_slur=[
+        99,
+        102,
+        104,
+    ],
+    stop_slur=[
+        101,
+        103,
+        106,
+    ],
+)
+
+trinton.write_slur(
+    voice=score["bass flute voice"],
+    start_slur=[
+        97,
+        99,
+        101,
+    ],
+    stop_slur=[
+        98,
+        100,
+        102,
+    ],
+)
+
+for voice_name, leaf in zip(
+    ["flute voice", "bass flute voice"],
+    [
+        99,
+        97,
+    ],
+):
+    trinton.attach(
+        voice=score[voice_name], leaves=[leaf], attachment=abjad.Dynamic("p")
+    )
+
+    trinton.attach(
+        voice=score[voice_name],
+        leaves=[leaf],
+        attachment=abjad.Markup(r"\markup \italic { Dolcissimo }"),
+        direction=abjad.DOWN,
+    )
+
 # tuba rhythms
 
 for measure in [
@@ -519,6 +609,25 @@ for measure in [
         ),
     )
 
+library.tuba_swells(
+    voice=score["tuba voice"],
+    measures=[
+        8,
+        9,
+    ],
+    rewrite_meter=-2,
+    preprocessor=trinton.fuse_eighths_preprocessor(
+        (
+            4,
+            5,
+        )
+    ),
+)
+
+abjad.override(
+    abjad.select.tuplet(score["tuba voice"], 3)
+).TupletNumber.text = r"\markup \italic { 6:5 }"
+
 # tuba pitching and attachments
 
 trinton.pitch_by_hand(
@@ -536,6 +645,16 @@ trinton.pitch_by_hand(
 
 tuba_measures = trinton.group_leaves_by_measure(score["tuba voice"])
 
+library.tuba_swells_attachments(abjad.select.leaves(tuba_measures[7:9], pitched=True))
+
+library.pitch_tuba_swells(
+    voice=score["tuba voice"],
+    measures=[
+        8,
+        9,
+    ],
+)
+
 for measure in [
     0,
     1,
@@ -545,6 +664,22 @@ for measure in [
     library.tuba_fff_attachments(
         abjad.select.leaves(tuba_measures[measure], pitched=True), span=True
     )
+
+trinton.attach(
+    voice=score["tuba voice"],
+    leaves=[
+        28,
+    ],
+    attachment=abjad.Dynamic("mp"),
+)
+
+trinton.attach(
+    voice=score["tuba voice"],
+    leaves=[
+        32,
+    ],
+    attachment=abjad.Dynamic("p"),
+)
 
 # mezzo and violin rhythms
 
@@ -581,6 +716,34 @@ for voice_name, groupings in zip(
             rewrite_meter=-1,
             preprocessor=trinton.fuse_quarters_preprocessor(groupings),
         )
+
+library.block_rhythms(
+    voice=score["mezzo-soprano voice"],
+    measures=[
+        5,
+        6,
+        7,
+    ],
+    rewrite_meter=-1,
+    preprocessor=trinton.fuse_eighths_preprocessor(
+        (
+            15,
+            15,
+        )
+    ),
+)
+
+library.whistle_rhythms(
+    voice=score["mezzo-soprano voice"],
+    measures=[
+        8,
+        9,
+    ],
+    rewrite_meter=-1,
+    index=3,
+)
+
+trinton.fuse_tuplet_rests(score["mezzo-soprano voice"])
 
 # mezzo and violin pitching and attachments
 
@@ -747,6 +910,50 @@ trinton.write_slur(
         49,
         51,
     ],
+)
+
+library.five_lines(score=score, voice="mezzo-soprano voice", leaves=[0])
+
+library.one_line(
+    score=score,
+    voice="mezzo-soprano voice",
+    leaves=[
+        47,
+    ],
+)
+
+trinton.attach(
+    voice=score["mezzo-soprano voice"],
+    leaves=[
+        49,
+    ],
+    attachment=abjad.StartHairpin(">o"),
+)
+
+trinton.attach(
+    voice=score["mezzo-soprano voice"],
+    leaves=[
+        67,
+    ],
+    attachment=abjad.StopHairpin(),
+)
+
+trinton.attach(
+    voice=score["mezzo-soprano voice"],
+    leaves=[
+        47,
+    ],
+    attachment=abjad.LilyPondLiteral(r'\boxed-markup "Scream" 1', "after"),
+)
+
+trinton.attach(
+    voice=score["mezzo-soprano voice"],
+    leaves=[
+        51,
+    ],
+    attachment=abjad.LilyPondLiteral(
+        r'\boxed-markup "As though scream were continuing beneath the rests" 1', "after"
+    ),
 )
 
 # all voices

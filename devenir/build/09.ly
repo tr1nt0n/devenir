@@ -372,9 +372,35 @@
                         g'''4
                         s1 * 1
                         s1 * 5/8
-                        s1 * 1/4
-                        s1 * 3/4
-                        s1 * 7/8
+                        e'4
+                        \p
+                        _ \markup \italic { Dolcissimo }
+                        ~
+                        \(
+                        e'8
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 5/6
+                        {
+                            cs'4
+                            \)
+                            d'4
+                            \(
+                            f'4
+                            \)
+                        }
+                        e'4
+                        \(
+                        cs'8
+                        ~
+                        \override Staff.Stem.stemlet-length = 0.75
+                        cs'8
+                        \)
+                        [
+                        \revert Staff.Stem.stemlet-length
+                        d'8
+                        ~
+                        ]
+                        d'4
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         \once \override MultiMeasureRest.transparent = ##t
                         R1 * 1/4
@@ -679,9 +705,27 @@
                         cs'4
                         s1 * 1
                         s1 * 5/8
-                        s1 * 1/4
-                        s1 * 3/4
-                        s1 * 7/8
+                        d'4
+                        \p
+                        _ \markup \italic { Dolcissimo }
+                        \(
+                        f'4
+                        \)
+                        \tweak text #tuplet-number::calc-fraction-text
+                        \times 5/6
+                        {
+                            e'4
+                            \(
+                            cs'4
+                            \)
+                            d'4
+                            \(
+                        }
+                        f'4.
+                        \)
+                        fs'4
+                        ~
+                        fs'8
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         \once \override MultiMeasureRest.transparent = ##t
                         R1 * 1/4
@@ -1159,8 +1203,42 @@
                     s1 * 1
                     s1 * 5/8
                     s1 * 1/4
-                    s1 * 3/4
-                    s1 * 7/8
+                    \times 2/3
+                    {
+                        r4
+                        <f, c>4
+                        - \tweak circled-tip ##t
+                        \<
+                        ~
+                        <f, c>4
+                        \mp
+                        - \tweak circled-tip ##t
+                        \>
+                        ~
+                    }
+                    \override TupletNumber.text = \markup \italic { 6:5 }
+                    \times 15/18
+                    {
+                        <f, c>4
+                        \!
+                        r4
+                        <g, d>4
+                        - \tweak circled-tip ##t
+                        \<
+                        ~
+                    }
+                    \revert TupletNumber.text
+                    \times 2/3
+                    {
+                        <g, d>4
+                        \p
+                        - \tweak circled-tip ##t
+                        \>
+                        ~
+                        <g, d>4
+                        \!
+                        r4
+                    }
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                     \once \override MultiMeasureRest.transparent = ##t
                     R1 * 1/4
@@ -1450,9 +1528,11 @@
             {
                 \context Voice = "mezzo-soprano voice"
                 {
+                    \staff-line-count 5
                     \set Staff.shortInstrumentName =
                     \markup { mezzo-s. }
                     \textSpannerDown
+                    \clef "treble"
                     \override Staff.Stem.stemlet-length = 0.75
                     e''8
                     ^ \fffff
@@ -1623,11 +1703,49 @@
                     ]
                     \stopTextSpanTwo
                     \stopTextSpanOne
-                    s1 * 1
-                    s1 * 5/8
-                    s1 * 1/4
-                    s1 * 3/4
-                    s1 * 7/8
+                    \staff-line-count 1
+                    \clef "percussion"
+                    c'1
+                    ~
+                    \boxed-markup "Scream" 1
+                    c'4.
+                    ~
+                    c'4
+                    - \tweak circled-tip ##t
+                    \>
+                    ~
+                    c'4
+                    \tweak text #tuplet-number::calc-fraction-text
+                    \times 12/14
+                    {
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'16
+                        [
+                        \boxed-markup "As though scream were continuing beneath the rests" 1
+                        \revert Staff.Stem.stemlet-length
+                        c'16
+                        ]
+                        r16
+                        c'16
+                        r8
+                        c'16
+                        r16
+                        \override Staff.Stem.stemlet-length = 0.75
+                        c'16
+                        [
+                        c'16
+                        c'16
+                        \revert Staff.Stem.stemlet-length
+                        c'8.
+                        ]
+                    }
+                    r8
+                    c'8
+                    r8
+                    r8
+                    c'8
+                    r4
+                    \!
                     \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                     \once \override MultiMeasureRest.transparent = ##t
                     R1 * 1/4
@@ -1873,7 +1991,6 @@
                     {
                         \set Staff.shortInstrumentName =
                         \markup { vc. I }
-                        \clef "bass"
                         \override Staff.Stem.stemlet-length = 0.75
                         c,16
                         \fffff
@@ -2625,6 +2742,7 @@
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         \once \override MultiMeasureRest.transparent = ##t
                         R1 * 1/4
+                        - \markup \center-column { \italic "After 15\"" \upright "\"Ama\"" }
                         \stopStaff \startStaff
                         s1 * 9/8
                         s1 * 9/8
@@ -2661,7 +2779,6 @@
                     {
                         \set Staff.shortInstrumentName =
                         \markup { vc. II }
-                        \clef "bass"
                         \override Staff.Stem.stemlet-length = 0.75
                         c,16
                         \fffff
@@ -3439,6 +3556,7 @@
                         \stopStaff \once \override Staff.StaffSymbol.line-count = #0 \startStaff
                         \once \override MultiMeasureRest.transparent = ##t
                         R1 * 1/4
+                        - \markup \center-column { \italic "After 15\"" \upright "\"Ama\"" }
                         \stopStaff \startStaff
                         s1 * 9/8
                         s1 * 9/8
