@@ -121,9 +121,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["Global Context"],
-    leaves=[-1],
-    attachment=abjad.BarLine("|.")
+    voice=score["Global Context"], leaves=[-1], attachment=abjad.BarLine("|.")
 )
 
 # cello rhythms
