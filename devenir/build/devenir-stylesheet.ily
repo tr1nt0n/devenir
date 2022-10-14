@@ -7,7 +7,7 @@
 \include "../library.ily"
 \include "/Users/trintonprater/evans/lilypond/evans-markups.ily"
 \include "/Users/trintonprater/evans/lilypond/evans-spanners.ily"
-\include "/Users/trintonprater/baca/lilypond/baca-circle-bow-markups.ily"
+\include "/Users/trintonprater/baca/baca/scm/baca-circle-bow-markups.ily"
 
 \header {
     title = \markup \override #'(font-name . "Bodoni72 Book Italic") \fontsize #16 \center-column {"Devenir" \fontsize #0.01 \with-color #white "."}
@@ -65,6 +65,8 @@
         \override Beam.breakable = ##t
         \override Beam.damping = 99
         \override Beam.concaveness = #10000
+        % \override Beam.beam-thickness = #0.75
+        % \override Beam.length-fraction = 1.5
 
         \override Clef.whiteout-style = #'outline
         \override Clef.whiteout = 1
@@ -76,17 +78,24 @@
         \override Glissando.breakable = ##t
         \override Glissando.after-line-breaking = ##t
 
+        \override GraceSpacing.common-shortest-duration = #(ly:make-moment 1 32)
+
         \override Hairpin.to-barline = ##f
 
         \override MetronomeMark.padding = 4
         \override MetronomeMark.font-size = 4
         \override MetronomeMark.extra-offset = #'(4.5 . 0)
 
+        \override SpacingSpanner.strict-grace-spacing = ##f
+
         \override Staff.thickness = #0.5
         \override StaffGrouper.staff-staff-spacing = #'((basic-distance . 0) (minimum-distance . 20) (padding . 0))
         \override StaffGrouper.staffgroup-staff-spacing = #'((basic-distance . 0) (minimum-distance . 20) (padding . 0))
 
         \override Stem.stemlet-length = 0.75
+        % \override Stem.thickness = #0.5
+        % \override Stem.details.beamed-lengths = #'(6)
+        % \override Stem.details.lengths = #'(6)
 
         \override StemTremolo.beam-width = 1.5
         \override StemTremolo.beam-width = 1.5

@@ -37,11 +37,11 @@ def devenir_score(time_signatures):
 all_voices = eval(
     """[
         "flute voice",
-        "bass flute voice",
-        "English horn voice",
+        "bassflute voice",
+        "englishhorn voice",
         "tuba voice",
         "percussion voice",
-        "mezzo-soprano voice",
+        "mezzosopranovoice voice",
         "violin voice",
         "cello 1 voice",
         "cello 2 voice"
@@ -52,11 +52,11 @@ all_voices_include_ts_context = eval(
     """[
         "Global Context",
         "flute voice",
-        "bass flute voice",
-        "English horn voice",
+        "bassflute voice",
+        "englishhorn voice",
         "tuba voice",
         "percussion voice",
-        "mezzo-soprano voice",
+        "mezzosopranovoice voice",
         "violin voice",
         "cello 1 voice",
         "cello 2 voice"
@@ -66,11 +66,11 @@ all_voices_include_ts_context = eval(
 all_staves = eval(
     """[
         "flute staff",
-        "bass flute staff",
-        "English horn staff",
+        "bassflute staff",
+        "englishhorn staff",
         "tuba staff",
         "percussion staff",
-        "mezzo-soprano staff",
+        "mezzosopranovoice staff",
         "violin staff",
         "cello 1 staff",
         "cello 2 staff"
@@ -111,14 +111,14 @@ def english_horn_gliss(voice, measures, rewrite_meter=None, preprocessor=None):
     trinton.make_rhythms(
         voice=voice,
         time_signature_indices=[_ - 1 for _ in measures],
-        rmaker=rmakers.tuplet(
+        rmaker=evans.tuplet(
             [
                 (7, 1),
             ]
         ),
         commands=[
-            rmakers.force_rest(rest_selector),
-            rmakers.beam(),
+            trinton.force_rest(rest_selector),
+            rmakers.beam,
         ],
         rewrite_meter=rewrite_meter,
         preprocessor=preprocessor,
@@ -134,10 +134,10 @@ def block_rhythms(voice, measures, rewrite_meter=None, preprocessor=None):
     trinton.make_rhythms(
         voice=voice,
         time_signature_indices=[_ - 1 for _ in measures],
-        rmaker=rmakers.note(),
+        rmaker=rmakers.note,
         commands=[
-            rmakers.force_rest(rest_selector),
-            rmakers.beam(),
+            trinton.force_rest(rest_selector),
+            rmakers.beam,
         ],
         rewrite_meter=rewrite_meter,
         preprocessor=preprocessor,
@@ -153,7 +153,7 @@ def tuba_swells(voice, measures, rewrite_meter=None, preprocessor=None):
     trinton.make_rhythms(
         voice=voice,
         time_signature_indices=[_ - 1 for _ in measures],
-        rmaker=rmakers.tuplet(
+        rmaker=evans.tuplet(
             [
                 (
                     1,
@@ -163,8 +163,8 @@ def tuba_swells(voice, measures, rewrite_meter=None, preprocessor=None):
             ]
         ),
         commands=[
-            rmakers.force_rest(rest_selector),
-            rmakers.beam(),
+            trinton.force_rest(rest_selector),
+            rmakers.beam,
         ],
         rewrite_meter=rewrite_meter,
         preprocessor=preprocessor,
@@ -203,10 +203,10 @@ def percussion_tremoli(voice, measures, rewrite_meter=None, preprocessor=None):
     trinton.make_rhythms(
         voice=voice,
         time_signature_indices=[_ - 1 for _ in measures],
-        rmaker=rmakers.even_division([16], extra_counts=[1]),
+        rmaker=evans.even_division([16], extra_counts=[1]),
         commands=[
-            rmakers.force_rest(rest_selector),
-            rmakers.beam(),
+            trinton.force_rest(rest_selector),
+            rmakers.beam,
         ],
         rewrite_meter=rewrite_meter,
         preprocessor=preprocessor,
@@ -221,10 +221,10 @@ def whistle_rhythms(
         trinton.make_rhythms(
             voice=voice,
             time_signature_indices=[_ - 1 for _ in measures],
-            rmaker=rmakers.tuplet(trinton.rotated_sequence(whistle_tuplets, index)),
+            rmaker=evans.tuplet(trinton.rotated_sequence(whistle_tuplets, index)),
             commands=[
-                rmakers.force_rest(selector),
-                rmakers.beam(),
+                trinton.force_rest(selector),
+                rmakers.beam,
             ],
             rewrite_meter=rewrite_meter,
             preprocessor=preprocessor,
@@ -243,10 +243,10 @@ def whistle_rhythms(
         trinton.make_rhythms(
             voice=voice,
             time_signature_indices=[_ - 1 for _ in measures],
-            rmaker=rmakers.tuplet(trinton.rotated_sequence(whistle_tuplets, index)),
+            rmaker=evans.tuplet(trinton.rotated_sequence(whistle_tuplets, index)),
             commands=[
-                rmakers.force_rest(selector),
-                rmakers.beam(),
+                trinton.force_rest(selector),
+                rmakers.beam,
             ],
             rewrite_meter=rewrite_meter,
             preprocessor=preprocessor,
@@ -272,9 +272,9 @@ def flute_talea(
     trinton.make_rhythms(
         voice=voice,
         time_signature_indices=[_ - 1 for _ in measures],
-        rmaker=rmakers.talea(talea, division),
+        rmaker=evans.talea(talea, division),
         commands=[
-            rmakers.beam(),
+            rmakers.beam,
         ],
         rewrite_meter=rewrite_meter,
         preprocessor=preprocessor,
@@ -308,8 +308,8 @@ def english_horn_warble(
     voice, measures, rests=False, rewrite_meter=None, preprocessor=None
 ):
     commands_ = [
-        rmakers.beam(),
-        rmakers.duration_bracket(),
+        rmakers.beam,
+        rmakers.duration_bracket,
     ]
 
     def selector(argument):
@@ -318,11 +318,11 @@ def english_horn_warble(
         return result
 
     if rests is True:
-        commands_.append(rmakers.force_rest(selector))
+        commands_.append(trinton.force_rest(selector))
         trinton.make_rhythms(
             voice=voice,
             time_signature_indices=[_ - 1 for _ in measures],
-            rmaker=rmakers.accelerando(
+            rmaker=evans.accelerando(
                 [(1, 8), (1, 20), (1, 32)],
                 [(1, 8), (1, 20), (1, 32)],
                 [(1, 20), (1, 8), (1, 32)],
@@ -335,7 +335,7 @@ def english_horn_warble(
         trinton.make_rhythms(
             voice=voice,
             time_signature_indices=[_ - 1 for _ in measures],
-            rmaker=rmakers.accelerando(
+            rmaker=evans.accelerando(
                 [(1, 8), (1, 20), (1, 32)],
                 [(1, 20), (1, 8), (1, 32)],
             ),
@@ -349,7 +349,7 @@ def mezzo_rhythms(voice, measures, division, rewrite_meter=None, preprocessor=No
     trinton.make_rhythms(
         voice=voice,
         time_signature_indices=[_ - 1 for _ in measures],
-        rmaker=rmakers.even_division(
+        rmaker=evans.even_division(
             [division],
             extra_counts=[
                 0,
@@ -360,7 +360,7 @@ def mezzo_rhythms(voice, measures, division, rewrite_meter=None, preprocessor=No
             ],
         ),
         commands=[
-            rmakers.beam(),
+            rmakers.beam,
         ],
         rewrite_meter=rewrite_meter,
         preprocessor=preprocessor,
@@ -384,7 +384,7 @@ def cello_talea(
     trinton.make_rhythms(
         voice=voice,
         time_signature_indices=[_ - 1 for _ in measures],
-        rmaker=rmakers.talea(
+        rmaker=evans.talea(
             [
                 1,
                 1,
@@ -406,7 +406,7 @@ def cello_talea(
             extra_counts=extra_counts,
         ),
         commands=[
-            rmakers.beam(),
+            rmakers.beam,
         ],
         rewrite_meter=rewrite_meter,
         preprocessor=preprocessor,
@@ -417,7 +417,7 @@ def cello_talea(
 
 
 def pitch_english_horn_gliss(
-    voice, measures, selector=baca.selectors.pleaves(), index=0, forget=False
+    voice, measures, selector=trinton.pleaves(), index=0, forget=False
 ):
     pitches = trinton.rotated_sequence(
         pitch_list=[
@@ -452,9 +452,7 @@ def pitch_english_horn_gliss(
         handler(selections)
 
 
-def pitch_spectral_strings(
-    score, voice_name, measures, selector=baca.selectors.pleaves()
-):
+def pitch_spectral_strings(score, voice_name, measures, selector=trinton.pleaves()):
     _voice_to_pitch = {
         "violin voice": [
             22,
@@ -500,7 +498,7 @@ def pitch_spectral_strings(
 
 
 def pitch_tuba_swells(
-    voice, measures, selector=baca.selectors.pleaves(), index=0, forget=False
+    voice, measures, selector=trinton.pleaves(), index=0, forget=False
 ):
     pitches = trinton.rotated_sequence(
         pitch_list=[
@@ -542,7 +540,7 @@ def pitch_tuba_swells(
 
 
 def pitch_percussion(
-    voice, measures, pitch_list, selector=baca.selectors.pleaves(), forget=False
+    voice, measures, pitch_list, selector=trinton.pleaves(), forget=False
 ):
     pitches = []
 
@@ -575,12 +573,10 @@ def pitch_percussion(
         selections = selector(current_measure)
 
         for leaf in selections:
-            abjad.tweak(leaf.note_head).Accidental.transparent = True
+            abjad.tweak(leaf.note_head, r"\tweak Accidental.transparent ##t")
 
 
-def pitch_whistle(
-    voice, measures, index=0, selector=baca.selectors.pleaves(), forget=False
-):
+def pitch_whistle(voice, measures, index=0, selector=trinton.pleaves(), forget=False):
     pitches = trinton.rotated_sequence(
         [
             9,
@@ -624,11 +620,11 @@ def pitch_whistle(
         selections = selector(current_measure)
 
         for leaf in selections:
-            abjad.tweak(leaf.note_head).Accidental.transparent = True
+            abjad.tweak(leaf.note_head, r"\tweak Accidental.transparent ##t")
 
 
 def pitch_violin_subharmonics(
-    voice, measures, index=0, padding=7, selector=baca.selectors.pleaves(), forget=False
+    voice, measures, index=0, padding=7, selector=trinton.pleaves(), forget=False
 ):
 
     random_walk = trinton.random_walk(
@@ -670,7 +666,7 @@ def pitch_violin_subharmonics(
         selections = selector(current_measure)
 
         for leaf in selections:
-            abjad.tweak(leaf.note_head).style = r"#'triangle"
+            abjad.tweak(leaf.note_head, r"\tweak style #'triangle")
 
         start_text_span = abjad.StartTextSpan(
             left_text=abjad.Markup(r"\markup { \upright IV }"),
@@ -678,11 +674,11 @@ def pitch_violin_subharmonics(
             style="dashed-line-with-hook",
         )
 
-        abjad.tweak(start_text_span).padding = padding
+        bundle = abjad.bundle(start_text_span, rf"- \tweak padding #{padding}")
 
         for tie in abjad.select.logical_ties(selections):
             group = abjad.select.with_next_leaf(tie)
-            abjad.attach(start_text_span, group[0])
+            abjad.attach(bundle, group[0])
             abjad.attach(abjad.StopTextSpan(), group[-1])
 
 
@@ -730,13 +726,14 @@ def pitch_harmonic_graces(
     for grace in selector(score[voice_name]):
         pleaves = abjad.select.leaves(grace, pitched=True)
         for leaf in pleaves:
-            abjad.tweak(leaf.note_head).style = r"#'harmonic"
+            # abjad.tweak(leaf.note_head).style = r"#'harmonic"
+            abjad.tweak(leaf.note_head, r"\tweak style #'harmonic")
 
 
 _open_strings_to_pitches = {"I": 5, "II": 2, "III": -2, "IV": -5}
 
 
-def pitch_open_strings(voice, measures, pitch_list, selector=baca.selectors.pleaves()):
+def pitch_open_strings(voice, measures, pitch_list, selector=trinton.pleaves()):
     pitches = []
 
     for pitch in pitch_list:
@@ -761,7 +758,7 @@ def pitch_open_strings(voice, measures, pitch_list, selector=baca.selectors.plea
         selections = selector(current_measure)
 
         for selection in selections:
-            abjad.tweak(selection.note_head).Accidental.transparent = True
+            abjad.tweak(selection.note_head, r"\tweak Accidental.transparent ##t")
 
         ties = abjad.select.logical_ties(selections)
 
@@ -769,9 +766,7 @@ def pitch_open_strings(voice, measures, pitch_list, selector=baca.selectors.plea
             abjad.attach(abjad.Articulation("marcato"), tie[0])
 
 
-def pitch_cello_duet(
-    voice, measures, stage, index=0, selector=baca.selectors.pleaves()
-):
+def pitch_cello_duet(voice, measures, stage, index=0, selector=trinton.pleaves()):
     _stage_to_pitches = {
         1: [
             -24,
@@ -819,9 +814,7 @@ def pitch_cello_duet(
         handler(selections)
 
 
-def pitch_mezzo(
-    voice, measures, index=0, transpose=0, selector=baca.selectors.pleaves()
-):
+def pitch_mezzo(voice, measures, index=0, transpose=0, selector=trinton.pleaves()):
     _number_to_pitch = {
         0: [5, 8],
         1: [10, 7],
@@ -905,7 +898,8 @@ def pitch_flute_graces(
         grouped_pleaves = [pleaves[i : i + 5] for i in range(0, len(pleaves), 5)]
 
         for leaf in pleaves:
-            abjad.tweak(leaf.note_head).style = r"#'harmonic"
+            # abjad.tweak(leaf.note_head).style = r"#'harmonic"
+            abjad.tweak(leaf.note_head, r"\tweak style #'harmonic")
 
         for group in grouped_pleaves:
             abjad.attach(abjad.StartPhrasingSlur(), group[0])
@@ -1024,7 +1018,7 @@ def mezzo_air_attachments(
             right_text=abjad.Markup(rf"\markup {{ \upright {left_vowel} }}"),
             style="dashed-line-with-arrow",
         )
-        abjad.tweak(start_text_span).padding = 7
+        bundle = abjad.bundle(start_text_span, r"- \tweak padding #7")
         for tie in ties:
             if len(tie) == 1:
                 abjad.attach(
@@ -1040,7 +1034,7 @@ def mezzo_air_attachments(
                     ),
                     tie[0],
                 )
-                abjad.attach(start_text_span, tie[0])
+                abjad.attach(bundle, tie[0])
                 abjad.attach(abjad.StopTextSpan(), tie[-1])
 
 
@@ -1056,8 +1050,9 @@ def tuba_fff_attachments(selections, span=False, padding=7):
                 right_text=abjad.Markup(r"\markup { \upright Pitch }"),
                 style="dashed-line-with-arrow",
             )
-            abjad.tweak(start_text_span).padding = padding
-            abjad.attach(start_text_span, group[0])
+            # abjad.tweak(start_text_span).padding = padding
+            bundle = abjad.bundle(start_text_span, rf"- \tweak padding #{padding}")
+            abjad.attach(bundle, group[0])
             abjad.attach(abjad.StopTextSpan(), group[-1])
 
 
@@ -1202,9 +1197,10 @@ def cello_duet_attachments(voice, measures, spanner=False, padding=9):
             right_text=None,
             style="dashed-line-with-hook",
         )
-        abjad.tweak(start_text_span).padding = padding
+        # abjad.tweak(start_text_span).padding = padding
+        bundle = abjad.bundle(start_text_span, rf"- \tweak padding #{padding}")
 
-        abjad.attach(start_text_span, leaves[0])
+        abjad.attach(bundle, leaves[0])
 
         abjad.attach(abjad.StopTextSpan(), leaves[-1])
 
@@ -1279,7 +1275,8 @@ def flute_fireworks(voice, measures, padding=5.5):
         right_text=abjad.Markup(r"\markup { \upright 0° }"),
         style="dashed-line-with-arrow",
     )
-    abjad.tweak(start_text_span).padding = padding
+    # abjad.tweak(start_text_span).padding = padding
+    bundle = abjad.bundle(start_text_span, rf"- \tweak padding #{padding}")
 
     for tie in ties:
         if len(tie) == 1:
@@ -1289,7 +1286,7 @@ def flute_fireworks(voice, measures, padding=5.5):
             )
         else:
             abjad.attach(abjad.StartHairpin("o<|"), tie[0])
-            abjad.attach(start_text_span, tie[0])
+            abjad.attach(bundle, tie[0])
             abjad.attach(abjad.Dynamic("ff"), tie[-1])
             abjad.attach(abjad.StopTextSpan(), tie[-1])
 
@@ -1315,29 +1312,29 @@ def patterned_tremolo(voice, measures, selector):
 
 all_startmarkups = eval(
     """[
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Flute }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Bass Flute }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Cor Anglais }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Tuba }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Percussion }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Mezzo-Soprano }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Violin }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Violoncello I }")),
-    abjad.StartMarkup(markup=abjad.Markup(r"\markup { Violoncello II }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Flute }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Bass Flute }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Cor Anglais }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Tuba }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Percussion }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Mezzo-Soprano }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Violin }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Violoncello I }")),
+    abjad.InstrumentName(markup=abjad.Markup(r"\markup { Violoncello II }")),
 ]"""
 )
 
 all_marginmarkups = eval(
     """[
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { fl. }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { bfl. }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { ca. }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { tb. }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { perc. }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { mezzo-s. }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { vln. }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { vc. I }")),
-    abjad.MarginMarkup(markup=abjad.Markup(r"\markup { vc. II }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { fl. }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { bfl. }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { ca. }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { tb. }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { perc. }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { mezzo-s. }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { vln. }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { vc. I }")),
+    abjad.ShortInstrumentName(markup=abjad.Markup(r"\markup { vc. II }")),
 ]"""
 )
 

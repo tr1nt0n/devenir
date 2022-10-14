@@ -417,10 +417,10 @@ for n, string in zip(
 for voice_name, index in zip(
     [
         "flute voice",
-        "bass flute voice",
-        "English horn voice",
+        "bassflute voice",
+        "englishhorn voice",
         "tuba voice",
-        "mezzo-soprano voice",
+        "mezzosopranovoice voice",
         "violin voice",
         "cello 1 voice",
         "cello 2 voice",
@@ -562,7 +562,7 @@ for voice_name, index in zip(
     ):
         grouped_measures = trinton.group_leaves_by_measure(score[voice_name])
         current_measure = grouped_measures[n - 1]
-        if voice_name == "mezzo-soprano voice":
+        if voice_name == "mezzosopranovoice voice":
             abjad.attach(
                 abjad.Dynamic(string),
                 abjad.select.leaf(current_measure, 0),
@@ -589,8 +589,8 @@ for voice_name, index in zip(
 
 for voice_name in [
     "flute voice",
-    "bass flute voice",
-    "English horn voice",
+    "bassflute voice",
+    "englishhorn voice",
     "tuba voice",
 ]:
     for n in [
@@ -637,7 +637,7 @@ for n in [
     )
 
 library.mezzo_air_attachments(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     measures=[
         1,
         2,
@@ -675,7 +675,7 @@ library.mezzo_air_attachments(
 # english horn rhythms
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         10,
         11,
@@ -695,7 +695,7 @@ library.english_horn_warble(
 )
 
 for voice_name in [
-    "English horn voice",
+    "englishhorn voice",
     "violin voice",
     "cello 1 voice",
     "cello 2 voice",
@@ -732,7 +732,7 @@ for voice_name in [
 # english horn pitching and attachments
 
 library.pitch_english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         10,
         11,
@@ -741,7 +741,7 @@ library.pitch_english_horn_warble(
 )
 
 library.english_horn_warble_attachments(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         10,
         11,
@@ -751,7 +751,7 @@ library.english_horn_warble_attachments(
 
 library.five_lines(
     score=score,
-    voice="English horn voice",
+    voice="englishhorn voice",
     leaves=[
         15,
         53,
@@ -772,14 +772,14 @@ for leaf, multiphonic in zip(
 ):
     trinton.write_multiphonics(
         score=score,
-        voice="English horn voice",
+        voice="englishhorn voice",
         dict=library._multiphonics_to_pitches,
         leaves=[leaf],
         multiphonic=multiphonic,
         markup=True,
     )
 
-tuplet = abjad.select.tuplet(score["English horn voice"], 0)
+tuplet = abjad.select.tuplet(score["englishhorn voice"], 0)
 
 abjad.attach(abjad.Dynamic("f"), abjad.select.leaf(tuplet, 0))
 
@@ -823,7 +823,7 @@ abjad.attach(
 
 # flute rhythms
 
-for voice_name in ["flute voice", "bass flute voice"]:
+for voice_name in ["flute voice", "bassflute voice"]:
 
     library.flute_talea(
         voice=score[voice_name],
@@ -840,10 +840,10 @@ for voice_name in ["flute voice", "bass flute voice"]:
 
 library.five_lines(score=score, voice="flute voice", leaves=[35])
 
-library.five_lines(score=score, voice="bass flute voice", leaves=[32])
+library.five_lines(score=score, voice="bassflute voice", leaves=[32])
 
 for voice_name, pitch_list in zip(
-    ["flute voice", "bass flute voice"],
+    ["flute voice", "bassflute voice"],
     [
         [0.5, 0, 1, 0, 2, 0.5, 3, 1.5, 5, 14.5],
         [
@@ -883,14 +883,14 @@ for voice_name, pitch_list in zip(
 
 abjad.attach(
     abjad.Markup(r'\markup { \upright " \"Ama\" " }'),
-    abjad.select.leaf(score["mezzo-soprano voice"], -1),
+    abjad.select.leaf(score["mezzosopranovoice voice"], -1),
 )
 
 for voice_name, selector in zip(
     [
         "flute voice",
-        "bass flute voice",
-        "English horn voice",
+        "bassflute voice",
+        "englishhorn voice",
         "tuba voice",
         "violin voice",
         "cello 1 voice",
