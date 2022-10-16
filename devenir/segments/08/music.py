@@ -382,7 +382,7 @@ abjad.attach(abjad.LilyPondLiteral(r'\boxed-markup "NB" 1', "after"), violin_ple
 # english horn rhythms
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         1,
         2,
@@ -402,7 +402,7 @@ library.english_horn_warble(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         5,
         6,
@@ -421,7 +421,7 @@ library.english_horn_warble(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         7,
         8,
@@ -436,7 +436,7 @@ library.english_horn_warble(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         11,
         12,
@@ -452,7 +452,7 @@ library.english_horn_warble(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         13,
     ],
@@ -466,7 +466,7 @@ library.english_horn_warble(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         14,
         15,
@@ -484,7 +484,7 @@ library.english_horn_warble(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         18,
     ],
@@ -498,7 +498,7 @@ library.english_horn_warble(
 )
 
 library.english_horn_gliss(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         20,
         21,
@@ -516,7 +516,7 @@ library.english_horn_gliss(
 # english horn pitching and attachments
 
 library.pitch_english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         1,
         2,
@@ -534,7 +534,7 @@ library.pitch_english_horn_warble(
 )
 
 trinton.pitch_by_hand(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         16,
     ],
@@ -543,7 +543,7 @@ trinton.pitch_by_hand(
 )
 
 library.pitch_english_horn_gliss(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         20,
         21,
@@ -551,7 +551,7 @@ library.pitch_english_horn_gliss(
 )
 
 library.english_horn_warble_attachments(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         1,
         2,
@@ -568,7 +568,7 @@ library.english_horn_warble_attachments(
     ],
 )
 
-english_horn_measures = abjad.select.group_by_measure(score["English horn voice"])
+english_horn_measures = abjad.select.group_by_measure(score["englishhorn voice"])
 
 library.english_horn_gliss_attachments(
     abjad.select.leaves(english_horn_measures[19:21], pitched=True), trill=True
@@ -576,7 +576,7 @@ library.english_horn_gliss_attachments(
 
 trinton.attach_multiple(
     score=score,
-    voice="English horn voice",
+    voice="englishhorn voice",
     leaves=[
         10,
         25,
@@ -590,7 +590,7 @@ trinton.attach_multiple(
 )
 
 trinton.attach(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     leaves=[
         0,
         21,
@@ -604,7 +604,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     leaves=[
         18,
         33,
@@ -619,7 +619,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     leaves=[
         92,
     ],
@@ -628,7 +628,7 @@ trinton.attach(
 
 trinton.attach_multiple(
     score=score,
-    voice="English horn voice",
+    voice="englishhorn voice",
     leaves=[
         102,
     ],
@@ -640,7 +640,7 @@ trinton.attach_multiple(
 for voice_name, index in zip(
     [
         "flute voice",
-        "bass flute voice",
+        "bassflute voice",
     ],
     [
         2,
@@ -678,7 +678,7 @@ for voice_name, index in zip(
 # flute pitching and attachments
 
 for voice_name, pitch_list in zip(
-    ["flute voice", "bass flute voice"],
+    ["flute voice", "bassflute voice"],
     [
         [
             12.5,
@@ -757,7 +757,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["bass flute voice"],
+    voice=score["bassflute voice"],
     leaves=[
         34,
         54,
@@ -767,7 +767,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["bass flute voice"],
+    voice=score["bassflute voice"],
     leaves=[
         34,
         47,
@@ -797,6 +797,6 @@ trinton.render_file(
     segment_name="08",
     includes=[
         "/Users/trintonprater/scores/devenir/devenir/build/devenir-stylesheet.ily",
-        "/Users/trintonprater/abjad/abjad/_stylesheets/abjad.ily",
+        "/Users/trintonprater/abjad/abjad/scm/abjad.ily",
     ],
 )

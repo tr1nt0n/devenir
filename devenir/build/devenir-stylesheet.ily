@@ -102,6 +102,8 @@
         \override StemTremolo.flag-count = 4
         \override StemTremolo.slope = 0.5
 
+        \override TextScript.font-name = "Bodoni72 Book Italic"
+
         \override Tie.stencil = #flare-tie
         \override Tie.height-limit = 6
         \override Tie.thickness = 1.5

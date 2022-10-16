@@ -311,7 +311,7 @@ trinton.attach(
 # flutes rhythms
 
 for voice_name, index in zip(
-    ["flute voice", "bass flute voice"],
+    ["flute voice", "bassflute voice"],
     [
         1,
         3,
@@ -349,7 +349,7 @@ for voice_name, index in zip(
 
 # flutes pitching and attachments
 
-for voice_name in ["flute voice", "bass flute voice"]:
+for voice_name in ["flute voice", "bassflute voice"]:
     trinton.pitch_by_hand(
         voice=score[voice_name],
         measures=[2, 3, 4],
@@ -381,7 +381,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["bass flute voice"],
+    voice=score["bassflute voice"],
     leaves=[
         12,
         25,
@@ -390,10 +390,10 @@ trinton.attach(
     attachment=abjad.Dynamic("pp"),
 )
 
-# english horn rhythms
+# englishhorn rhythms
 
 library.block_rhythms(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         7,
     ],
@@ -408,14 +408,14 @@ library.block_rhythms(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         8,
     ],
 )
 
 library.block_rhythms(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         9,
     ],
@@ -448,17 +448,17 @@ for multiphonic, leaf in zip(
 ):
     trinton.write_multiphonics(
         score=score,
-        voice="English horn voice",
+        voice="englishhorn voice",
         dict=library._multiphonics_to_pitches,
         leaves=[leaf],
         multiphonic=multiphonic,
         markup=True,
     )
 
-library.pitch_english_horn_warble(voice=score["English horn voice"], measures=[8])
+library.pitch_english_horn_warble(voice=score["englishhorn voice"], measures=[8])
 
 library.spectral_strings_attachments(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         7,
         9,
@@ -467,15 +467,15 @@ library.spectral_strings_attachments(
 )
 
 library.english_horn_warble_attachments(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         8,
     ],
 )
 
-leaf1 = abjad.select.leaf(abjad.select.tuplet(score["English horn voice"], 0), 0)
+leaf1 = abjad.select.leaf(abjad.select.tuplet(score["englishhorn voice"], 0), 0)
 
-leaf2 = abjad.select.leaf(abjad.select.tuplet(score["English horn voice"], 0), -1)
+leaf2 = abjad.select.leaf(abjad.select.tuplet(score["englishhorn voice"], 0), -1)
 
 abjad.attach(abjad.Dynamic("mf"), leaf1)
 
@@ -511,6 +511,6 @@ trinton.render_file(
     segment_name="06",
     includes=[
         "/Users/trintonprater/scores/devenir/devenir/build/devenir-stylesheet.ily",
-        "/Users/trintonprater/abjad/abjad/_stylesheets/abjad.ily",
+        "/Users/trintonprater/abjad/abjad/scm/abjad.ily",
     ],
 )

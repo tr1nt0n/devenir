@@ -336,8 +336,7 @@ def english_horn_warble(
             voice=voice,
             time_signature_indices=[_ - 1 for _ in measures],
             rmaker=evans.accelerando(
-                [(1, 8), (1, 20), (1, 32)],
-                [(1, 20), (1, 8), (1, 32)],
+                [(1, 8), (1, 20), (1, 32)], [(1, 20), (1, 8), (1, 32)]
             ),
             commands=commands_,
             rewrite_meter=rewrite_meter,
@@ -1050,7 +1049,6 @@ def tuba_fff_attachments(selections, span=False, padding=7):
                 right_text=abjad.Markup(r"\markup { \upright Pitch }"),
                 style="dashed-line-with-arrow",
             )
-            # abjad.tweak(start_text_span).padding = padding
             bundle = abjad.bundle(start_text_span, rf"- \tweak padding #{padding}")
             abjad.attach(bundle, group[0])
             abjad.attach(abjad.StopTextSpan(), group[-1])

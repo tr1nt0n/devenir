@@ -89,7 +89,7 @@ trinton.write_text_span(
 for voice_name, preprocessor in zip(
     [
         "violin voice",
-        "mezzo-soprano voice",
+        "mezzosopranovoice voice",
     ],
     [
         trinton.fuse_eighths_preprocessor(
@@ -128,7 +128,7 @@ for voice_name, preprocessor in zip(
 for voice_name, division in zip(
     [
         "violin voice",
-        "mezzo-soprano voice",
+        "mezzosopranovoice voice",
     ],
     [
         8,
@@ -152,7 +152,7 @@ for voice_name, division in zip(
 for voice_name, preprocessor in zip(
     [
         "violin voice",
-        "mezzo-soprano voice",
+        "mezzosopranovoice voice",
     ],
     [
         trinton.fuse_eighths_preprocessor(
@@ -185,7 +185,7 @@ for voice_name, preprocessor in zip(
         preprocessor=preprocessor,
     )
 
-for voice_name in ["mezzo-soprano voice", "violin voice"]:
+for voice_name in ["mezzosopranovoice voice", "violin voice"]:
     library.mezzo_rhythms(
         voice=score[voice_name],
         measures=[
@@ -214,7 +214,7 @@ library.mezzo_rhythms(
 )
 
 library.english_horn_gliss(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     measures=[
         18,
     ],
@@ -232,7 +232,7 @@ library.english_horn_gliss(
 
 for voice_name, index in zip(
     [
-        "mezzo-soprano voice",
+        "mezzosopranovoice voice",
         "violin voice",
     ],
     [
@@ -301,7 +301,7 @@ library.pitch_mezzo(
 )
 
 trinton.attach(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     leaves=[0],
     attachment=abjad.LilyPondLiteral(
         r"\textSpannerDown",
@@ -324,8 +324,8 @@ for start, stop in zip(
         left_text=r"0%",
         right_text=None,
         id="Two",
-        start_selection=abjad.select.leaf(score["mezzo-soprano voice"], start),
-        stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], stop),
+        start_selection=abjad.select.leaf(score["mezzosopranovoice voice"], start),
+        stop_selection=abjad.select.leaf(score["mezzosopranovoice voice"], stop),
         padding=9,
     )
 
@@ -346,8 +346,8 @@ for start, stop in zip(
         left_text=r"10%",
         right_text=r"70%",
         id="Two",
-        start_selection=abjad.select.leaf(score["mezzo-soprano voice"], start),
-        stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], stop),
+        start_selection=abjad.select.leaf(score["mezzosopranovoice voice"], start),
+        stop_selection=abjad.select.leaf(score["mezzosopranovoice voice"], stop),
         padding=9,
     )
 
@@ -366,8 +366,8 @@ for start, stop in zip(
         left_text=r"e",
         right_text=r"i:",
         id="One",
-        start_selection=abjad.select.leaf(score["mezzo-soprano voice"], start),
-        stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], stop),
+        start_selection=abjad.select.leaf(score["mezzosopranovoice voice"], start),
+        stop_selection=abjad.select.leaf(score["mezzosopranovoice voice"], stop),
     )
 
 trinton.write_id_spanner(
@@ -376,11 +376,11 @@ trinton.write_id_spanner(
     right_text=r"ʌ",
     id="One",
     start_selection=abjad.select.leaf(
-        score["mezzo-soprano voice"],
+        score["mezzosopranovoice voice"],
         33,
     ),
     stop_selection=abjad.select.leaf(
-        score["mezzo-soprano voice"],
+        score["mezzosopranovoice voice"],
         35,
     ),
 )
@@ -390,8 +390,8 @@ trinton.write_id_spanner(
     left_text=r"ɒ",
     right_text=r"e",
     id="One",
-    start_selection=abjad.select.leaf(score["mezzo-soprano voice"], 28),
-    stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], 29),
+    start_selection=abjad.select.leaf(score["mezzosopranovoice voice"], 28),
+    stop_selection=abjad.select.leaf(score["mezzosopranovoice voice"], 29),
 )
 
 trinton.write_id_spanner(
@@ -399,12 +399,12 @@ trinton.write_id_spanner(
     left_text=r"f",
     right_text=None,
     id="One",
-    start_selection=abjad.select.leaf(score["mezzo-soprano voice"], 36),
-    stop_selection=abjad.select.leaf(score["mezzo-soprano voice"], 47),
+    start_selection=abjad.select.leaf(score["mezzosopranovoice voice"], 36),
+    stop_selection=abjad.select.leaf(score["mezzosopranovoice voice"], 47),
 )
 
 trinton.write_slur(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     start_slur=[
         0,
         4,
@@ -437,12 +437,12 @@ trinton.write_slur(
 
 library.mezzo_fff_attachments(
     abjad.select.group_by_measure(
-        abjad.select.leaves(score["mezzo-soprano voice"], pitched=True)
+        abjad.select.leaves(score["mezzosopranovoice voice"], pitched=True)
     )[-1]
 )
 
 trinton.attach(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     leaves=[
         0,
         47,
@@ -451,7 +451,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     leaves=[
         22,
     ],
@@ -462,14 +462,14 @@ trinton.attach(
 
 library.one_line(
     score=score,
-    voice="mezzo-soprano voice",
+    voice="mezzosopranovoice voice",
     leaves=[
         55,
     ],
 )
 
 trinton.attach(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     leaves=[
         0,
         47,
@@ -479,7 +479,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     leaves=[
         22,
     ],
@@ -488,7 +488,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     leaves=[
         8,
         30,
@@ -498,7 +498,7 @@ trinton.attach(
 )
 
 trinton.attach(
-    voice=score["mezzo-soprano voice"],
+    voice=score["mezzosopranovoice voice"],
     leaves=[
         36,
     ],
@@ -640,6 +640,22 @@ library.english_horn_gliss(
 
 # tuba pitching and attachments
 
+trinton.pitch_by_hand(
+    voice=score["tuba voice"],
+    measures=[
+        7,
+        9,
+        11,
+        13,
+    ],
+    pitch_list=[-31],
+)
+
+library.pitch_tuba_swells(
+    voice=score["tuba voice"],
+    measures=[18],
+)
+
 trinton.attach(
     voice=score["tuba voice"],
     leaves=[
@@ -685,22 +701,6 @@ library.five_lines(
         27,
     ],
     clef="bass",
-)
-
-trinton.pitch_by_hand(
-    voice=score["tuba voice"],
-    measures=[
-        7,
-        9,
-        11,
-        13,
-    ],
-    pitch_list=[-31],
-)
-
-library.pitch_tuba_swells(
-    voice=score["tuba voice"],
-    measures=[18],
 )
 
 # percussion rhythms
@@ -977,7 +977,7 @@ for voice_name, index, pitch in zip(
 # english horn rhythms
 
 library.english_horn_gliss(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[7],
     rewrite_meter=-2,
     preprocessor=trinton.fuse_eighths_preprocessor(
@@ -991,7 +991,7 @@ library.english_horn_gliss(
 )
 
 library.english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[8],
     preprocessor=trinton.fuse_sixteenths_preprocessor(
         (
@@ -1002,7 +1002,7 @@ library.english_horn_warble(
 )
 
 library.block_rhythms(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         10,
         11,
@@ -1021,9 +1021,9 @@ library.block_rhythms(
 
 for voice_name, index in zip(
     [
-        "English horn voice",
+        "englishhorn voice",
         "flute voice",
-        "bass flute voice",
+        "bassflute voice",
     ],
     [
         3,
@@ -1046,7 +1046,7 @@ for voice_name, index in zip(
 # english horn pitching and attachments
 
 library.pitch_english_horn_gliss(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         7,
     ],
@@ -1054,7 +1054,7 @@ library.pitch_english_horn_gliss(
 )
 
 library.pitch_english_horn_warble(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         8,
     ],
@@ -1062,7 +1062,7 @@ library.pitch_english_horn_warble(
 
 trinton.write_multiphonics(
     score=score,
-    voice="English horn voice",
+    voice="englishhorn voice",
     dict=library._multiphonics_to_pitches,
     leaves=[
         25,
@@ -1073,16 +1073,16 @@ trinton.write_multiphonics(
     markup=True,
 )
 
-english_horn_measures = abjad.select.group_by_measure(score["English horn voice"])
+english_horn_measures = abjad.select.group_by_measure(score["englishhorn voice"])
 
 library.english_horn_gliss_attachments(
     abjad.select.leaves(english_horn_measures[6], pitched=True), trill=True
 )
 
-library.english_horn_warble_attachments(voice=score["English horn voice"], measures=[8])
+library.english_horn_warble_attachments(voice=score["englishhorn voice"], measures=[8])
 
 library.spectral_strings_attachments(
-    voice=score["English horn voice"],
+    voice=score["englishhorn voice"],
     measures=[
         10,
         11,
@@ -1091,7 +1091,7 @@ library.spectral_strings_attachments(
 )
 
 for voice_name, leaf in zip(
-    ["English horn voice", "flute voice", "bass flute voice"], [34, 14, 14]
+    ["englishhorn voice", "flute voice", "bassflute voice"], [34, 14, 14]
 ):
     library.one_line(score=score, voice=voice_name, leaves=[leaf])
     trinton.attach_multiple(
@@ -1107,8 +1107,8 @@ for voice_name, leaf in zip(
 for voice_name, selector in zip(
     [
         "flute voice",
-        "bass flute voice",
-        "English horn voice",
+        "bassflute voice",
+        "englishhorn voice",
         "cello 1 voice",
         "cello 2 voice",
     ],
@@ -1150,6 +1150,6 @@ trinton.render_file(
     segment_name="04",
     includes=[
         "/Users/trintonprater/scores/devenir/devenir/build/devenir-stylesheet.ily",
-        "/Users/trintonprater/abjad/abjad/_stylesheets/abjad.ily",
+        "/Users/trintonprater/abjad/abjad/scm/abjad.ily",
     ],
 )

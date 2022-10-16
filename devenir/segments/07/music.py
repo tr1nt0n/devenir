@@ -89,7 +89,7 @@ trinton.write_text_span(
 # ensemble rhythms
 
 for voice_name in [
-    "English horn voice",
+    "englishhorn voice",
     "violin voice",
     "cello 1 voice",
     "cello 2 voice",
@@ -115,7 +115,7 @@ for voice_name in [
 
 for voice_name, groupings in zip(
     [
-        "English horn voice",
+        "englishhorn voice",
         "violin voice",
         "cello 1 voice",
         "cello 2 voice",
@@ -269,7 +269,7 @@ for multiphonic, leaf in zip(
 ):
     trinton.write_multiphonics(
         score=score,
-        voice="English horn voice",
+        voice="englishhorn voice",
         dict=library._multiphonics_to_pitches,
         leaves=[leaf],
         multiphonic=multiphonic,
@@ -415,6 +415,6 @@ trinton.render_file(
     segment_name="07",
     includes=[
         "/Users/trintonprater/scores/devenir/devenir/build/devenir-stylesheet.ily",
-        "/Users/trintonprater/abjad/abjad/_stylesheets/abjad.ily",
+        "/Users/trintonprater/abjad/abjad/scm/abjad.ily",
     ],
 )
